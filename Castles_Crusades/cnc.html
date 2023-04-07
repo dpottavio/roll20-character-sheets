@@ -1,0 +1,728 @@
+<input type="hidden" class="sheet-sheet_toggle" name="attr_sheet_tab"  value="pc_tab"/>
+<div class="sheet-two_col">
+  <div class="sheet-two_col">
+    <input type="radio" id="pc_tab_button" name="attr_sheet_toggle" value="pc_tab" checked/>
+    <label class="sheet-radio_label" for="attr_sheet_toggle">PC Sheet</label>
+  </div>
+  <div class="sheet-two_col">
+    <input type="radio" id="monster_tab_button" name="attr_sheet_toggle" value="monster_tab" />
+    <label class="sheet-radio_label" for="attr_sheet_toggle">Monster Sheet</label>
+  </div>
+</div>
+<h1>Castles & Crusades</h1>
+<br/>
+<!--
+PC Sheet
+-->
+<div class="sheet-pc_tab">
+  <div class="sheet-one_col">
+    <div class="sheet-two_col">
+      <div class="sheet-two_col_box">
+        <label class="sheet-txt_label">Name</label>
+        <input class="sheet-txt_input" type="text" name="attr_character_name"/>
+        <label class="sheet-txt_label">Class</label>
+        <input class="sheet-txt_input" type="text" name="attr_class"/>
+        <label class="sheet-txt_label">Race</label>
+        <input class="sheet-txt_input" type="text" name="attr_race"/>
+        <label class="sheet-txt_label">Alignment</label>
+        <input class="sheet-txt_input" type="text" name="attr_alignment"/>
+        <label class="sheet-txt_label">Languages</label>
+        <input class="sheet-txt_input" type="text" name="attr_languages"/>
+        <label class="sheet-txt_label">Deity</label>
+        <input class="sheet-txt_input" type="text" name="attr_deity"/>
+        <label class="sheet-txt_label">Experience Points</label>
+        <input class="sheet-txt_input" type="text" name="attr_xp"/>
+      </div>
+      <div class="sheet-two_col_box">
+        <label class="sheet-txt_label">HP</label>
+        <input class="sheet-digit_input_left" type="number" name="attr_hp"/>
+        <label class="sheet-txt_label">Max HP</label>
+        <input class="sheet-digit_input_left" type="number" name="attr_hp_max"/>
+        <label class="sheet-txt_label">HD</label>
+        <select class="sheet-digit_input_left" name="attr_hd">
+          <option value="d4">d4</option>
+          <option value="d6">d6</option>
+          <option value="d8">d8</option>
+          <option value="d10">d10</option>
+          <option value="d12">d12</option>
+        </select>
+        <label class="sheet-txt_label">Level</label>
+        <input class="sheet-digit_input_left" type="number" name="attr_level"/>
+        <label class="sheet-txt_label">Age</label>
+        <input class="sheet-digit_input_left" type="text" name="attr_age"/>
+        <label class="sheet-txt_label">Height</label>
+        <input class="sheet-digit_input_left" type="text" name="attr_height"/>
+        <label class="sheet-txt_label">Weight</label>
+        <input class="sheet-digit_input_left" type="text" name="attr_weight"/>
+        <label class="sheet-txt_label">Gender</label>
+        <input class="sheet-digit_input_left" type="text" name="attr_gender"/>
+      </div>
+    </div>
+    <div class="sheet-one_col_box">
+      <h2>Attributes</h2>
+      <div class="sheet-stat_table">
+        <label class="sheet-table_header_small">Roll</label>
+        <label class="sheet-table_header_small">Prime</label>
+        <label class="sheet-table_header_small">Attribute</label>
+        <label class="sheet-table_header_small">Score</label>
+        <label class="sheet-table_header_small">Modifier</label>
+        <label class="sheet-table_header_large2">Category</label>
+        <!-- STR -->
+        <button class="sheet-stat_button" type="roll" name="str" value="&{template:default} {{name=STR Check (@{character_name})}} {{Rolled CC = [[(d20+@{level}+(@{str_mod}))-@{str_cb}]]}}"></button>
+        <input class="sheet-table_entry_small" type="checkbox" name="attr_str_prime"/>
+        <label class="sheet-table_entry_small_bold">STR</label>
+        <input class="sheet-table_entry_small" type="text" name="attr_str"/>
+        <span class="sheet-table_entry_small" name="attr_str_mod"></span>
+        <input type="hidden" name="attr_str_cb" value="18"/>
+        <label class="sheet-table_entry_large2">Paralysis, Constriction</label>
+        <!-- DEX -->
+        <button class="sheet-stat_button" type="roll" name="dex" value="&{template:default} {{name=DEX Check (@{character_name})}} {{Encumbrance = @{encumb_status}}} {{Rolled CC = [[(d20+@{level}+(@{dex_mod}))-@{dex_cb}]]}}"></button>
+        <input class="sheet-table_entry_small" type="checkbox" name="attr_dex_prime"/>
+        <label class="sheet-table_entry_small_bold">DEX</label>
+        <input class="sheet-table_entry_small" type="text" name="attr_dex"/>
+        <span class="sheet-table_entry_small" name="attr_dex_mod"></span>
+        <input type="hidden" name="attr_dex_cb" value="18"/>
+        <label class="sheet-table_entry_large2">Breath Weapon, Traps</label>
+        <!-- CON -->
+        <button class="sheet-stat_button" type="roll" name="con" value="&{template:default} {{name=CON Check (@{character_name})}} {{Rolled CC = [[(d20+@{level}+(@{con_mod}))-@{con_cb}]]}}"></button>
+        <input class="sheet-table_entry_small" type="checkbox" name="attr_con_prime"/>
+        <label class="sheet-table_entry_small_bold">CON</label>
+        <input class="sheet-table_entry_small" type="text" name="attr_con">
+        <span class="sheet-table_entry_small" name="attr_con_mod"></span>
+        <label class="sheet-table_entry_large2">Disease, Energy Drain, Poison</label>
+        <!-- INT -->
+        <button class="sheet-stat_button" type="roll" name="int" value="&{template:default} {{name=INT Check (@{character_name})}} {{Rolled CC = [[(d20+@{level}+(@{int_mod}))-@{int_cb}]]}}"></button>
+        <input class="sheet-table_entry_small" type="checkbox" name="attr_int_prime"/>
+        <label class="sheet-table_entry_small_bold">INT</label>
+        <input class="sheet-table_entry_small" type="text" name="attr_int"/>
+        <span class="sheet-table_entry_small" name="attr_int_mod"></span>
+        <input type="hidden" name="attr_int_cb" value="18"/>
+        <label class="sheet-table_entry_large2">Magic, Illusion</label>
+        <!-- WIS -->
+        <button class="sheet-stat_button" type="roll" name="wis" value="&{template:default} {{name=WIS Check (@{character_name})}} {{Rolled CC = [[(d20+@{level}+(@{wis_mod}))-@{wis_cb}]]}}"></button>
+        <input class="sheet-table_entry_small" type="checkbox" name="attr_wis_prime"/>
+        <label class="sheet-table_entry_small_bold">WIS</label>
+        <input class="sheet-table_entry_small" type="text" name="attr_wis"/>
+        <span class="sheet-table_entry_small" name="attr_wis_mod"></span>
+        <input type="hidden" name="attr_wis_cb" value="18"/>
+        <label class="sheet-table_entry_large2">Confusion, Divine Magic, Gaze Attack</label>
+        <!-- CHA -->
+        <button class="sheet-stat_button" type="roll" name="cha" value="&{template:default} {{name=CHA Check (@{character_name})}} {{Rolled CC = [[(d20+@{level}+(@{cha_mod}))-@{cha_cb}]]}}"></button>
+        <input class="sheet-table_entry_small" type="checkbox" name="attr_cha_prime"/>
+        <label class="sheet-table_entry_small_bold">CHA</label>
+        <input class="sheet-table_entry_small" type="text" name="attr_cha"/>
+        <span class="sheet-table_entry_small" name="attr_cha_mod"></span>
+        <input type="hidden" name="attr_cha_cb" value="18"/>
+        <label class="sheet-table_entry_large2">Death, Charm, Fear</label>
+      </div>
+      <div class="sheet-one_col">
+        <button class="sheet-stat_button" type="roll" name="turn_undead" value="&{template:default} {{name=Turn Undead (WIS) (@{character_name})}} {{Rolled CC = [[(d20+@{level}+(@{wis_mod}))-@{wis_cb}]]}} {{Common = [[d12+(@{cha_mod})]]}} {{Extraordinary = [[d6+(@{cha_mod})]]}} {{Unique = [[1+(@{cha_mod})]]}}">Turn Undead</button>
+      </div>
+    </div>
+    <div class="sheet-two_col_box">
+      <div class="sheet-one_col">
+        <h2>Armor</h2>
+        <div class="sheet-armor_table">
+          <label class="sheet-table_header_large">Armor Worn</label>
+          <label class="sheet-table_header_large">Shield Carried</label>
+          <label class="sheet-table_header_small">Armor Mod</label>
+          <label class="sheet-table_header_small">Shield Mod</label>
+          <label class="sheet-table_header_small">Misc Mod</label>
+          <label class="sheet-table_header_small">AC</label>
+          <input class="sheet-table_entry_large" type="text" name="attr_armor_type"/>
+          <input class="sheet-table_entry_large" type="text" name="attr_shield_type"/>
+          <input class="sheet-table_entry_small" type="number" name="attr_armor_mod" value="0"/>
+          <input class="sheet-table_entry_small" type="number" name="attr_shield_mod" value="0"/>
+          <input class="sheet-table_entry_small" type="number" name="attr_armor_misc_mod" value="0"/>
+          <span class="sheet-table_entry_small" name="attr_ac"></span>
+        </div>
+      </div>
+      <div class="sheet-two_col">
+        <label class="sheet-txt_title">BtH</label>
+        <input class="sheet-digit_input" type="number" name="attr_bth" value="0"/>
+      </div>
+    </div>
+    <input type="hidden" class="sheet-weapon_toggle" name="attr_weapon_tab"  value="melee_tab"/>
+    <div class="sheet-two_col">
+      <div class="sheet-two_col">
+        <input type="radio" id="melee_tab_button" name="attr_weapon_toggle" value="melee_tab" checked/>
+        <label class="sheet-radio_label" for="attr_weapon_toggle">Melee Weapons</label>
+      </div>
+      <div class="sheet-two_col">
+        <input type="radio" id="missile_tab_button" name="attr_weapon_toggle" value="missile_tab" />
+        <label class="sheet-radio_label" for="attr_weapon_toggle">Missile Weapons</label>
+      </div>
+    </div>
+    <div class="sheet-melee_tab">
+      <div class="sheet-one_col_box">
+        <div>
+          <h2>Melee Weapons</h2>
+          <div class="sheet-weapon_table">
+            <label class="sheet-table_header_small">Attack Roll</label>
+            <label class="sheet-table_header_large2">Type</label>
+            <label class="sheet-table_header_small">Atk. Mod.</label>
+            <label class="sheet-table_header_small">Dmg. Mod.</label>
+            <label class="sheet-table_header_small">Damage</label>
+          </div>
+          <fieldset class="repeating_melee">
+            <div class="sheet-weapon_table">
+              <button class="sheet-stat_button" type="roll" name="melee" value="&{template:default} {{name=Melee Attack (@{character_name})}} {{Hit AC = [[d20+(@{bth})+(@{weapon_atk_mod})+(@{str_mod})]]}} {{Damage = [[@{weapon_dmg}+(@{weapon_dmg_mod})+(@{str_mod})]]}} {{Weapon=@{weapon_type}}}"></button>
+              <input class="sheet-table_entry_large2_left" type="text" name="attr_weapon_type" placeholder="type"/>
+              <input class="sheet-table_entry_small" type="text" name="attr_weapon_atk_mod" value="0"/>
+              <input class="sheet-table_entry_small" type="text" name="attr_weapon_dmg_mod" value="0"/>
+              <input class="sheet-table_entry_small" type="text" name="attr_weapon_dmg" placeholder="damage"/>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <div class="sheet-missile_tab">
+      <div class="sheet-one_col_box">
+        <div>
+          <h2>Missile Weapons</h2>
+          <div class="sheet-weapon_table">
+            <label class="sheet-table_header_small">Attack Roll</label>
+            <label class="sheet-table_header_large2">Type</label>
+            <label class="sheet-table_header_small">Range</label>
+            <label class="sheet-table_header_small">Atk. Mod.</label>
+            <label class="sheet-table_header_small">Dmg. Mod.</label>
+            <label class="sheet-table_header_small">Damage</label>
+          </div>
+          <fieldset class="repeating_missile">
+            <div class="sheet-weapon_table">
+              <!-- TODO: This macro does not distinguish between
+              thrown and propelled missiles. One way to support this
+              is a custom roll parsing and a checkbox if the weaopn is
+              throw-able. -->
+              <button class="sheet-stat_button" type="roll" name="melee" value="&{template:default} {{name=Missile Attack (@{character_name})}} {{Hit AC = [[d20+(@{bth})+(@{weapon_atk_mod})+(@{dex_mod})]]}} {{Damage = [[@{weapon_dmg}+(@{weapon_dmg_mod})]]}} {{Weapon=@{weapon_type}}}"></button>
+              <input class="sheet-table_entry_large2_left" type="text" name="attr_weapon_type" placeholder="type"/>
+              <input class="sheet-table_entry_small" type="text" name="attr_weapon_range" placeholder="range"/>
+              <input class="sheet-table_entry_small" type="text" name="attr_weapon_atk_mod" value="0"/>
+              <input class="sheet-table_entry_small" type="text" name="attr_weapon_dmg_mod" value="0"/>
+              <input class="sheet-table_entry_small" type="text" name="attr_weapon_dmg" placeholder="damage"/>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <input type="hidden" class="sheet-ability_toggle" name="attr_ability_tab"  value="class_tab"/>
+    <div class="sheet-two_col">
+      <div class="sheet-two_col">
+        <input type="radio" id="class_tab_button" name="attr_ability_toggle" value="class_tab" checked/>
+        <label class="sheet-radio_label" for="attr_ability_toggle">Abilities</label>
+      </div>
+      <div class="sheet-two_col">
+        <input type="radio" id="spell_tab_button" name="attr_ability_toggle" value="spell_tab" />
+        <label class="sheet-radio_label" for="attr_ability_toggle">Spells</label>
+      </div>
+    </div>
+    <div class="sheet-class_tab">
+      <div class="sheet-one_col_box">
+        <h2>Class Abilities</h2>
+        <div class="sheet-ability_table">
+          <label class="sheet-table_header">Name</label>
+          <label class="sheet-table_header_small">Attribute</label>
+          <label class="sheet-table_header_xlarge">Description</label>
+        </div>
+        <fieldset class="repeating_abilities">
+          <div class="sheet-ability_table">
+            <input class="sheet-table_entry_large" type="text" name="attr_ability_name" placeholder="ability name"/>
+            <select class="sheet-table_entry_small_option" name="attr_ability_attribute">
+              <option value="none">(none)</option>
+              <option value="str">STR</option>
+              <option value="dex">DEX</option>
+              <option value="con">CON</option>
+              <option value="int">INT</option>
+              <option value="wis">WIS</option>
+              <option value="cha">CHA</option>
+            </select>
+            <input class="sheet-table_entry_xlarge" type="text" name="attr_ability_desc" placeholder="description"/>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div class="sheet-spell_tab">
+      <div class="sheet-one_col_box">
+        <h3>Magician Spell Slots</h3>
+        <div class="sheet-spell_slot_table">
+          <label class="sheet-table_header_small">Level 1</label>
+          <label class="sheet-table_header_small">Level 2</label>
+          <label class="sheet-table_header_small">Level 3</label>
+          <label class="sheet-table_header_small">Level 4</label>
+          <label class="sheet-table_header_small">Level 5</label>
+          <label class="sheet-table_header_small">Level 6</label>
+          <input class="sheet-table_entry_small" type="number" name="attr_mag_spell_slot_1" value="0"/>
+          <input class="sheet-table_entry_small" type="number" name="attr_mag_spell_slot_2" value="0"/>
+          <input class="sheet-table_entry_small" type="number" name="attr_mag_spell_slot_3" value="0"/>
+          <input class="sheet-table_entry_small" type="number" name="attr_mag_spell_slot_4" value="0"/>
+          <input class="sheet-table_entry_small" type="number" name="attr_mag_spell_slot_5" value="0"/>
+          <input class="sheet-table_entry_small" type="number" name="attr_mag_spell_slot_6" value="0"/>
+        </div>
+        <h3>Cleric Spell Slots</h3>
+        <div class="sheet-spell_slot_table">
+          <label class="sheet-table_header_small">Level 1</label>
+          <label class="sheet-table_header_small">Level 2</label>
+          <label class="sheet-table_header_small">Level 3</label>
+          <label class="sheet-table_header_small">Level 4</label>
+          <label class="sheet-table_header_small">Level 5</label>
+          <label class="sheet-table_header_small">Level 6</label>
+          <input class="sheet-table_entry_small" type="number" name="attr_clr_spell_slot_1" value="0"/>
+          <input class="sheet-table_entry_small" type="number" name="attr_clr_spell_slot_2" value="0"/>
+          <input class="sheet-table_entry_small" type="number" name="attr_clr_spell_slot_3" value="0"/>
+          <input class="sheet-table_entry_small" type="number" name="attr_clr_spell_slot_4" value="0"/>
+          <input class="sheet-table_entry_small" type="number" name="attr_clr_spell_slot_5" value="0"/>
+          <input class="sheet-table_entry_small" type="number" name="attr_clr_spell_slot_6" value="0"/>
+        </div>
+        <h2>Spells</h2>
+        <div class="sheet-one_col">
+          <div class="sheet-spell_table">
+            <label class="sheet-table_header_large">Name</label>
+            <label class="sheet-table_header_small">Level</label>
+            <label class="sheet-table_header_small">CT</label>
+            <label class="sheet-table_header_small">Range</label>
+            <label class="sheet-table_header_small">Duration</label>
+            <label class="sheet-table_header_small">Num. Mem.</label>
+            <label class="sheet-table_header_large2">Notes</label>
+          </div>
+          <fieldset class="repeating_spell">
+            <div class="sheet-spell_table">
+              <input class="sheet-table_entry_large" type="text" name="attr_spell_name" placeholder="name"/>
+              <input class="sheet-table_entry_small" type="text" name="attr_spell_level" placeholder="level"/>
+              <input class="sheet-table_entry_small" type="text" name="attr_spell_ct" placeholder="CT"/>
+              <input class="sheet-table_entry_small" type="text" name="attr_spell_range" placeholder="R"/>
+              <input class="sheet-table_entry_small" type="text" name="attr_spell_duration" placeholder="D"/>
+              <input class="sheet-table_entry_small" type="number" name="attr_spell_num_mem" value="0"/>
+              <input class="sheet-table_entry_large_left" type="text" name="attr_spell_notes"/>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <input type="hidden" class="sheet-items_toggle" name="attr_items_tab"  value="equipment_tab"/>
+    <div class="sheet-two_col">
+      <div class="sheet-two_col">
+        <input type="radio" id="equipment_tab_button" name="attr_items_toggle" value="equipment_tab" checked/>
+        <label class="sheet-radio_label" for="attr_items_toggle">Goods</label>
+      </div>
+      <div class="sheet-two_col">
+        <input type="radio" id="hireling_tab_button" name="attr_items_toggle" value="hireling_tab" />
+        <label class="sheet-radio_label" for="attr_items_toggle">Hirelings</label>
+      </div>
+    </div>
+    <div class="sheet-equipment_tab">
+      <div class="sheet-two_col_box">
+        <div class="sheet-one_col">
+          <div class="sheet-one_col">
+            <h2>Coins</h2>
+            <div class="sheet-coin_table">
+              <label></label>
+              <label class="sheet-table_header_small">PP</label>
+              <label class="sheet-table_header_small">GP</label>
+              <label class="sheet-table_header_small">SP</label>
+              <label class="sheet-table_header_small">CP</label>
+              <label class="sheet-txt_label">Equipped</label>
+              <input class="sheet-table_entry_small" type="number" name="attr_pp_equip" value="0"/>
+              <input class="sheet-table_entry_small" type="number" name="attr_gp_equip" value="0"/>
+              <input class="sheet-table_entry_small" type="number" name="attr_sp_equip" value="0"/>
+              <input class="sheet-table_entry_small" type="number" name="attr_cp_equip" value="0"/>
+              <label class="sheet-txt_label">Stashed</label>
+              <input class="sheet-table_entry_small" type="number" name="attr_pp" value="0"/>
+              <input class="sheet-table_entry_small" type="number" name="attr_gp" value="0"/>
+              <input class="sheet-table_entry_small" type="number" name="attr_sp" value="0"/>
+              <input class="sheet-table_entry_small" type="number" name="attr_cp" value="0"/>
+            </div>
+          </div>
+          <div class="sheet-one_col">
+            <h2>Equipment</h2>
+            <div class="sheet-equipment_table">
+              <label class="sheet-table_header_large2">Item</label>
+              <label class="sheet-table_header_small">Count</label>
+              <label class="sheet-table_header_small">EV</label>
+              <label class="sheet-table_header_small">Equipped</label>
+            </div>
+            <fieldset class="repeating_equipment">
+              <div class="sheet-equipment_table">
+                <input class="sheet-table_entry_large2_left" type="text" name="attr_equip_name" placeholder="name"/>
+                <input class="sheet-table_entry_small" type="number" name="attr_equip_count" value="1"/>
+                <input class="sheet-table_entry_small" type="text" name="attr_equip_ev" placeholder="EV"/>
+                <input class="sheet-table_entry_small" type="checkbox" name="attr_equip_is" value="1" checked/>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="sheet-fixed">
+          <div class="sheet-one_col">
+            <h2>Encumbrance</h2>
+            <div class="sheet-two_col">
+              <label class="sheet-txt_label">Coin EV</label>
+              <span class="sheet-digit_input_right" type="text" name="attr_coin_total_ev" value="0"></span>
+              <label class="sheet-txt_label">Equipment EV:</label>
+              <span class="sheet-digit_input_right" type="text" name="attr_equip_total_ev" value="0"></span>
+              <label class="sheet-txt_label_bold">Total EV:</label>
+              <span class="sheet-digit_input_right_bold" type="text" name="attr_total_ev" value="0"></span>
+              <label class="sheet-txt_label_bold">Rating:</label>
+              <span class="sheet-digit_input_right_bold" type="text" name="attr_total_ev_max" value="0"></span>
+              <label class="sheet-txt_label">Status:</label>
+              <span class="sheet-digit_input_right" name="attr_encumb_status"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sheet-hireling_tab">
+      <div class="sheet-one_col_box">
+        <h2>Hirelings/Henchmen</h2>
+        <div class="sheet-hireling_table">
+          <label class="sheet-table_header">Name</label>
+          <label class="sheet-table_header_xlarge">Notes</label>
+        </div>
+        <fieldset class="repeating_hirelings">
+          <div class="sheet-hireling_table">
+            <input class="sheet-table_entry_large" type="text" name="attr_hireling_name" placeholder="name"/>
+            <input class="sheet-table_entry_xlarge" type="text" name="attr_hireling_notes" placeholder="Notes"/>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div class="sheet-one_col_box">
+      <h2>Notes</h2>
+      <div class="sheet-one_col">
+        <textarea class="sheet-textarea" name="attr_notes"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+Monster Sheet
+-->
+<div class="sheet-monster_tab">
+  <div class="sheet-one_col">
+    <div class="sheet-two_col">
+      <div class="sheet-one_col_box">
+        <h2>Stat Block</h2>
+        <div class="sheet-two_col">
+          <label class="sheet-txt_label">Name</label>
+          <input class="sheet-txt_input" type="text" name="attr_character_name" placeholder="name"/>
+          <label class="sheet-txt_label">Alias</label>
+          <input class="sheet-txt_input" type="text" name="attr_monster_alias"/>
+          <label class="sheet-txt_label">Size</label>
+          <input class="sheet-txt_input" type="text" name="attr_monster_size"/>
+          <label class="sheet-txt_label">HD</label>
+          <input class="sheet-txt_input" type="text" name="attr_monster_hd"/>
+          <label class="sheet-txt_label">AC</label>
+          <input class="sheet-txt_input" type="text" name="attr_ac"/>
+          <label class="sheet-txt_label">Saves</label>
+          <input class="sheet-txt_input" type="text" name="attr_monster_saves"/>
+          <label class="sheet-txt_label">Move</label>
+          <input class="sheet-txt_input" type="text" name="attr_mv"/>
+          <label class="sheet-txt_label">INT</label>
+          <input class="sheet-txt_input" type="text" name="attr_monster_int"/>
+          <label class="sheet-txt_label">Alignment</label>
+          <input class="sheet-txt_input" type="text" name="attr_alignment"/>
+          <label class="sheet-txt_label">Type</label>
+          <input class="sheet-txt_input" type="text" name="attr_monster_type"/>
+          <label class="sheet-txt_label">Treasure</label>
+          <input class="sheet-txt_input" type="text" name="attr_monster_treasure"/>
+          <label class="sheet-txt_label">XP</label>
+          <input class="sheet-txt_input" type="text" name="attr_monster_xp"/>
+        </div>
+      </div>
+      <div class="sheet-one_col_box">
+        <h2>Notes</h2>
+        <textarea class="sheet-monster_sa_area" name="attr_notes"></textarea>
+      </div>
+    </div>
+    <div class="sheet-one_col_box">
+      <h2>Attack</h2>
+      <div class="sheet-monster_attack_table">
+        <label class="sheet-table_header_small">Attack Roll</label>
+        <label class="sheet-table_header_large2">Type</label>
+        <label class="sheet-table_header_small">Atk. Mod.</label>
+        <label class="sheet-table_header_small">Damage</label>
+      </div>
+      <fieldset class="repeating_monsterAttack">
+        <div class="sheet-monster_attack_table">
+          <button class="sheet-stat_button" type="roll" name="melee" value="&{template:default} {{name=Monster Attack (@{monster_alias})}} {{Hit AC = [[20-(d20+(@{weapon_atk_mod}))]]}} {{Damage = [[@{weapon_dmg}]]}} {{Weapon=@{weapon_type}}}"></button>
+          <input class="sheet-table_entry_large2_left" type="text" name="attr_weapon_type" placeholder="type"/>
+          <input class="sheet-table_entry_small" type="text" name="attr_weapon_atk_mod" value="0"/>
+          <input class="sheet-table_entry_small" type="text" name="attr_weapon_dmg" placeholder="damage"/>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>
+
+<script type="text/worker">
+  const xparseInt = (val) => parseInt(val) || 0;
+  const xparseFloat = (val) => parseFloat(val) || 0.0;
+
+  /*
+   * The following function is taken from:
+   *  https://wiki.roll20.net/RepeatingSum
+   *
+   * ===== PARAMETERS ==========
+   *  destinations = the name of the attribute that stores the total quantity
+   *  can be a single attribute, or an array: ['total_cost', 'total_weight']
+   *  If more than one, the matching fields must be in the same order.
+   *  section = name of repeating fieldset, without the repeating_
+   *  fields = the name of the attribute field to be summed
+   *  destination and fields both can be a single attribute: 'weight'
+   *  or an array of attributes: ['weight','number','equipped']
+   */
+  const repeatingSum = (destinations, section, fields) => {
+      if (!Array.isArray(destinations)) destinations = [destinations.replace(/\s/g, '').split(',')];
+      if (!Array.isArray(fields)) fields = [fields.replace(/\s/g, '').split(',')];
+      getSectionIDs(`repeating_${section}`, idArray => {
+          const attrArray = idArray.reduce((m, id) => [...m, ...(fields.map(field => `repeating_${section}_${id}_${field}`))], []);
+          getAttrs([...attrArray], v => {
+              const getValue = (section, id, field) => v[`repeating_${section}_${id}_${field}`] === 'on' ? 1 : parseFloat(v[`repeating_${section}_${id}_${field}`]) || 0;
+              const commonMultipliers = (fields.length <= destinations.length) ? [] : fields.splice(destinations.length, fields.length - destinations.length);
+              const output = {};
+              destinations.forEach((destination, index) => {
+                  output[destination] = idArray.reduce((total, id) => total + getValue(section, id, fields[index]) * commonMultipliers.reduce((subtotal, mult) => subtotal * getValue(section, id, mult), 1), 0);
+              });
+              setAttrs(output);
+          });
+      });
+  };
+
+  const statMod = (statVal) => {
+      if (statVal == 2 || statVal == 3) {
+          return -3;
+      } else if (statVal == 4 || statVal == 5) {
+          return -2;
+      } else if (statVal >= 6 && statVal <= 8) {
+          return -1;
+      } else if (statVal >= 9 && statVal <= 12) {
+          return 0;
+      } else if (statVal >= 13 && statVal <= 15) {
+          return 1;
+      } else if (statVal >= 16 && statVal <= 17) {
+          return 2;
+      } else if (statVal >= 18) {
+          return 3;
+      }
+
+      return -4;
+  }
+
+  on(`change:str_prime`, () => {
+      getAttrs(["str_prime"], value => {
+          if (value.str_prime == 0) {
+              setAttrs({
+                  [`str_cb`]: 18
+              });
+          } else {
+              setAttrs({
+                  [`str_cb`]: 12
+              });
+          }
+      });
+  });
+
+  on(`change:dex_prime`, () => {
+      getAttrs(["dex_prime"], value => {
+          if (value.dex_prime == 0) {
+              setAttrs({
+                  [`dex_cb`]: 18
+              });
+          } else {
+              setAttrs({
+                  [`dex_cb`]: 12
+              });
+          }
+      });
+  });
+
+  on(`change:con_prime`, () => {
+      getAttrs(["con_prime"], value => {
+          if (value.con_prime == 0) {
+              setAttrs({
+                  [`con_cb`]: 18
+              });
+          } else {
+              setAttrs({
+                  [`con_cb`]: 12
+              });
+          }
+      });
+  });
+
+  on(`change:int_prime`, () => {
+      getAttrs(["int_prime"], value => {
+          if (value.int_prime == 0) {
+              setAttrs({
+                  [`int_cb`]: 18
+              });
+          } else {
+              setAttrs({
+                  [`int_cb`]: 12
+              });
+          }
+      });
+  });
+
+  on(`change:wis_prime`, () => {
+      getAttrs(["wis_prime"], value => {
+          if (value.wis_prime == 0) {
+              setAttrs({
+                  [`wis_cb`]: 18
+              });
+          } else {
+              setAttrs({
+                  [`wis_cb`]: 12
+              });
+          }
+      });
+  });
+
+  on(`change:cha_prime`, () => {
+      getAttrs(["cha_prime"], value => {
+          if (value.cha_prime == 0) {
+              setAttrs({
+                  [`cha_cb`]: 18
+              });
+          } else {
+              setAttrs({
+                  [`cha_cb`]: 12
+              });
+          }
+      });
+  });
+
+  on(`change:str`, () => {
+      getAttrs(["str"], value => {
+          const mod = statMod(value.str);
+          setAttrs({
+              [`str_mod`]: mod
+          });
+      });
+  });
+
+  on(`change:dex`, () => {
+      getAttrs(["dex"], value => {
+          const mod = statMod(value.dex);
+          setAttrs({
+              [`dex_mod`]: mod
+          });
+      });
+  });
+
+  on(`change:con`, () => {
+      getAttrs(["con"], value => {
+          const mod = statMod(value.con);
+          setAttrs({
+              [`con_mod`]: mod
+          });
+      });
+  });
+
+  on(`change:int`, () => {
+      getAttrs(["int"], value => {
+          const mod = statMod(value.int);
+          setAttrs({
+              [`int_mod`]: mod
+          });
+      });
+  });
+
+  on(`change:wis`, () => {
+      getAttrs(["wis"], value => {
+          const mod = statMod(value.wis);
+          setAttrs({
+              [`wis_mod`]: mod
+          });
+      });
+  });
+
+  on(`change:cha`, () => {
+      getAttrs(["cha"], value => {
+          const mod = statMod(value.cha);
+          setAttrs({
+              [`cha_mod`]: mod
+          });
+      });
+  });
+
+  on(`change:armor_mod change:armor_misc_mod change:shield_mod `, () => {
+      getAttrs(['armor_mod', 'armor_misc_mod', 'shield_mod', 'dex_mod'], values => {
+          const ac = 10 +
+                xparseInt(values.armor_mod) +
+                xparseInt(values.armor_misc_mod) +
+                xparseInt(values.shield_mod) +
+                xparseInt(values.dex_mod);
+
+          setAttrs({
+              [`ac`]: ac,
+          });
+      });
+  });
+
+  on('change:repeating_equipment:equip_ev change:repeating_equipment:equip_count change:repeating_equipment:equip_is remove:repeating_equipment', function () {
+      repeatingSum('equip_total_ev', 'equipment', ['equip_ev', 'equip_count', 'equip_is']);
+  });
+
+  on('change:pp_equip change:gp_equip change:sp_equip change:cp_equip', function () {
+      getAttrs(['pp_equip', 'gp_equip', 'sp_equip', 'cp_equip'], function (values) {
+          const total = Math.floor((xparseFloat(values.pp_equip) +
+                                    xparseFloat(values.gp_equip) +
+                                    xparseFloat(values.sp_equip) +
+                                    xparseFloat(values.cp_equip)) / 160);
+          setAttrs({
+              [`coin_total_ev`]: total
+          });
+      });
+  });
+
+  on('change:equip_total_ev change:coin_total_ev change change:str_prime change:con_prime', function () {
+      getAttrs(['equip_total_ev', 'coin_total_ev', 'str', 'str_prime', 'con_prime'], function (values) {
+          const total_ev = xparseFloat(values.equip_total_ev) + xparseFloat(values.coin_total_ev);
+          const encumb_mod = (values.str_prime == 0 ? 0 : 3) + (values.con_prime == 0 ? 0 : 3);
+          const total_ev_max = xparseInt(values.str) + encumb_mod;
+
+          encumb_status = "Unburdened";
+          if (total_ev > total_ev_max && total_ev <= (total_ev_max * 3)) {
+              encumb_status = "Burdened";
+          } else if (total_ev > (total_ev_max * 3)) {
+              encumb_status = "Overburdened";
+          }
+          setAttrs({
+              [`total_ev`]: total_ev,
+              [`encumb_status`]: encumb_status,
+              [`total_ev_max`]: total_ev_max,
+          });
+      });
+  });
+
+  on('change:weapon_toggle', function () {
+      getAttrs(['weapon_toggle'], function (value) {
+          setAttrs({
+              [`weapon_tab`]: value.weapon_toggle
+          });
+      });
+  });
+
+  on('change:ability_toggle', function () {
+      getAttrs(['ability_toggle'], function (value) {
+          setAttrs({
+              [`ability_tab`]: value.ability_toggle
+          });
+      });
+  });
+
+  on('change:items_toggle', function () {
+      getAttrs(['items_toggle'], function (value) {
+          setAttrs({
+              [`items_tab`]: value.items_toggle
+          });
+      });
+  });
+
+  on('change:sheet_toggle', function () {
+      getAttrs(['sheet_toggle'], function (value) {
+          setAttrs({
+              [`sheet_tab`]: value.sheet_toggle
+          });
+      });
+  });
+</script>
