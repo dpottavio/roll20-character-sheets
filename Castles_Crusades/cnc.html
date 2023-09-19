@@ -508,6 +508,15 @@ Monster Sheet
       return -4;
   }
 
+  on(`sheet:opened`, () => {
+      getAttrs(["ac"], value => {
+          const ac = (value.ac == "" ? 10: value.ac)
+          setAttrs({
+              [`ac`]: ac
+          });
+      });
+  });
+
   on(`change:str_prime`, () => {
       getAttrs(["str_prime"], value => {
           if (value.str_prime == 0) {
