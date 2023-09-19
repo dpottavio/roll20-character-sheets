@@ -68,7 +68,7 @@ PC Sheet
         <label class="sheet-table_header_small">Modifier</label>
         <label class="sheet-table_header_large2">Category</label>
         <!-- STR -->
-        <button class="sheet-stat_button" type="roll" name="str" value="&{template:default} {{name=STR Check (@{character_name})}} {{Rolled CC = [[(d20+@{level}+(@{str_mod}))-@{str_cb}]]}}"></button>
+        <button class="sheet-stat_button" type="roll" name="str" value="&{template:default} {{name=STR Check (@{character_name})}} {{Rolled CL = [[(d20+@{level}+(@{str_mod}))-@{str_cb}]]}}"></button>
         <input class="sheet-table_entry_small" type="checkbox" name="attr_str_prime"/>
         <label class="sheet-table_entry_small_bold">STR</label>
         <input class="sheet-table_entry_small" type="text" name="attr_str"/>
@@ -76,7 +76,7 @@ PC Sheet
         <input type="hidden" name="attr_str_cb" value="18"/>
         <label class="sheet-table_entry_large2">Paralysis, Constriction</label>
         <!-- DEX -->
-        <button class="sheet-stat_button" type="roll" name="dex" value="&{template:default} {{name=DEX Check (@{character_name})}} {{Encumbrance = @{encumb_status}}} {{Rolled CC = [[(d20+@{level}+(@{dex_mod}))-@{dex_cb}]]}}"></button>
+        <button class="sheet-stat_button" type="roll" name="dex" value="&{template:default} {{name=DEX Check (@{character_name})}} {{Encumbrance = @{encumb_status}}} {{Rolled CL = [[(d20+@{level}+(@{dex_mod}))-@{dex_cb}]]}}"></button>
         <input class="sheet-table_entry_small" type="checkbox" name="attr_dex_prime"/>
         <label class="sheet-table_entry_small_bold">DEX</label>
         <input class="sheet-table_entry_small" type="text" name="attr_dex"/>
@@ -84,14 +84,14 @@ PC Sheet
         <input type="hidden" name="attr_dex_cb" value="18"/>
         <label class="sheet-table_entry_large2">Breath Weapon, Traps</label>
         <!-- CON -->
-        <button class="sheet-stat_button" type="roll" name="con" value="&{template:default} {{name=CON Check (@{character_name})}} {{Rolled CC = [[(d20+@{level}+(@{con_mod}))-@{con_cb}]]}}"></button>
+        <button class="sheet-stat_button" type="roll" name="con" value="&{template:default} {{name=CON Check (@{character_name})}} {{Rolled CL = [[(d20+@{level}+(@{con_mod}))-@{con_cb}]]}}"></button>
         <input class="sheet-table_entry_small" type="checkbox" name="attr_con_prime"/>
         <label class="sheet-table_entry_small_bold">CON</label>
         <input class="sheet-table_entry_small" type="text" name="attr_con">
         <span class="sheet-table_entry_small" name="attr_con_mod"></span>
         <label class="sheet-table_entry_large2">Disease, Energy Drain, Poison</label>
         <!-- INT -->
-        <button class="sheet-stat_button" type="roll" name="int" value="&{template:default} {{name=INT Check (@{character_name})}} {{Rolled CC = [[(d20+@{level}+(@{int_mod}))-@{int_cb}]]}}"></button>
+        <button class="sheet-stat_button" type="roll" name="int" value="&{template:default} {{name=INT Check (@{character_name})}} {{Rolled CL = [[(d20+@{level}+(@{int_mod}))-@{int_cb}]]}}"></button>
         <input class="sheet-table_entry_small" type="checkbox" name="attr_int_prime"/>
         <label class="sheet-table_entry_small_bold">INT</label>
         <input class="sheet-table_entry_small" type="text" name="attr_int"/>
@@ -99,7 +99,7 @@ PC Sheet
         <input type="hidden" name="attr_int_cb" value="18"/>
         <label class="sheet-table_entry_large2">Magic, Illusion</label>
         <!-- WIS -->
-        <button class="sheet-stat_button" type="roll" name="wis" value="&{template:default} {{name=WIS Check (@{character_name})}} {{Rolled CC = [[(d20+@{level}+(@{wis_mod}))-@{wis_cb}]]}}"></button>
+        <button class="sheet-stat_button" type="roll" name="wis" value="&{template:default} {{name=WIS Check (@{character_name})}} {{Rolled CL = [[(d20+@{level}+(@{wis_mod}))-@{wis_cb}]]}}"></button>
         <input class="sheet-table_entry_small" type="checkbox" name="attr_wis_prime"/>
         <label class="sheet-table_entry_small_bold">WIS</label>
         <input class="sheet-table_entry_small" type="text" name="attr_wis"/>
@@ -107,7 +107,7 @@ PC Sheet
         <input type="hidden" name="attr_wis_cb" value="18"/>
         <label class="sheet-table_entry_large2">Confusion, Divine Magic, Gaze Attack</label>
         <!-- CHA -->
-        <button class="sheet-stat_button" type="roll" name="cha" value="&{template:default} {{name=CHA Check (@{character_name})}} {{Rolled CC = [[(d20+@{level}+(@{cha_mod}))-@{cha_cb}]]}}"></button>
+        <button class="sheet-stat_button" type="roll" name="cha" value="&{template:default} {{name=CHA Check (@{character_name})}} {{Rolled CL = [[(d20+@{level}+(@{cha_mod}))-@{cha_cb}]]}}"></button>
         <input class="sheet-table_entry_small" type="checkbox" name="attr_cha_prime"/>
         <label class="sheet-table_entry_small_bold">CHA</label>
         <input class="sheet-table_entry_small" type="text" name="attr_cha"/>
@@ -116,7 +116,7 @@ PC Sheet
         <label class="sheet-table_entry_large2">Death, Charm, Fear</label>
       </div>
       <div class="sheet-one_col">
-        <button class="sheet-stat_button" type="roll" name="turn_undead" value="&{template:default} {{name=Turn Undead (WIS) (@{character_name})}} {{Rolled CC = [[(d20+@{level}+(@{wis_mod}))-@{wis_cb}]]}} {{Common = [[d12+(@{cha_mod})]]}} {{Extraordinary = [[d6+(@{cha_mod})]]}} {{Unique = [[1+(@{cha_mod})]]}}">Turn Undead</button>
+        <button class="sheet-stat_button" type="roll" name="turn_undead" value="&{template:default} {{name=Turn Undead (WIS) (@{character_name})}} {{Rolled CL = [[(d20+@{level}+(@{wis_mod}))-@{wis_cb}]]}} {{Common = [[d12+(@{cha_mod})]]}} {{Extraordinary = [[d6+(@{cha_mod})]]}} {{Unique = [[1+(@{cha_mod})]]}}">Turn Undead</button>
       </div>
     </div>
     <div class="sheet-two_col_box">
