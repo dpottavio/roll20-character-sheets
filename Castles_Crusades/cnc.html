@@ -444,7 +444,7 @@ Monster Sheet
       </div>
       <fieldset class="repeating_monsterAttack">
         <div class="sheet-monster_attack_table">
-          <button class="sheet-stat_button" type="roll" name="melee" value="&{template:default} {{name=Monster Attack (@{monster_alias})}} {{Hit AC = [[20-(d20+(@{weapon_atk_mod}))]]}} {{Damage = [[@{weapon_dmg}]]}} {{Weapon=@{weapon_type}}}"></button>
+          <button class="sheet-stat_button" type="roll" name="melee" value="&{template:default} {{name=Monster Attack (@{monster_alias})}} {{Hit AC = [[d20+@{weapon_atk_mod}]]}} {{Damage = [[@{weapon_dmg}]]}} {{Weapon=@{weapon_type}}}"></button>
           <input class="sheet-table_entry_large2_left" type="text" name="attr_weapon_type" placeholder="type"/>
           <input class="sheet-table_entry_small" type="text" name="attr_weapon_atk_mod" value="0"/>
           <input class="sheet-table_entry_small" type="text" name="attr_weapon_dmg" placeholder="damage"/>
