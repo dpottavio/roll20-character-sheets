@@ -1,0 +1,1364 @@
+<input type="hidden" class="sheet-sheet_toggle" name="attr_sheet_tab"  value="pc_tab"/>
+<div class="sheet-two_col">
+  <div class="sheet-two_col">
+    <input type="radio" id="pc_tab_button" name="attr_sheet_toggle" value="pc_tab" checked/>
+    <label class="sheet-radio_label" for="attr_sheet_toggle">PC Sheet</label>
+  </div>
+  <div class="sheet-two_col">
+    <input type="radio" id="monster_tab_button" name="attr_sheet_toggle" value="monster_tab" />
+    <label class="sheet-radio_label" for="attr_sheet_toggle">Monster Sheet</label>
+  </div>
+</div>
+<h1>Against the Darkmaster</h1>
+<br/>
+<!--
+PC Sheet
+-->
+<div class="sheet-pc_tab">
+  <div class="sheet-one_col">
+    <div class="sheet-two_col">
+      <div class="sheet-two_col_box">
+        <label class="sheet-txt_label">Name</label>
+        <input class="sheet-txt_input" type="text" name="attr_character_name"/>
+        <label class="sheet-txt_label">Vocation</label>
+        <input class="sheet-txt_input" type="text" name="attr_voc"/>
+        <label class="sheet-txt_label">Kin</label>
+        <input class="sheet-txt_input" type="text" name="attr_kin"/>
+        <label class="sheet-txt_label">Culture</label>
+        <input class="sheet-txt_input" type="text" name="attr_culture"/>
+        <label class="sheet-txt_label">Wealth</label>
+        <input class="sheet-txt_input" type="text" name="attr_wealth"/>
+        <label class="sheet-txt_label">Experience Points</label>
+        <input class="sheet-txt_input" type="text" name="attr_xp"/>
+        <label class="sheet-txt_label">Level</label>
+        <input class="sheet-digit_input" type="number" name="attr_level" value="1"/>
+      </div>
+      <div class="sheet-one_col_box">
+        <h2>Passions</h2>
+        <div class="sheet-two_col">
+          <label class="sheet-txt_label">Motivation</label>
+          <input class="sheet-txt_input" type="text" name="attr_motivation"/>
+          <label class="sheet-txt_label">Nature</label>
+          <input class="sheet-txt_input" type="text" name="attr_nature"/>
+          <label class="sheet-txt_label">Allegiance</label>
+          <input class="sheet-txt_input" type="text" name="attr_allegiance"/>
+          <label class="sheet-txt_label">Drive Points</label>
+          <input class="sheet-digit_input" type="number" name="attr_drive_points"/>
+          <label class="sheet-txt_label">Heroic Path</label>
+          <input class="sheet-digit_input" type="number" name="attr_heroic_path"/>
+        </div>
+      </div>
+      <div class="sheet-one_col_box">
+        <h2>Stats</h2>
+        <div class="sheet-stat_table">
+          <span class="sheet-table_header">Stat</span>
+          <span class="sheet-table_header">Base</span>
+          <span class="sheet-table_header">Kin</span>
+          <span class="sheet-table_header">Modifier</span>
+          <span class="sheet-table_header">Total</span>
+
+          <span class="sheet-table_entry">BRN</span>
+          <input class="sheet-table_entry" type="text" name="attr_brn_base"/>
+          <input class="sheet-table_entry" type="text" name="attr_brn_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_brn_mod"/>
+          <span class="sheet-table_entry" name="attr_brn_total"></span>
+
+          <span class="sheet-table_entry">SWI</span>
+          <input class="sheet-table_entry" type="text" name="attr_swi_base"/>
+          <input class="sheet-table_entry" type="text" name="attr_swi_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_swi_mod"/>
+          <span class="sheet-table_entry" name="attr_swi_total"></span>
+
+          <span class="sheet-table_entry">FOR</span>
+          <input class="sheet-table_entry" type="text" name="attr_for_base"/>
+          <input class="sheet-table_entry" type="text" name="attr_for_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_for_mod"/>
+          <span class="sheet-table_entry" name="attr_for_total"></span>
+
+          <span class="sheet-table_entry">WIT</span>
+          <input class="sheet-table_entry" type="text" name="attr_wit_base"/>
+          <input class="sheet-table_entry" type="text" name="attr_wit_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_wit_mod"/>
+          <span class="sheet-table_entry" name="attr_wit_total"></span>
+
+          <span class="sheet-table_entry">WSD</span>
+          <input class="sheet-table_entry" type="text" name="attr_wsd_base"/>
+          <input class="sheet-table_entry" type="text" name="attr_wsd_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_wsd_mod"/>
+          <span class="sheet-table_entry" name="attr_wsd_total"></span>
+
+          <span class="sheet-table_entry">BEA</span>
+          <input class="sheet-table_entry" type="text" name="attr_bea_base"/>
+          <input class="sheet-table_entry" type="text" name="attr_bea_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_bea_mod"/>
+          <span class="sheet-table_entry" name="attr_bea_total"></span>
+        </div>
+      </div>
+      <div class="sheet-one_col_box">
+        <h2>Health</h2>
+        <div class="sheet-two_col">
+          <label class="sheet-txt_label">Max HP:</label>
+          <input class="sheet-digit_input" type="number" name="attr_max_hp"/>
+          <label class="sheet-txt_label">HP:</label>
+          <input class="sheet-digit_input" type="number" name="attr_hp"/>
+          <label class="sheet-txt_label">Bleed:</label>
+          <input class="sheet-digit_input" type="number" name="attr_bleed"/>
+          <label class="sheet-txt_label">Stunned:</label>
+          <div class="sheet-txt_label">
+            <input type="checkbox" name="attr_stunned"/>
+          </div>
+          <label class="sheet-txt_label">Penalties:</label>
+          <input class="sheet-txt_input" type="text" name="attr_penalties"/>
+          <label class="sheet-txt_label">Conditions:</label>
+          <input class="sheet-txt_input" type="text" name="attr_conditions"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="sheet-one_col">
+      <div class="sheet-one_col_box">
+        <h2>Save Rolls</h2>
+        <div class="sheet-save_roll_table">
+          <span class="sheet-table_header">Roll</span>
+          <span class="sheet-table_header">Save</span>
+          <span class="sheet-table_header">Stat</span>
+          <span class="sheet-table_header">Stat Total</span>
+          <span class="sheet-table_header">Kin</span>
+          <span class="sheet-table_header">Modifier</span>
+          <span class="sheet-table_header">SR Bonus</span>
+          <span class="sheet-table_header">Total</span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_tsr_roll">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry">TSR</span>
+          <span class="sheet-table_entry">FOR</span>
+          <span class="sheet-table_entry" name="attr_for_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_tsr_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_tsr_mod"/>
+          <span class="sheet-table_entry" name="attr_tsr_sr_bonus"></span>
+          <span class="sheet-table_entry" name="attr_tsr_total"></span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_wsr_roll">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry">WSR</span>
+          <span class="sheet-table_entry">WSD</span>
+          <span class="sheet-table_entry" name="attr_wsd_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_wsr_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_wsr_mod"/>
+          <span class="sheet-table_entry" name="attr_wsr_sr_bonus"></span>
+          <span class="sheet-table_entry" name="attr_wsr_total"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sheet-one_col">
+      <div class="sheet-one_col_box">
+        <h2>Skills</h2>
+        <div class="sheet-skill_table">
+          <span class="sheet-table_header">Roll</span>
+          <span class="sheet-table_header_large">Skill</span>
+          <span class="sheet-table_header">Stat</span>
+          <span class="sheet-table_header">Stat Total</span>
+          <span class="sheet-table_header">Rank</span>
+          <span class="sheet-table_header">Bonus</span>
+          <span class="sheet-table_header">Vocation</span>
+          <span class="sheet-table_header">Kin</span>
+          <span class="sheet-table_header">Modifier</span>
+          <span class="sheet-table_header">Total</span>
+
+          <span class="sheet-table_entry">-</span>
+          <span class="sheet-table_entry_large_left">Armor</span>
+          <span class="sheet-table_entry">-</span>
+          <span class="sheet-table_entry" name="">-</span>
+          <input class="sheet-table_entry" type="text" name="attr_armor_sk_rank"/>
+          <span class="sheet-table_entry" name="attr_armor_sk_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_armor_sk_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_armor_sk_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_armor_sk_mod"/>
+          <span class="sheet-table_entry" name="attr_armor_sk_total"></span>
+
+          <span class="sheet-table_entry">-</span>
+          <span class="sheet-table_entry_large_left">Body</span>
+          <span class="sheet-table_entry">BEA</span>
+          <span class="sheet-table_entry" name="attr_bea_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_body_rank"/>
+          <span class="sheet-table_entry" name="attr_body_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_body_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_body_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_body_mod"/>
+          <span class="sheet-table_entry" name="attr_body_total"></span>
+        </div>
+        <h3>Combat</h3>
+        <div class="sheet-skill_table">
+          <span class="sheet-table_header">Roll</span>
+          <span class="sheet-table_header_large">Skill</span>
+          <span class="sheet-table_header">Stat</span>
+          <span class="sheet-table_header">Stat Total</span>
+          <span class="sheet-table_header">Rank</span>
+          <span class="sheet-table_header">Bonus</span>
+          <span class="sheet-table_header">Vocation</span>
+          <span class="sheet-table_header">Kin</span>
+          <span class="sheet-table_header">Modifier</span>
+          <span class="sheet-table_header">Total</span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_blunt_roll">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Blunt</span>
+          <span class="sheet-table_entry">BRN</span>
+          <span class="sheet-table_entry" name="attr_brn_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_blunt_rank"/>
+          <span class="sheet-table_entry" name="attr_blunt_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_blunt_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_blunt_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_blunt_mod"/>
+          <span class="sheet-table_entry" name="attr_blunt_total"></span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_skill_roll" data-skill="blades">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Blades</span>
+          <span class="sheet-table_entry">BRN</span>
+          <span class="sheet-table_entry" name="attr_brn_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_blade_rank"/>
+          <span class="sheet-table_entry" name="attr_blade_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_blade_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_blade_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_blade_mod"/>
+          <span class="sheet-table_entry" name="attr_blade_total"></span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_skill_roll" data-skill="ranged">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Ranged</span>
+          <span class="sheet-table_entry">SWI</span>
+          <span class="sheet-table_entry" name="attr_swi_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_ranged_rank"/>
+          <span class="sheet-table_entry" name="attr_ranged_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_ranged_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_ranged_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_ranged_mod"/>
+          <span class="sheet-table_entry" name="attr_ranged_total"></span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_skill_roll" data-skill="polearms">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Polearms</span>
+          <span class="sheet-table_entry">BRN</span>
+          <span class="sheet-table_entry" name="attr_brn_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_polearms_rank"/>
+          <span class="sheet-table_entry" name="attr_polearms_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_polearms_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_polearms_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_polearms_mod"/>
+          <span class="sheet-table_entry" name="attr_polearms_total"></span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_skill_roll" data-skill="brawl">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Brawl</span>
+          <span class="sheet-table_entry">BRN</span>
+          <span class="sheet-table_entry" name="attr_brn_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_brawl_rank"/>
+          <span class="sheet-table_entry" name="attr_brawl_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_brawl_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_brawl_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_brawl_mod"/>
+          <span class="sheet-table_entry" name="attr_brawl_total"></span>
+        </div>
+
+        <h3>Adventuring</h3>
+        <div class="sheet-skill_table">
+          <span class="sheet-table_header">Roll</span>
+          <span class="sheet-table_header_large">Skill</span>
+          <span class="sheet-table_header">Stat</span>
+          <span class="sheet-table_header">Stat Total</span>
+          <span class="sheet-table_header">Rank</span>
+          <span class="sheet-table_header">Bonus</span>
+          <span class="sheet-table_header">Vocation</span>
+          <span class="sheet-table_header">Kin</span>
+          <span class="sheet-table_header">Modifier</span>
+          <span class="sheet-table_header">Total</span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_skill_roll" data-skill="athletics">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Athletics</span>
+          <span class="sheet-table_entry">BRN</span>
+          <span class="sheet-table_entry" name="attr_brn_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_athletics_rank"/>
+          <span class="sheet-table_entry" name="attr_athletics_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_athletics_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_athletics_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_athletics_mod"/>
+          <span class="sheet-table_entry" name="attr_athletics_total"></span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_skill_roll" data-skill="ride">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Ride</span>
+          <span class="sheet-table_entry">SWI</span>
+          <span class="sheet-table_entry" name="attr_swi_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_ride_rank"/>
+          <span class="sheet-table_entry" name="attr_ride_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_ride_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_ride_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_ride_mod"/>
+          <span class="sheet-table_entry" name="attr_ride_total"></span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_skill_roll" data-skill="hunting">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Hunting</span>
+          <span class="sheet-table_entry">WIT</span>
+          <span class="sheet-table_entry" name="attr_wit_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_hunting_rank"/>
+          <span class="sheet-table_entry" name="attr_hunting_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_hunting_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_hunting_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_hunting_mod"/>
+          <span class="sheet-table_entry" name="attr_hunting_total"></span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_skill_roll" data-skill="nature">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Nature</span>
+          <span class="sheet-table_entry">WSD</span>
+          <span class="sheet-table_entry" name="attr_wsd_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_nature_rank"/>
+          <span class="sheet-table_entry" name="attr_nature_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_nature_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_nature_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_nature_mod"/>
+          <span class="sheet-table_entry" name="attr_nature_total"></span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_skill_roll" data-skill="wandering">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Wandering</span>
+          <span class="sheet-table_entry">WSD</span>
+          <span class="sheet-table_entry" name="attr_wsd_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_wandering_rank"/>
+          <span class="sheet-table_entry" name="attr_wandering_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_wandering_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_wandering_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_wandering_mod"/>
+          <span class="sheet-table_entry" name="attr_wandering_total"></span>
+        </div>
+
+        <h3>Roguery</h3>
+        <div class="sheet-skill_table">
+          <span class="sheet-table_header">Roll</span>
+          <span class="sheet-table_header_large">Skill</span>
+          <span class="sheet-table_header">Stat</span>
+          <span class="sheet-table_header">Stat Total</span>
+          <span class="sheet-table_header">Rank</span>
+          <span class="sheet-table_header">Bonus</span>
+          <span class="sheet-table_header">Vocation</span>
+          <span class="sheet-table_header">Kin</span>
+          <span class="sheet-table_header">Modifier</span>
+          <span class="sheet-table_header">Total</span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_skill_roll" data-skill="acrobatics">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Acrobatics</span>
+          <span class="sheet-table_entry">SWI</span>
+          <span class="sheet-table_entry" name="attr_swi_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_acrobatics_rank"/>
+          <span class="sheet-table_entry" name="attr_acrobatics_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_acrobatics_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_acrobatics_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_acrobatics_mod"/>
+          <span class="sheet-table_entry" name="attr_acrobatics_total"></span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_skill_roll" data-skill="stealth">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Stealth</span>
+          <span class="sheet-table_entry">SWI</span>
+          <span class="sheet-table_entry" name="attr_swi_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_stealth_rank"/>
+          <span class="sheet-table_entry" name="attr_stealth_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_stealth_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_stealth_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_stealth_mod"/>
+          <span class="sheet-table_entry" name="attr_stealth_total"></span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_skill_roll" data-skill="locks">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Locks & Traps</span>
+          <span class="sheet-table_entry">WIT</span>
+          <span class="sheet-table_entry" name="attr_wit_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_locks_rank"/>
+          <span class="sheet-table_entry" name="attr_locks_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_locks_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_locks_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_locks_mod"/>
+          <span class="sheet-table_entry" name="attr_locks_total"></span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_skill_roll" data-skill="perception">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Perception</span>
+          <span class="sheet-table_entry">WSD</span>
+          <span class="sheet-table_entry" name="attr_wsd_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_perception_rank"/>
+          <span class="sheet-table_entry" name="attr_perception_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_perception_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_perception_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_perception_mod"/>
+          <span class="sheet-table_entry" name="attr_perception_total"></span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_skill_roll" data-skill="deceive">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Deceive</span>
+          <span class="sheet-table_entry">WIT</span>
+          <span class="sheet-table_entry" name="attr_wit_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_deceive_rank"/>
+          <span class="sheet-table_entry" name="attr_deceive_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_deceive_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_deceive_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_deceive_mod"/>
+          <span class="sheet-table_entry" name="attr_deceive_total"></span>
+        </div>
+        <h3>Lore</h3>
+        <div class="sheet-skill_table">
+          <span class="sheet-table_header">Roll</span>
+          <span class="sheet-table_header_large">Skill</span>
+          <span class="sheet-table_header">Stat</span>
+          <span class="sheet-table_header">Stat Total</span>
+          <span class="sheet-table_header">Rank</span>
+          <span class="sheet-table_header">Bonus</span>
+          <span class="sheet-table_header">Vocation</span>
+          <span class="sheet-table_header">Kin</span>
+          <span class="sheet-table_header">Modifier</span>
+          <span class="sheet-table_header">Total</span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_skill_roll" data-skill="arcana">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Arcana</span>
+          <span class="sheet-table_entry">WIT</span>
+          <span class="sheet-table_entry" name="attr_wit_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_arcana_rank"/>
+          <span class="sheet-table_entry" name="attr_arcana_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_arcana_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_arcana_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_arcana_mod"/>
+          <span class="sheet-table_entry" name="attr_arcana_total"></span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_skill_roll" data-skill="charisma">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Charisma</span>
+          <span class="sheet-table_entry">BEA</span>
+          <span class="sheet-table_entry" name="attr_bea_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_charisma_rank"/>
+          <span class="sheet-table_entry" name="attr_charisma_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_charisma_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_charisma_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_charisma_mod"/>
+          <span class="sheet-table_entry" name="attr_charisma_total"></span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_skill_roll" data-skill="cultures">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Cultures</span>
+          <span class="sheet-table_entry">WIT</span>
+          <span class="sheet-table_entry" name="attr_wit_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_cultures_rank"/>
+          <span class="sheet-table_entry" name="attr_cultures_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_cultures_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_cultures_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_cultures_mod"/>
+          <span class="sheet-table_entry" name="attr_cultures_total"></span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_skill_roll" data-skill="healer">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Healer</span>
+          <span class="sheet-table_entry">WSD</span>
+          <span class="sheet-table_entry" name="attr_wsd_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_healer_rank"/>
+          <span class="sheet-table_entry" name="attr_healer_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_healer_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_healer_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_healer_mod"/>
+          <span class="sheet-table_entry" name="attr_healer_total"></span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_skill_roll" data-skill="song">
+              !
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Song & Tales</span>
+          <span class="sheet-table_entry">BEA</span>
+          <span class="sheet-table_entry" name="attr_bea_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_song_rank"/>
+          <span class="sheet-table_entry" name="attr_song_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_song_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_song_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_song_mod"/>
+          <span class="sheet-table_entry" name="attr_song_total"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sheet-one_col_box">
+      <h2>Specialty Skills</h2>
+      <div class="sheet-skill_table">
+        <span class="sheet-table_header">Roll</span>
+        <span class="sheet-table_header_large">Skill</span>
+        <span class="sheet-table_header">Stat</span>
+        <span class="sheet-table_header">Stat Total</span>
+        <span class="sheet-table_header">Rank</span>
+        <span class="sheet-table_header">Bonus</span>
+        <span class="sheet-table_header">Vocation</span>
+        <span class="sheet-table_header">Kin</span>
+        <span class="sheet-table_header">Modifier</span>
+        <span class="sheet-table_header">Total</span>
+      </div>
+      <fieldset class="repeating_specialskill">
+        <div class="sheet-skill_table">
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_special_skill_roll">
+              !
+            </button>
+          </div>
+          <input class="sheet-table_entry_large_left" type="text" name="attr_special_skill_name" placeholder="name"/>
+
+          <select class="sheet-table_entry" name="attr_special_skill_stat">
+            <option value=""></option>
+            <option value="bea_total">BEA</option>
+            <option value="swi_total">SWI</option>
+            <option value="wit_total">WIT</option>
+            <option value="wsd_total">WSD</option>
+          </select>
+          <span class="sheet-table_entry" name="attr_special_skill_stat_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_special_skill_rank" value="0"/>
+          <span class="sheet-table_entry" name="attr_special_skill_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_special_skill_voc" value="0"/>
+          <input class="sheet-table_entry" type="text" name="attr_special_skill_kin" value="0"/>
+          <input class="sheet-table_entry" type="text" name="attr_special_skill_mod" value="0"/>
+          <span class="sheet-table_entry" name="attr_special_skill_total"></span>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="sheet-one_col_box">
+      <h2>Spell Lore</h2>
+      <div class="sheet-spell_lore_table">
+        <span class="sheet-table_header">Roll</span>
+        <span class="sheet-table_header_large">Name</span>
+        <span class="sheet-table_header">Stat</span>
+        <span class="sheet-table_header">Stat Total</span>
+        <span class="sheet-table_header">Rank</span>
+        <span class="sheet-table_header">Bonus</span>
+        <span class="sheet-table_header">Vocation</span>
+        <span class="sheet-table_header">Kin</span>
+        <span class="sheet-table_header">Modifier</span>
+        <span class="sheet-table_header">Total</span>
+      </div>
+      <fieldset class="repeating_spelllore">
+        <div class="sheet-spell_lore_table">
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_spell_lore_roll">
+              !
+            </button>
+          </div>
+          <input class="sheet-table_entry_large_left" type="text" name="attr_spell_lore_name" placeholder="name"/>
+
+          <select class="sheet-table_entry" name="attr_spell_lore_stat">
+            <option value=""></option>
+            <option value="bea_total">BEA</option>
+            <option value="wit_total">WIT</option>
+            <option value="wsd_total">WSD</option>
+          </select>
+          <span class="sheet-table_entry" name="attr_spell_lore_stat_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_spell_lore_rank" value="0"/>
+          <span class="sheet-table_entry" name="attr_spell_lore_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_spell_lore_voc" value="0"/>
+          <input class="sheet-table_entry" type="text" name="attr_spell_lore_kin" value="0"/>
+          <input class="sheet-table_entry" type="text" name="attr_spell_lore_mod" value="0"/>
+          <span class="sheet-table_entry" name="attr_spell_lore_total"></span>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="sheet-one_col_box">
+      <h2>Magic Points</h2>
+      <div class="sheet-magic_pt_table">
+        <span class="sheet-table_header">Stat</span>
+        <span class="sheet-table_header">Stat Gain</span>
+        <span class="sheet-table_header">Voc Gain</span>
+        <span class="sheet-table_header">Kin</span>
+        <span class="sheet-table_header">Modifier</span>
+        <span class="sheet-table_header">Total</span>
+        <span class="sheet-table_header">Spent</span>
+
+        <select class="sheet-table_entry" name="attr_magic_pt_stat">
+          <option value=""></option>
+          <option value="bea_total">BEA</option>
+          <option value="wit_total">WIT</option>
+          <option value="wsd_total">WSD</option>
+        </select>
+        <span class="sheet-table_entry" name="attr_magic_pt_stat_gain"></span>
+        <input class="sheet-table_entry" type="text" name="attr_magic_pt_voc_gain"/>
+        <input class="sheet-table_entry" type="text" name="attr_magic_pt_kin"/>
+        <input class="sheet-table_entry" type="text" name="attr_magic_pt_mod"/>
+        <span class="sheet-table_entry" name="attr_magic_pt_total"></span>
+        <input class="sheet-table_entry" type="number" name="attr_magic_pt_spent"/>
+      </div>
+    </div>
+
+    <div class="sheet-one_col_box">
+      <h2>Weapons</h2>
+      <div class="sheet-weapon_table">
+        <span class="sheet-table_header_xlarge">Name</span>
+        <span class="sheet-table_header">Hands</span>
+        <span class="sheet-table_header">Skill</span>
+        <span class="sheet-table_header">Modifier</span>
+        <span class="sheet-table_header">Clumsy</span>
+        <span class="sheet-table_header">Length</span>
+        <span class="sheet-table_header">Attack</span>
+        <span class="sheet-table_header">Max</span>
+        <span class="sheet-table_header">Crit</span>
+        <span class="sheet-table_header">Alt Crit</span>
+        <span class="sheet-table_header">Range</span>
+        <span class="sheet-table_header">Qualities</span>
+      </div>
+      <fieldset class="repeating_weapon">
+        <div class="sheet-weapon_table">
+          <input class="sheet-table_entry_large_left" type="text" name="attr_weapon_name" placeholder="name"/>
+          <select class="sheet-table_entry" name="attr_weapon_hands">
+            <option value="1H">1H</option>
+            <option value="2H">2H</option>
+          </select>
+          <select class="sheet-table_entry" name="attr_weapon_skill">
+            <option value="Blade">Blade</option>
+            <option value="Blunt">Blunt</option>
+            <option value="Brawl">Brawl</option>
+            <option value="Polearms">Plrms</option>
+            <option value="Ranged">Rng</option>
+          </select>
+          <input class="sheet-table_entry" type="text" name="attr_weapon_mod" value="0"/>
+          <input class="sheet-table_entry" type="text" name="attr_weapon_clumsy" value="0"/>
+          <select class="sheet-table_entry" name="attr_weapon_length">
+            <option value=""></option>
+            <option value="Hand">Hand</option>
+            <option value="Long">Long</option>
+            <option value="Longest">Longest</option>
+            <option value="Short">Short</option>
+          </select>
+          <select class="sheet-table_entry" name="attr_weapon_attack">
+            <option value="Blunt">Blunt</option>
+            <option value="Edged">Edged</option>
+            <option value="Missile">Missile</option>
+            <option value="Unarmed">Unarmed</option>
+          </select>
+          <input class="sheet-table_entry" type="text" name="attr_weapon_max" placeholder="0"/>
+          <select class="sheet-table_entry" name="attr_weapon_crit">
+            <option value="Cut">Cut</option>
+            <option value="Grapple">Grapple</option>
+            <option value="Impact">Impact</option>
+            <option value="Pierce">Pierce</option>
+          </select>
+          <select class="sheet-table_entry" name="attr_weapon_alt_crit">
+            <option value=""></option>
+            <option value="Cut">Cut</option>
+            <option value="Grapple">Grapple</option>
+            <option value="Impact">Impact</option>
+            <option value="Pierce">Pierce</option>
+          </select>
+          <input class="sheet-table_entry" type="text" name="attr_weapon_range" placeholder="range"/>
+          <input class="sheet-table_entry" type="text" name="attr_weapon_qualities" placeholder=""/>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="sheet-one_col_box">
+      <h2>Armor</h2>
+      <div class="sheet-armor_table">
+        <span class="sheet-table_header_large">Name</span>
+        <span class="sheet-table_header">Type</span>
+        <span class="sheet-table_header_large">Zones</span>
+        <span class="sheet-table_header_large">Qualities</span>
+        <span class="sheet-table_header">Max SWI</span>
+        <span class="sheet-table_header">MV Penalty</span>
+        <span class="sheet-table_header">CMB Penalty</span>
+        <span class="sheet-table_header">Percep Penalty</span>
+        <span class="sheet-table_header">Mel DEF</span>
+        <span class="sheet-table_header">Mis DEF</span>
+      </div>
+      <fieldset class="repeating_armor">
+        <div class="sheet-armor_table">
+          <input class="sheet-table_entry_large_left" type="text" name="attr_armor_name" placeholder="name"/>
+          <select class="sheet-table_entry" name="attr_armor_type">
+            <option value="Lt">Lt</option>
+            <option value="Med">Med</option>
+            <option value="Hvy">Hvy</option>
+          </select>
+          <input class="sheet-table_entry_large_left" type="text" name="attr_armor_zones" placeholder="zones"/>
+          <input class="sheet-table_entry_large_left" type="text" name="attr_armor_qualities"/>
+          <input class="sheet-table_entry" type="text" name="attr_armor_max_swi" value="0"/>
+          <input class="sheet-table_entry" type="text" name="attr_armor_move_pen" value="0"/>
+          <input class="sheet-table_entry" type="text" name="attr_armor_cmb_pen" value="0"/>
+          <input class="sheet-table_entry" type="text" name="attr_armor_precept_pen" value="0"/>
+          <input class="sheet-table_entry" type="text" name="attr_armor_melee_def" value="0"/>
+          <input class="sheet-table_entry" type="text" name="attr_armor_missile_def" value="0"/>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="sheet-one_col_box">
+      <h2>Defense</h2>
+      <div class="sheet-defense_table">
+        <span class="sheet-table_header">Type</span>
+        <span class="sheet-table_header">SWI Total</span>
+        <span class="sheet-table_header">Max SWI</span>
+        <span class="sheet-table_header_large">Armor Bonus</span>
+        <span class="sheet-table_header">Modifier</span>
+        <span class="sheet-table_header">DEF</span>
+
+        <span class="sheet-table_entry" type="text">Melee</span>
+        <span class="sheet-table_entry" type="text" name="attr_swi_total"></span>
+        <input class="sheet-table_entry" type="text" name="attr_def_swi_max"/>
+        <input class="sheet-table_entry_large" type="text" name="attr_def_melee_armor_bonus"/>
+        <input class="sheet-table_entry" type="text" name="attr_def_melee_mod"/>
+        <span class="sheet-table_entry" type="text" name="attr_def_melee_total"></span>
+
+        <span class="sheet-table_entry" type="text">Missile</span>
+        <span class="sheet-table_entry" type="text" name="attr_swi_total"></span>
+        <span class="sheet-table_entry" type="text" name="attr_def_swi_max"></span>
+        <input class="sheet-table_entry_large" type="text" name="attr_def_missile_armor_bonus"/>
+        <input class="sheet-table_entry" type="text" name="attr_def_missile_mod"/>
+        <span class="sheet-table_entry" type="text" name="attr_def_missile_total"></span>
+      </div>
+    </div>
+
+    <div class="sheet-one_col_box">
+      <div class="sheet-one_col">
+        <h2>Movement</h2>
+        <div class="sheet-movement_table">
+          <span class="sheet-table_header_xlarge">Encumbrance Level</span>
+          <span class="sheet-table_header_large">Movement Rate</span>
+          <select class="sheet-table_entry_xlarge" name="attr_encumbrance">
+            <option value="Unencumbered">Unencumbered</option>
+            <option value="Lightly">Lightly</option>
+            <option value="Heavily">Heavily</option>
+            <option value="Over">Over Encumbered</option>
+          </select>
+          <input class="sheet-table_entry_large" type="text" name="attr_movement"/>
+        </div>
+      </div>
+      <div class="sheet-one_col">
+        <h2>Equipment</h2>
+        <div class="sheet-equipment_table">
+          <span class="sheet-table_header_xlarge">Item</span>
+          <span class="sheet-table_header_large">Location</span>
+          <span class="sheet-table_header">Fare</span>
+          <span class="sheet-table_header">Count</span>
+        </div>
+        <fieldset class="repeating_equipment">
+          <div class="sheet-equipment_table">
+            <input class="sheet-table_entry_xlarge_left" type="text" name="attr_equip_name" placeholder="name"/>
+            <input class="sheet-table_entry_large_left" type="text" name="attr_equip_location" placeholder="location"/>
+            <input class="sheet-table_entry" type="text" name="attr_equip_fare"/>
+            <input class="sheet-table_entry" type="number" name="attr_equip_count" value="1"/>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div class="sheet-one_col_box">
+      <h2>Animal</h2>
+      <div class="sheet-animal_table">
+        <span class="sheet-table_header_large">Name</span>
+        <span class="sheet-table_header_large">Type</span>
+        <span class="sheet-table_header">Move</span>
+        <span class="sheet-table_header">Ride</span>
+        <span class="sheet-table_header">Attack</span>
+        <span class="sheet-table_header">Max HP</span>
+        <span class="sheet-table_header">HP</span>
+        <span class="sheet-table_header">CMB</span>
+        <span class="sheet-table_header">DEF</span>
+
+      </div>
+      <fieldset class="repeating_animals">
+        <div class="sheet-animal_table">
+          <input class="sheet-table_entry_large_left" type="text" name="attr_animal_name" placeholder="name"/>
+          <input class="sheet-table_entry_large_left" type="text" name="attr_animal_type" placeholder="type"/>
+          <input class="sheet-table_entry" type="text" name="attr_animal_move" placeholder="move"/>
+          <input class="sheet-table_entry" type="text" name="attr_animal_ride_bonus" value="0"/>
+          <input class="sheet-table_entry" type="text" name="attr_animal_attack" placeholder="attack type"/>
+          <input class="sheet-table_entry" type="text" name="attr_animal_max_hp" value="0"/>
+          <input class="sheet-table_entry" type="text" name="attr_animal_hp" value="0"/>
+          <input class="sheet-table_entry" type="text" name="attr_animal_cmb" value="0"/>
+          <input class="sheet-table_entry" type="text" name="attr_animal_def" value="0"/>
+        </div>
+      </fieldset>
+    </div>
+
+<div class="sheet-one_col_box">
+  <h2>Notes</h2>
+  <div class="sheet-one_col">
+    <textarea class="sheet-textarea" name="attr_notes"></textarea>
+  </div>
+</div>
+</div>
+</div>
+<!--
+    Monster Sheet
+  -->
+<div class="sheet-monster_tab">
+  <div class="sheet-one_col">
+    <div class="sheet-two_col">
+      <div class="sheet-one_col_box">
+        <h2>Stat Block</h2>
+        <div class="sheet-two_col">
+          <label class="sheet-txt_label">Name</label>
+          <input class="sheet-txt_input" type="text" name="attr_character_name" placeholder="name"/>
+          <label class="sheet-txt_label">Alias</label>
+          <input class="sheet-txt_input" type="text" name="attr_monster_alias"/>
+          <label class="sheet-txt_label">Level</label>
+          <input class="sheet-txt_input" type="text" name="attr_monster_level"/>
+          <label class="sheet-txt_label">MR</label>
+          <input class="sheet-txt_input" type="text" name="attr_monster_mr"/>
+          <label class="sheet-txt_label">AT</label>
+          <input class="sheet-txt_input" type="text" name="attr_monster_at"/>
+          <label class="sheet-txt_label">DEF</label>
+          <input class="sheet-txt_input" type="text" name="attr_monster_def"/>
+          <label class="sheet-txt_label">TSR</label>
+          <input class="sheet-txt_input" type="text" name="attr_monster_tsr"/>
+          <label class="sheet-txt_label">WSR</label>
+          <input class="sheet-txt_input" type="text" name="attr_monster_wsr"/>
+          <label class="sheet-txt_label">HP</label>
+          <input class="sheet-txt_input" type="text" name="attr_monster_hp"/>
+          <label class="sheet-txt_label">CT</label>
+          <input class="sheet-txt_input" type="text" name="attr_monster_ct"/>
+          <label class="sheet-txt_label">Rog</label>
+          <input class="sheet-txt_input" type="text" name="attr_monster_rog"/>
+          <label class="sheet-txt_label">Adv</label>
+          <input class="sheet-txt_input" type="text" name="attr_monster_adv"/>
+          <label class="sheet-txt_label">Lore</label>
+          <input class="sheet-txt_input" type="text" name="attr_monster_lore"/>
+        </div>
+      </div>
+      <div class="sheet-one_col_box">
+        <h2>Notes</h2>
+        <textarea class="sheet-monster_sa_area" name="attr_monster_notes"></textarea>
+      </div>
+    </div>
+    <div class="sheet-one_col_box">
+      <h2>Attack</h2>
+      <div class="sheet-monster_attack_table">
+        <span class="sheet-table_header">Roll</span>
+        <span class="sheet-table_header_large">Type</span>
+        <span class="sheet-table_header">Modifier</span>
+      </div>
+      <fieldset class="repeating_monsterAttack">
+        <div class="sheet-monster_attack_table">
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_monster_attack_roll">
+              !
+            </button>
+          </div>
+          <input class="sheet-table_entry_large" type="text" name="attr_monster_type" placeholder="type"/>
+          <input class="sheet-table_entry" type="text" name="attr_monster_attack_mod" value="0"/>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>
+
+<rolltemplate class="sheet-rolltemplate-vsd">
+  <div class="sheet-header">
+    <div class="sheet-title">
+      {{#name}}<div class="sheet-title">{{name}}</div>{{/name}}
+    </div>
+  </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-custom">
+  <div class="sheet-container sheet-color-{{color}}">
+    <div class="sheet-header">
+      {{#title}}<div class="sheet-title">{{title}}</div>{{/title}}
+      {{#subtitle}}<div class="sheet-subtitle">{{subtitle}}</div>{{/subtitle}}
+    </div>
+    <div class="sheet-content">
+      {{#allprops() title subtitle desc color}}
+      <div class="sheet-key">{{key}}</div>
+      <div class="sheet-value">{{value}}</div>
+      {{/allprops() title subtitle desc color}}
+      {{#desc}}<div class="sheet-desc">{{desc}}</div>{{/desc}}
+    </div>
+  </div>
+</rolltemplate>
+
+<script type="text/worker">
+  const xparseInt = (val) => parseInt(val) || 0;
+  const xparseFloat = (val) => parseFloat(val) || 0.0;
+  const toEventStr = (arr) => arr.map(name => `change:${name}`).join(" ");
+
+  /**
+   * Compute the SR bonus from a level value.
+   */
+  const srBonus = (level) => {
+      if (level <= 10) {
+          return level * 5;
+      } else if (level <= 20) {
+          return 50 + ((level - 10) * 2);
+      } else {
+          return 70 + ((level - 20));
+      }
+  };
+
+  /**
+   * Sum a list of attributes and set the result to a total attribute.
+   *
+   * @param {string[]} parts - list of attribute names to sum.
+   * @param {string} totalAttr - the attribute name to set with the sum.
+   */
+  const sumAttributes = (parts, totalAttr) => {
+      getAttrs(parts, (values) => {
+          let total = 0;
+          for (const key of parts) {
+              total +=  xparseInt(values[key]);
+          }
+          setAttrs({ [totalAttr]: total });
+      });
+  }
+
+  /**
+   * Sum a list of skill attributes.
+   *
+   *@param mods - list of attributes used to compute the skill total
+   *@param rank_attr - the rank attribute used to compute the rank bonus.
+   *@param total_attr - the attribute to assign the sill total
+   */
+  const sumSkill = (mods, rank_attr, bonus_attr, total_attr) => {
+      getAttrs(mods, (values) => {
+          let total = 0;
+          let rank_bonus = 0;
+          for (const key of mods) {
+              if (key == rank_attr) {
+                  const rank = xparseInt(values[key]);
+                  if (rank <= 10) {
+                      rank_bonus = rank * 5;
+                  } else if (rank <= 20) {
+                      rank_bonus = ((rank - 10) * 2) + 50;
+                  } else {
+                      rank_bonus = (rank - 20) + 70;
+                  }
+              } else {
+                  let mod = xparseInt(values[key]);
+                  total += mod;
+              }
+          }
+          total += rank_bonus;
+          setAttrs({
+              [total_attr]: total,
+              [bonus_attr]: rank_bonus,
+          });
+      });
+  };
+
+  // Extract a full repeating row prefix from an attribute name in an event.
+  // e.g. "repeating_spelllore_-Mabc123_spell_lore_rank" -> "repeating_spelllore_-Mabc123_"
+  const getRowPrefixFromAttr = (attr) => {
+      const m = /^((?:repeating|repeating_)[^_]+_[^_]+)_/.exec(attr);
+      return m ? `${m[1]}_` : null;
+  };
+
+  // Compute a single Spell Lore row (by prefix).
+  // Keeps your flow: set stat_total first, then call sumSkill for that row.
+  const computeRepeatedSkillRow = (prefix) => {
+      // We need the selected base stat name (e.g., "wit_total"|"bea_total"|"wsd_total"),
+      // plus the row modifiers and the three globals (so we can read whichever was chosen).
+      const keys = [
+          `${prefix}_stat`,
+          `${prefix}_rank`,
+          `${prefix}_voc`,
+          `${prefix}_kin`,
+          `${prefix}_mod`,
+      ];
+
+      // set the stat total field first
+      getAttrs([`${prefix}_stat`], (values) => {
+          const stat = values[`${prefix}_stat`];
+          getAttrs([stat], (stat_values) => {
+              const stat_total = xparseInt(stat_values[stat]);
+              setAttrs({
+                  [`${prefix}_stat_total`]: stat_total,
+              });
+
+              const mods = [
+                  `${prefix}_rank`,
+                  `${prefix}_voc`,
+                  `${prefix}_kin`,
+                  `${prefix}_mod`,
+                  `${prefix}_stat_total`
+              ];
+              sumSkill(mods, `${prefix}_rank`, `${prefix}_bonus`, `${prefix}_total`);
+          });
+      });
+  };
+
+  // BRN stat update callback.
+  const brn_attrs = ["brn_base", "brn_rank", "brn_kin", "brn_mod"];
+  on(toEventStr(brn_attrs), () => {
+      sumAttributes(brn_attrs, "brn_total");
+  });
+
+  // SWI stat update callback.
+  const swi_attrs = ["swi_base", "swi_kin", "swi_mod"];
+  on(toEventStr(swi_attrs), () => {
+      sumAttributes(swi_attrs, "swi_total");
+  });
+
+  // FOR stat update callback.
+  const for_attrs = ["for_base", "for_kin", "for_mod"];
+  on(toEventStr(for_attrs), () => {
+      sumAttributes(for_attrs, "for_total");
+  });
+
+  // WIT stat update callback.
+  const wit_attrs = ["wit_base", "wit_kin", "wit_mod"];
+  on(toEventStr(wit_attrs), () => {
+      sumAttributes(wit_attrs, "wit_total");
+  });
+
+  // WSD stat update callback.
+  const wsd_attrs = ["wsd_base", "wsd_kin", "wsd_mod"];
+  on(toEventStr(wsd_attrs), () => {
+      sumAttributes(wsd_attrs, "wsd_total");
+  });
+
+  // BEA stat update callback.
+  const bea_attrs = ["bea_base", "bea_kin", "bea_mod"];
+  on(toEventStr(bea_attrs), () => {
+      sumAttributes(bea_attrs, "bea_total");
+  });
+
+  const armor_attrs = ["armor_sk_rank", "armor_sk_voc", "armor_sk_kin", "armor_sk_mod"];
+  on(toEventStr(armor_attrs), () => {
+      sumSkill(armor_attrs, "armor_sk_rank", "armor_sk_bonus", "armor_sk_total");
+  });
+
+  const body_attrs = ["body_rank", "body_voc", "body_kin", "body_mod", "bea_total"];
+  on(toEventStr(body_attrs), () => {
+      sumSkill(body_attrs, "body_rank", "body_bonus", "body_total");
+  });
+
+  const blunt_attrs = ["blunt_rank", "blunt_voc", "blunt_kin", "blunt_mod", "brn_total"];
+  on(toEventStr(blunt_attrs), () => {
+      sumSkill(blunt_attrs, "blunt_rank", "blunt_bonus", "blunt_total");
+  });
+
+  const blades_attrs = ["blade_rank", "blade_voc", "blade_kin", "blade_mod", "brn_total"];
+  on(toEventStr(blades_attrs), () => {
+      sumSkill(blades_attrs, "blade_rank", "blade_bonus", "blade_total");
+  });
+
+  const ranged_attrs = ["ranged_rank", "ranged_voc", "ranged_kin", "ranged_mod", "swi_total"];
+  on(toEventStr(ranged_attrs), () => {
+      sumSkill(ranged_attrs, "ranged_rank", "ranged_bonus", "ranged_total");
+  });
+
+  const polearms_attrs = ["polearms_rank", "polearms_voc", "polearms_kin", "polearms_mod", "brn_total"];
+  on(toEventStr(polearms_attrs), () => {
+      sumSkill(polearms_attrs, "polearms_rank", "polearms_bonus", "polearms_total");
+  });
+
+  const brawl_attrs = ["brawl_rank", "brawl_voc", "brawl_kin", "brawl_mod", "brn_total"];
+  on(toEventStr(brawl_attrs), () => {
+      sumSkill(brawl_attrs, "brawl_rank", "brawl_bonus", "brawl_total");
+  });
+
+  const athletics_attrs = ["athletics_rank", "athletics_voc", "athletics_kin", "athletics_mod", "brn_total"];
+  on(toEventStr(athletics_attrs), () => {
+      sumSkill(athletics_attrs, "athletics_rank", "athletics_bonus", "athletics_total");
+  });
+
+  const ride_attrs = ["ride_rank", "ride_voc", "ride_kin", "ride_mod", "swi_total"];
+  on(toEventStr(ride_attrs), () => {
+      sumSkill(ride_attrs, "ride_rank", "ride_bonus", "ride_total");
+  });
+
+  const hunting_attrs = ["hunting_rank", "hunting_voc", "hunting_kin", "hunting_mod", "wit_total"];
+  on(toEventStr(hunting_attrs), () => {
+      sumSkill(hunting_attrs, "hunting_rank", "hunting_bonus", "hunting_total");
+  });
+
+  const nature_attrs = ["nature_rank", "nature_voc", "nature_kin", "nature_mod", "wsd_total"];
+  on(toEventStr(nature_attrs), () => {
+      sumSkill(nature_attrs, "nature_rank", "nature_bonus", "nature_total");
+  });
+
+  const wandering_attrs = ["wandering_rank", "wandering_voc", "wandering_kin", "wandering_mod", "wsd_total"];
+  on(toEventStr(wandering_attrs), () => {
+      sumSkill(wandering_attrs, "wandering_rank", "wandering_bonus", "wandering_total");
+  });
+
+  const acrobatics_attrs = ["acrobatics_rank", "acrobatics_voc", "acrobatics_kin", "acrobatics_mod", "swi_total"];
+  on(toEventStr(acrobatics_attrs), () => {
+      sumSkill(acrobatics_attrs, "acrobatics_rank", "acrobatics_bonus", "acrobatics_total");
+  });
+
+  const stealth_attrs = ["stealth_rank", "stealth_voc", "stealth_kin", "stealth_mod", "swi_total"];
+  on(toEventStr(stealth_attrs), () => {
+      sumSkill(stealth_attrs, "stealth_rank", "stealth_bonus", "stealth_total");
+  });
+
+  const locks_attrs = ["locks_rank", "locks_voc", "locks_kin", "locks_mod", "wit_total"];
+  on(toEventStr(locks_attrs), () => {
+      sumSkill(locks_attrs, "locks_rank", "locks_bonus", "locks_total");
+  });
+
+  const perception_attrs = ["perception_rank", "perception_voc", "perception_kin", "perception_mod", "wsd_total"];
+  on(toEventStr(perception_attrs), () => {
+      sumSkill(perception_attrs, "perception_rank", "perception_bonus", "perception_total");
+  });
+
+  const deceive_attrs = ["deceive_rank", "deceive_voc", "deceive_kin", "deceive_mod", "wit_total"];
+  on(toEventStr(deceive_attrs), () => {
+      sumSkill(deceive_attrs, "deceive_rank", "deceive_bonus", "deceive_total");
+  });
+
+  const arcana_attrs = ["arcana_rank", "arcana_voc", "arcana_kin", "arcana_mod", "wit_total"];
+  on(toEventStr(arcana_attrs), () => {
+      sumSkill(arcana_attrs, "arcana_rank", "arcana_bonus", "arcana_total");
+  });
+
+  const charisma_attrs = ["charisma_rank", "charisma_voc", "charisma_kin", "charisma_mod", "bea_total"];
+  on(toEventStr(charisma_attrs), () => {
+      sumSkill(charisma_attrs, "charisma_rank", "charisma_bonus", "charisma_total");
+  });
+
+  const cultures_attrs = ["cultures_rank", "cultures_voc", "cultures_kin", "cultures_mod", "wit_total"];
+  on(toEventStr(cultures_attrs), () => {
+      sumSkill(cultures_attrs, "cultures_rank", "cultures_bonus", "cultures_total");
+  });
+
+  const healer_attrs = ["healer_rank", "healer_voc", "healer_kin", "healer_mod", "wsd_total"];
+  on(toEventStr(healer_attrs), () => {
+      sumSkill(healer_attrs, "healer_rank", "healer_bonus", "healer_total");
+  });
+
+  const song_attrs = ["song_rank", "song_voc", "song_kin", "song_mod", "bea_total"];
+  on(toEventStr(song_attrs), () => {
+      sumSkill(song_attrs, "song_rank", "song_bonus", "song_total");
+  });
+
+  const tsr_attrs = ["level", "tsr_kin", "tsr_mod", "for_total"];
+  on(toEventStr(tsr_attrs), () => {
+      getAttrs(tsr_attrs, (values) => {
+          const for_total = xparseInt(values["for_total"]);
+          const level = xparseInt(values["level"]);
+          const kin = xparseInt(values["tsr_kin"]);
+          const mod = xparseInt(values["tsr_mod"]);
+          const sr_bonus = srBonus(level);
+          const total = for_total + kin + mod + sr_bonus;
+
+          setAttrs({
+              ["tsr_sr_bonus"]: sr_bonus,
+              ["tsr_total"]: total,
+          });
+      });
+  });
+
+  const wsr_attrs = ["level", "wsr_kin", "wsr_mod", "wsd_total"];
+  on(toEventStr(wsr_attrs), () => {
+      getAttrs(wsr_attrs, (values) => {
+          const wsd_total = xparseInt(values["wsd_total"]);
+          const level = xparseInt(values["level"]);
+          const kin = xparseInt(values["wsr_kin"]);
+          const mod = xparseInt(values["wsr_mod"]);
+          const sr_bonus = srBonus(level);
+          const total = wsd_total + kin + mod + sr_bonus;
+
+          setAttrs({
+              ["wsr_sr_bonus"]: sr_bonus,
+              ["wsr_total"]: total,
+          });
+      });
+  });
+
+  const magic_pt_attrs = ["magic_pt_stat", "magic_pt_voc_gain", "magic_pt_kin", "magic_pt_mod", "wit_total", "wsd_total", "bea_total"];
+  on(toEventStr(magic_pt_attrs), () => {
+      getAttrs(magic_pt_attrs, (values) => {
+          const stat = values["magic_pt_stat"];
+          getAttrs([stat], (stat_values) => {
+              const stat_total = xparseInt(stat_values[stat]);
+              const stat_gain  = Math.floor(stat_total / 10);
+              const voc_gain = xparseInt(values["magic_pt_voc_gain"]);
+              const kin = xparseInt(values["magic_pt_kin"]);
+              const mod = xparseInt(values["magic_pt_mod"]);
+              const total = stat_gain + voc_gain + kin + mod;
+
+              setAttrs({
+                  ["magic_pt_stat_gain"]: stat_gain,
+                  ["magic_pt_total"]: total,
+              });
+          });
+      });
+  });
+
+  // Setup events for each spell lore row in the table.
+  const spell_lore_attrs = [
+      "repeating_spelllore:spell_lore_stat",
+      "repeating_spelllore:spell_lore_rank",
+      "repeating_spelllore:spell_lore_voc",
+      "repeating_spelllore:spell_lore_kin",
+      "repeating_spelllore:spell_lore_mod",
+  ];
+  on(toEventStr(spell_lore_attrs), (event) => {
+      const prefix = getRowPrefixFromAttr(event.sourceAttribute);
+      if (!prefix) return;
+      computeRepeatedSkillRow(prefix + "spell_lore");
+  });
+
+  // Setup an events for each stat that the spell lore table depends
+  // on. Anytime one of these attribute changes, we need to recompute
+  // each spell lore entry.
+  const spell_lore_deps_attrs = [
+      "wit_total",
+      "bea_total",
+      "wsd_total",
+  ];
+  on(toEventStr(spell_lore_deps_attrs), (event) => {
+      getSectionIDs("spelllore", (ids) => {
+          if (!ids || !ids.length) return;
+          ids.forEach((id) => computeRepeatedSkillRow(`repeating_spelllore_${id}_spell_lore`));
+      });
+  });
+
+
+  // Setup events for each specialty skill row in the table.
+  const special_skill_attrs = [
+      "repeating_specialskill:special_skill_stat",
+      "repeating_specialskill:special_skill_rank",
+      "repeating_specialskill:special_skill_voc",
+      "repeating_specialskill:special_skill_kin",
+      "repeating_specialskill:special_skill_mod",
+  ];
+  on(toEventStr(special_skill_attrs), (event) => {
+      const prefix = getRowPrefixFromAttr(event.sourceAttribute);
+      if (!prefix) return;
+      computeRepeatedSkillRow(prefix + "special_skill");
+  });
+
+  // Setup an events for each stat that the spell lore table depends
+  // on. Anytime one of these attribute changes, we need to recompute
+  // each spell lore entry.
+  const special_skill_deps_attrs = [
+      "wit_total",
+      "bea_total",
+      "wsd_total",
+      "wsi_total",
+  ];
+  on(toEventStr(special_skill_deps_attrs), (event) => {
+      getSectionIDs("specialskill", (ids) => {
+          if (!ids || !ids.length) return;
+          ids.forEach((id) => computeRepeatedSkillRow(`repeating_specialskill_${id}_special_skill`));
+      });
+  });
+
+  const def_melee_attrs = ["def_swi_max", "def_melee_armor_bonus", "def_melee_mod", "swi_total"];
+  on(toEventStr(def_melee_attrs), () => {
+      getAttrs(def_melee_attrs, (values) => {
+          const swi_total = xparseInt(values["swi_total"]);
+          const max_swi = xparseInt(values["def_swi_max"]);
+          const armor_bonus = xparseInt(values["def_melee_armor_bonus"]);
+          const mod = xparseInt(values["def_melee_mod"]);
+          const total = Math.min(swi_total, max_swi) + armor_bonus + mod;
+
+          setAttrs({
+              ["def_melee_total"]: total,
+          });
+      });
+  });
+
+  const def_missile_attrs = ["def_swi_max", "def_missile_armor_bonus", "def_missile_mod", "swi_total"];
+  on(toEventStr(def_missile_attrs), () => {
+      getAttrs(def_missile_attrs, (values) => {
+          const swi_total = xparseInt(values["swi_total"]);
+          const max_swi = xparseInt(values["def_swi_max"]);
+          const armor_bonus = xparseInt(values["def_missile_armor_bonus"]);
+          const mod = xparseInt(values["def_missile_mod"]);
+          const total = Math.min(swi_total, max_swi) + armor_bonus + mod;
+
+          setAttrs({
+              ["def_missile_total"]: total,
+          });
+      });
+  });
+
+  on('change:sheet_toggle', function () {
+      getAttrs(['sheet_toggle'], function (value) {
+          setAttrs({
+              [`sheet_tab`]: value.sheet_toggle
+          });
+      });
+  });
+
+  /* TODO
+  on('clicked:blunt_roll', async (event) => {
+      getAttrs(["blunt_total"], async (values) => {
+          const blunt_total = xparseInt(values["blunt_total"]);
+          console.log(`Hello!: ${blunt_total}`);
+          const roll = await startRoll(`&{template:custom} {{title=Blunt Skill Check}} {{roll=[[2d10]]}} {{skill=[[${blunt_total}]]}} {{total=[[0]]}}`);
+          let total = roll.results.roll.result + blunt_total;
+          console.log(`${total}`);
+          finishRoll(roll.rollId, { total: total });
+      });
+      });
+  */
+</script>

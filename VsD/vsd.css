@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=MedievalSharp&family=Quintessential&display=swap');
+@import url('https://fonts.googleapis.com/css?family=PT+Serif&display=swap');
+
+
+h1 {
+    font-family: "Bona Nova SC", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: 'PT Serif';
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: 'PT Serif';
+}
+
+input[type=checkbox] {
+  transform: scale(.75);
+}
+
+.sheet-one_col {
+    display: grid;
+    grid-template-columns: repeat(1, max-content);
+    gap: 10px;
+}
+
+.sheet-one_col_box {
+    display: grid;
+    grid-template-columns: repeat(1, max-content);
+    gap: 10px;
+    border: 2px solid black;
+    padding: 3px;
+    padding-right: 5px;
+    margin: 0px;
+}
+
+.sheet-two_col {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    row-gap: 10px;
+    column-gap: 10px;
+}
+
+.sheet-two_col_box {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    row-gap: 5px;
+    column-gap: 10px;
+    border: 2px solid black;
+    padding: 10px;
+    margin: 0px;
+}
+
+.sheet-table_header {
+    font-size:12px !important;
+    border: 1px solid black;
+    background-color: lightgrey;
+    text-align: center !important;
+    font-family: 'PT Serif';
+    max-height: 20px;
+    max-width: 60px;
+}
+
+
+.sheet-table_header_large {
+    font-size:12px !important;
+    border: 1px solid black;
+    background-color: lightgrey;
+    text-align: center !important;
+    font-family: 'PT Serif';
+    max-width: 100px;
+    max-height: 20px;
+}
+
+.sheet-table_header_xlarge {
+    font-size:12px !important;
+    border: 1px solid black;
+    background-color: lightgrey;
+    text-align: center !important;
+    font-family: 'PT Serif';
+    font-size:14px;
+    max-width: 250px;
+    max-height: 20px;
+}
+
+.sheet-table_entry {
+    width: 60px;
+    min-width: 60px;
+    max-height: 25px;
+    text-align: center;
+    font-family: 'PT Serif';
+    font-size:14px;
+}
+
+.sheet-table_entry_large {
+    width: 100px;
+    max-height: 25px;
+    font-family: 'PT Serif';
+    font-size:14px;
+    text-align: center;
+
+}
+
+.sheet-table_entry_large_left {
+    width: 100px;
+    max-height: 25px;
+    text-align: left;
+    font-family: 'PT Serif';
+    font-size:14px;
+}
+
+.sheet-table_entry_xlarge_left {
+    width: 250px;
+    text-align: left;
+    max-height: 25px;
+    font-family: 'PT Serif';
+    font-size:14px;
+}
+
+.sheet-table_entry_xlarge {
+    width: 250px;
+    text-align: center;
+    max-height: 25px;
+    font-family: 'PT Serif';
+    font-size:14px;
+}
+
+.sheet-weapon_table {
+    display: grid;
+    grid-template-columns: 100px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px 80px;
+    grid-gap: 1px;
+}
+
+.sheet-armor_table {
+    display: grid;
+    grid-template-columns: 100px 60px 100px 100px 60px 60px 60px 60px 60px 60px;
+    grid-gap: 1px;
+}
+
+.sheet-magic_pt_table {
+    display: grid;
+    grid-template-columns: 60px 60px 60px 60px 60px 60px 60px;
+    grid-gap: 1px;
+}
+
+.sheet-spell_lore_table {
+    display: grid;
+    grid-template-columns: 60px 100px 60px 60px 60px 60px 60px 60px 60px 60px;
+    grid-gap: 1px;
+}
+
+.sheet-animal_table {
+    display: grid;
+    grid-template-columns: 100px 100px 60px 60px 60px 60px 60px 60px 60px;
+    grid-gap: 1px;
+}
+
+.sheet-stat_table{
+    display: grid;
+    grid-template-columns: 60px 60px 60px 60px 60px;
+    grid-gap: 1px;
+}
+
+.sheet-skill_table {
+    display: grid;
+    grid-template-columns: 60px 100px 60px 60px 60px 60px 60px 60px 60px 60px;
+    grid-gap: 1px;
+}
+
+.sheet-body_table {
+    display: grid;
+    grid-template-columns: 60px 60px 60px 60px 60px 60px 60px 60px;
+    grid-gap: 1px;
+}
+
+.sheet-save_roll_table {
+    display: grid;
+    grid-template-columns: 60px 60px 60px 60px 60px 60px 60px 60px;
+    grid-gap: 1px;
+}
+
+.sheet-defense_table {
+    display: grid;
+    grid-template-columns: 60px 60px 60px 100px 60px 60px;
+    grid-gap: 1px;
+}
+
+.sheet-monster_attack_table {
+    display: grid;
+    grid-template-columns: 60px 100px 60px;
+    grid-gap: 1px;
+}
+
+.repitem {
+    display: grid;
+    align-items: center;
+    margin-bottom: 1px;
+    justify-content: space-between;
+}
+
+.sheet-equipment_table {
+    display: grid;
+    grid-template-columns: 250px 100px 60px 60px;
+    grid-gap: 1px;
+}
+
+.sheet-movement_table {
+    display: grid;
+    grid-template-columns: 250px 100px;
+    grid-gap: 1px;
+}
+
+.sheet-digit_input  {
+    width: 50px !important;
+    max-width: 50px;
+    max-height: 25px;
+    font-family: 'PT Serif';
+    text-align: left;
+}
+
+input.sheet-txt_input {
+    font-size:14px;
+    max-width: 189px;
+    max-height: 25px;
+    margin-top: -3px;
+    font-family: 'PT Serif';
+}
+
+label.sheet-txt_label {
+    font-size:14px;
+    font-family: 'PT Serif';
+    text-align: left;
+}
+
+label.sheet-radio_label {
+    font-size:14px;
+    font-family: 'PT Serif';
+    margin-top: 8px;
+}
+
+.sheet-tab_button {
+    font-family: 'PT Serif';
+}
+
+.sheet-textarea {
+    resize: vertical;
+    min-width: 800px;
+    min-height: 50px;
+}
+
+.sheet-monster_sa_area {
+    resize: none;
+    min-width: 50px;
+    box-sizing: border-box;
+    min-height: 415px;
+    min-width: 400px;
+}
+
+.sheet-dice-button {
+/* font-size: 14px; */
+ width: 30px;
+ height: 12px;
+ padding: 4px 8px;
+ border-radius: 4px;
+/* background: #222; */
+/* color: white; */
+ font-weight: bold;
+ cursor: pointer;
+ text-align: center;
+}
+
+/*
+ * Roll Template
+ */
+
+
+/*
+.sheet-rolltemplate-vsd {
+  margin-left: -37px;
+}
+
+.sheet-rolltemplate-vsd .sheet-container {
+  border: 1px solid;
+  border-color: var(--header-bg-color);
+}
+
+.sheet-rolltemplate-vsd .sheet-header {
+  background-color: var(--header-bg-color);
+  text-align: left;
+  color: var(--header-text-color);
+  padding: 5px;
+}
+
+.sheet-rolltemplate-vsd .sheet-title {
+  font-size:1.1em;
+}
+*/
+
+.sheet-rolltemplate-default td {
+  vertical-align: middle;
+}
+
+.sheet-rolltemplate-default td:first-child{
+  font-weight: normal;
+}
+
+.sheet-rolltemplate-default table{
+  border-collapse: separate;
+  overflow: hidden;
+}
+.sheet-rolltemplate-default caption {
+  text-align: center;
+  font-weight: bold;
+  border-top-left-radius: 6% 50%;
+  border-top-right-radius: 6% 50%;
+  background-color: black;
+  color: white;
+}
+.sheet-rolltemplate-default table,
+.sheet-rolltemplate-default tbody,
+.sheet-rolltemplate-default table tr:last-of-type {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+/*
+ * Tabs
+ */
+
+/*Configure the tab buttons*/
+.sheet-monster_tab,
+.sheet-pc_tab {
+    display: none;
+}
+
+/* show the selected tab */
+.sheet-sheet_toggle[value="monster_tab"] ~ div.sheet-monster_tab,
+.sheet-sheet_toggle[value="pc_tab"] ~ div.sheet-pc_tab {
+    display: block;
+}
+
+/*
+ * Darkmode Support
+ */
+body.sheet-darkmode select,
+body.sheet-darkmode textarea,
+body.sheet-darkmode .charsheet,
+body.sheet-darkmode input {
+    background-color: black;
+    color: white;
+}
+
+body.sheet-darkmode h3,
+body.sheet-darkmode h2,
+body.sheet-darkmode h1 {
+    color: #c77dff;
+}
+
+body.sheet-darkmode .sheet-one_col_box,
+body.sheet-darkmode .sheet-two_col_box {
+    border-color:  #c77dff;
+}
+
+body.sheet-darkmode .sheet-txt_title,
+body.sheet-darkmode .sheet-table_header ,
+body.sheet-darkmode .sheet-table_header_large,
+body.sheet-darkmode .sheet-table_header_xlarge {
+    background-color:  #c77dff;
+    color: black;
+}
+
+body.sheet-darkmode button,
+body.sheet-darkmode .btn,
+body.sheet-darkmode .btn.btn-default {
+    color: #c8c3bc;
+    text-shadow: rgba(24,26,27,.75) 0px 1px 1px;
+    background-color: #1e2021;
+    background-image: linear-gradient(#181a1b, #26292b);
+    border-color: #3e4446 #3e4446 #43494c;
+    box-shadow: rgba(24,26,27,.2) 0px 1px 0px inset,rgba(0,0,0,.05) 0px 1px 2px
+}
