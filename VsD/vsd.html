@@ -548,315 +548,326 @@ PC Sheet
           <input class="sheet-table_entry" type="text" name="attr_song_mod"/>
           <span class="sheet-table_entry" name="attr_song_total"></span>
         </div>
-      </div>
-    </div>
 
-    <div class="sheet-one_col_box">
-      <h2>Specialty Skills</h2>
-      <div class="sheet-skill_table">
-        <span class="sheet-table_header">Roll</span>
-        <span class="sheet-table_header_large">Skill</span>
-        <span class="sheet-table_header">Stat</span>
-        <span class="sheet-table_header">Stat Total</span>
-        <span class="sheet-table_header">Rank</span>
-        <span class="sheet-table_header">Bonus</span>
-        <span class="sheet-table_header">Vocation</span>
-        <span class="sheet-table_header">Kin</span>
-        <span class="sheet-table_header">Modifier</span>
-        <span class="sheet-table_header">Total</span>
-      </div>
-      <fieldset class="repeating_specialskill">
+        <h3>Specialty Skills</h3>
         <div class="sheet-skill_table">
-          <div class="sheet-table_entry">
-            <button class="sheet-dice-button" type="action" name="act_special_skill_roll">
-              !
-            </button>
-          </div>
-          <input class="sheet-table_entry_large_left" type="text" name="attr_special_skill_name" placeholder="name"/>
-
-          <select class="sheet-table_entry" name="attr_special_skill_stat">
-            <option value=""></option>
-            <option value="bea_total">BEA</option>
-            <option value="swi_total">SWI</option>
-            <option value="wit_total">WIT</option>
-            <option value="wsd_total">WSD</option>
-          </select>
-          <span class="sheet-table_entry" name="attr_special_skill_stat_total"></span>
-          <input class="sheet-table_entry" type="text" name="attr_special_skill_rank" value="0"/>
-          <span class="sheet-table_entry" name="attr_special_skill_bonus"></span>
-          <input class="sheet-table_entry" type="text" name="attr_special_skill_voc" value="0"/>
-          <input class="sheet-table_entry" type="text" name="attr_special_skill_kin" value="0"/>
-          <input class="sheet-table_entry" type="text" name="attr_special_skill_mod" value="0"/>
-          <span class="sheet-table_entry" name="attr_special_skill_total"></span>
+          <span class="sheet-table_header">Roll</span>
+          <span class="sheet-table_header_large">Skill</span>
+          <span class="sheet-table_header">Stat</span>
+          <span class="sheet-table_header">Stat Total</span>
+          <span class="sheet-table_header">Rank</span>
+          <span class="sheet-table_header">Bonus</span>
+          <span class="sheet-table_header">Vocation</span>
+          <span class="sheet-table_header">Kin</span>
+          <span class="sheet-table_header">Modifier</span>
+          <span class="sheet-table_header">Total</span>
         </div>
-      </fieldset>
-    </div>
+        <fieldset class="repeating_specialskill">
+          <div class="sheet-skill_table">
+            <div class="sheet-table_entry">
+              <button class="sheet-dice-button" type="action" name="act_special_skill_roll">
+                !
+              </button>
+            </div>
+            <input class="sheet-table_entry_large_left" type="text" name="attr_special_skill_name" placeholder="name"/>
 
-    <div class="sheet-one_col_box">
-      <h2>Spell Lore</h2>
-      <div class="sheet-spell_lore_table">
-        <span class="sheet-table_header">Roll</span>
-        <span class="sheet-table_header_large">Name</span>
-        <span class="sheet-table_header">Stat</span>
-        <span class="sheet-table_header">Stat Total</span>
-        <span class="sheet-table_header">Rank</span>
-        <span class="sheet-table_header">Bonus</span>
-        <span class="sheet-table_header">Vocation</span>
-        <span class="sheet-table_header">Kin</span>
-        <span class="sheet-table_header">Modifier</span>
-        <span class="sheet-table_header">Total</span>
-      </div>
-      <fieldset class="repeating_spelllore">
-        <div class="sheet-spell_lore_table">
-          <div class="sheet-table_entry">
-            <button class="sheet-dice-button" type="action" name="act_spell_lore_roll">
-              !
-            </button>
-          </div>
-          <input class="sheet-table_entry_large_left" type="text" name="attr_spell_lore_name" placeholder="name"/>
-
-          <select class="sheet-table_entry" name="attr_spell_lore_stat">
-            <option value=""></option>
-            <option value="bea_total">BEA</option>
-            <option value="wit_total">WIT</option>
-            <option value="wsd_total">WSD</option>
-          </select>
-          <span class="sheet-table_entry" name="attr_spell_lore_stat_total"></span>
-          <input class="sheet-table_entry" type="text" name="attr_spell_lore_rank" value="0"/>
-          <span class="sheet-table_entry" name="attr_spell_lore_bonus"></span>
-          <input class="sheet-table_entry" type="text" name="attr_spell_lore_voc" value="0"/>
-          <input class="sheet-table_entry" type="text" name="attr_spell_lore_kin" value="0"/>
-          <input class="sheet-table_entry" type="text" name="attr_spell_lore_mod" value="0"/>
-          <span class="sheet-table_entry" name="attr_spell_lore_total"></span>
-        </div>
-      </fieldset>
-    </div>
-
-    <div class="sheet-one_col_box">
-      <h2>Magic Points</h2>
-      <div class="sheet-magic_pt_table">
-        <span class="sheet-table_header">Stat</span>
-        <span class="sheet-table_header">Stat Gain</span>
-        <span class="sheet-table_header">Voc Gain</span>
-        <span class="sheet-table_header">Kin</span>
-        <span class="sheet-table_header">Modifier</span>
-        <span class="sheet-table_header">Total</span>
-        <span class="sheet-table_header">Spent</span>
-
-        <select class="sheet-table_entry" name="attr_magic_pt_stat">
-          <option value=""></option>
-          <option value="bea_total">BEA</option>
-          <option value="wit_total">WIT</option>
-          <option value="wsd_total">WSD</option>
-        </select>
-        <span class="sheet-table_entry" name="attr_magic_pt_stat_gain"></span>
-        <input class="sheet-table_entry" type="text" name="attr_magic_pt_voc_gain"/>
-        <input class="sheet-table_entry" type="text" name="attr_magic_pt_kin"/>
-        <input class="sheet-table_entry" type="text" name="attr_magic_pt_mod"/>
-        <span class="sheet-table_entry" name="attr_magic_pt_total"></span>
-        <input class="sheet-table_entry" type="number" name="attr_magic_pt_spent"/>
-      </div>
-    </div>
-
-    <div class="sheet-one_col_box">
-      <h2>Weapons</h2>
-      <div class="sheet-weapon_table">
-        <span class="sheet-table_header_xlarge">Name</span>
-        <span class="sheet-table_header">Hands</span>
-        <span class="sheet-table_header">Skill</span>
-        <span class="sheet-table_header">Modifier</span>
-        <span class="sheet-table_header">Clumsy</span>
-        <span class="sheet-table_header">Length</span>
-        <span class="sheet-table_header">Attack</span>
-        <span class="sheet-table_header">Max</span>
-        <span class="sheet-table_header">Crit</span>
-        <span class="sheet-table_header">Alt Crit</span>
-        <span class="sheet-table_header">Range</span>
-        <span class="sheet-table_header">Qualities</span>
-      </div>
-      <fieldset class="repeating_weapon">
-        <div class="sheet-weapon_table">
-          <input class="sheet-table_entry_large_left" type="text" name="attr_weapon_name" placeholder="name"/>
-          <select class="sheet-table_entry" name="attr_weapon_hands">
-            <option value="1H">1H</option>
-            <option value="2H">2H</option>
-          </select>
-          <select class="sheet-table_entry" name="attr_weapon_skill">
-            <option value="Blade">Blade</option>
-            <option value="Blunt">Blunt</option>
-            <option value="Brawl">Brawl</option>
-            <option value="Polearms">Plrms</option>
-            <option value="Ranged">Rng</option>
-          </select>
-          <input class="sheet-table_entry" type="text" name="attr_weapon_mod" value="0"/>
-          <input class="sheet-table_entry" type="text" name="attr_weapon_clumsy" value="0"/>
-          <select class="sheet-table_entry" name="attr_weapon_length">
-            <option value=""></option>
-            <option value="Hand">Hand</option>
-            <option value="Long">Long</option>
-            <option value="Longest">Longest</option>
-            <option value="Short">Short</option>
-          </select>
-          <select class="sheet-table_entry" name="attr_weapon_attack">
-            <option value="Blunt">Blunt</option>
-            <option value="Edged">Edged</option>
-            <option value="Missile">Missile</option>
-            <option value="Unarmed">Unarmed</option>
-          </select>
-          <input class="sheet-table_entry" type="text" name="attr_weapon_max" placeholder="0"/>
-          <select class="sheet-table_entry" name="attr_weapon_crit">
-            <option value="Cut">Cut</option>
-            <option value="Grapple">Grapple</option>
-            <option value="Impact">Impact</option>
-            <option value="Pierce">Pierce</option>
-          </select>
-          <select class="sheet-table_entry" name="attr_weapon_alt_crit">
-            <option value=""></option>
-            <option value="Cut">Cut</option>
-            <option value="Grapple">Grapple</option>
-            <option value="Impact">Impact</option>
-            <option value="Pierce">Pierce</option>
-          </select>
-          <input class="sheet-table_entry" type="text" name="attr_weapon_range" placeholder="range"/>
-          <input class="sheet-table_entry" type="text" name="attr_weapon_qualities" placeholder=""/>
-        </div>
-      </fieldset>
-    </div>
-
-    <div class="sheet-one_col_box">
-      <h2>Armor</h2>
-      <div class="sheet-armor_table">
-        <span class="sheet-table_header_large">Name</span>
-        <span class="sheet-table_header">Type</span>
-        <span class="sheet-table_header_large">Zones</span>
-        <span class="sheet-table_header_large">Qualities</span>
-        <span class="sheet-table_header">Max SWI</span>
-        <span class="sheet-table_header">MV Pen</span>
-        <span class="sheet-table_header">CMB Pen</span>
-        <span class="sheet-table_header">Percep Penalty</span>
-        <span class="sheet-table_header">Mel DEF</span>
-        <span class="sheet-table_header">Mis DEF</span>
-      </div>
-      <fieldset class="repeating_armor">
-        <div class="sheet-armor_table">
-          <input class="sheet-table_entry_large_left" type="text" name="attr_armor_name" placeholder="name"/>
-          <select class="sheet-table_entry" name="attr_armor_type">
-            <option value="Lt">Lt</option>
-            <option value="Med">Med</option>
-            <option value="Hvy">Hvy</option>
-          </select>
-          <input class="sheet-table_entry_large_left" type="text" name="attr_armor_zones" placeholder="zones"/>
-          <input class="sheet-table_entry_large_left" type="text" name="attr_armor_qualities"/>
-          <input class="sheet-table_entry" type="text" name="attr_armor_max_swi" value="0"/>
-          <input class="sheet-table_entry" type="text" name="attr_armor_move_pen" value="0"/>
-          <input class="sheet-table_entry" type="text" name="attr_armor_cmb_pen" value="0"/>
-          <input class="sheet-table_entry" type="text" name="attr_armor_precept_pen" value="0"/>
-          <input class="sheet-table_entry" type="text" name="attr_armor_melee_def" value="0"/>
-          <input class="sheet-table_entry" type="text" name="attr_armor_missile_def" value="0"/>
-        </div>
-      </fieldset>
-    </div>
-
-    <div class="sheet-one_col_box">
-      <h2>Defense</h2>
-      <div class="sheet-defense_table">
-        <span class="sheet-table_header">Type</span>
-        <span class="sheet-table_header">SWI Total</span>
-        <span class="sheet-table_header">Max SWI</span>
-        <span class="sheet-table_header_large">Armor Bonus</span>
-        <span class="sheet-table_header">Modifier</span>
-        <span class="sheet-table_header">DEF</span>
-
-        <span class="sheet-table_entry" type="text">Melee</span>
-        <span class="sheet-table_entry" type="text" name="attr_swi_total"></span>
-        <input class="sheet-table_entry" type="text" name="attr_def_swi_max"/>
-        <input class="sheet-table_entry_large" type="text" name="attr_def_melee_armor_bonus"/>
-        <input class="sheet-table_entry" type="text" name="attr_def_melee_mod"/>
-        <span class="sheet-table_entry" type="text" name="attr_def_melee_total"></span>
-
-        <span class="sheet-table_entry" type="text">Missile</span>
-        <span class="sheet-table_entry" type="text" name="attr_swi_total"></span>
-        <span class="sheet-table_entry" type="text" name="attr_def_swi_max"></span>
-        <input class="sheet-table_entry_large" type="text" name="attr_def_missile_armor_bonus"/>
-        <input class="sheet-table_entry" type="text" name="attr_def_missile_mod"/>
-        <span class="sheet-table_entry" type="text" name="attr_def_missile_total"></span>
-      </div>
-    </div>
-
-    <div class="sheet-one_col_box">
-      <div class="sheet-one_col">
-        <h2>Movement</h2>
-        <div class="sheet-movement_table">
-          <span class="sheet-table_header_xlarge">Encumbrance Level</span>
-          <span class="sheet-table_header_large">Movement Rate</span>
-          <select class="sheet-table_entry_xlarge" name="attr_encumbrance">
-            <option value="Unencumbered">Unencumbered</option>
-            <option value="Lightly">Lightly</option>
-            <option value="Heavily">Heavily</option>
-            <option value="Over">Over Encumbered</option>
-          </select>
-          <input class="sheet-table_entry_large" type="text" name="attr_movement"/>
-        </div>
-      </div>
-      <div class="sheet-one_col">
-        <h2>Equipment</h2>
-        <div class="sheet-equipment_table">
-          <span class="sheet-table_header_xlarge">Item</span>
-          <span class="sheet-table_header_large">Location</span>
-          <span class="sheet-table_header">Fare</span>
-          <span class="sheet-table_header">Count</span>
-        </div>
-        <fieldset class="repeating_equipment">
-          <div class="sheet-equipment_table">
-            <input class="sheet-table_entry_xlarge_left" type="text" name="attr_equip_name" placeholder="name"/>
-            <input class="sheet-table_entry_large_left" type="text" name="attr_equip_location" placeholder="location"/>
-            <input class="sheet-table_entry" type="text" name="attr_equip_fare"/>
-            <input class="sheet-table_entry" type="number" name="attr_equip_count" value="1"/>
+            <select class="sheet-table_entry" name="attr_special_skill_stat">
+              <option value=""></option>
+              <option value="bea_total">BEA</option>
+              <option value="swi_total">SWI</option>
+              <option value="wit_total">WIT</option>
+              <option value="wsd_total">WSD</option>
+            </select>
+            <span class="sheet-table_entry" name="attr_special_skill_stat_total"></span>
+            <input class="sheet-table_entry" type="text" name="attr_special_skill_rank" value="0"/>
+            <span class="sheet-table_entry" name="attr_special_skill_bonus"></span>
+            <input class="sheet-table_entry" type="text" name="attr_special_skill_voc" value="0"/>
+            <input class="sheet-table_entry" type="text" name="attr_special_skill_kin" value="0"/>
+            <input class="sheet-table_entry" type="text" name="attr_special_skill_mod" value="0"/>
+            <span class="sheet-table_entry" name="attr_special_skill_total"></span>
           </div>
         </fieldset>
       </div>
     </div>
 
-    <div class="sheet-one_col_box">
-      <h2>Animal</h2>
-      <div class="sheet-animal_table">
-        <span class="sheet-table_header_large">Name</span>
-        <span class="sheet-table_header_large">Type</span>
-        <span class="sheet-table_header">Move</span>
-        <span class="sheet-table_header">Ride</span>
-        <span class="sheet-table_header">Attack</span>
-        <span class="sheet-table_header">Max HP</span>
-        <span class="sheet-table_header">HP</span>
-        <span class="sheet-table_header">CMB</span>
-        <span class="sheet-table_header">DEF</span>
+    <div class="sheet-one_col">
+      <div class="sheet-one_col_box">
+        <div class="sheet-one_col">
+          <h2>Magic Points</h2>
+          <div class="sheet-magic_pt_table">
+            <span class="sheet-table_header">Stat</span>
+            <span class="sheet-table_header">Stat Gain</span>
+            <span class="sheet-table_header">Voc Gain</span>
+            <span class="sheet-table_header">Kin</span>
+            <span class="sheet-table_header">Modifier</span>
+            <span class="sheet-table_header">Total</span>
+            <span class="sheet-table_header">Spent</span>
 
-      </div>
-      <fieldset class="repeating_animals">
-        <div class="sheet-animal_table">
-          <input class="sheet-table_entry_large_left" type="text" name="attr_animal_name" placeholder="name"/>
-          <input class="sheet-table_entry_large_left" type="text" name="attr_animal_type" placeholder="type"/>
-          <input class="sheet-table_entry" type="text" name="attr_animal_move" placeholder="move"/>
-          <input class="sheet-table_entry" type="text" name="attr_animal_ride_bonus" value="0"/>
-          <input class="sheet-table_entry" type="text" name="attr_animal_attack" placeholder="attack type"/>
-          <input class="sheet-table_entry" type="text" name="attr_animal_max_hp" value="0"/>
-          <input class="sheet-table_entry" type="text" name="attr_animal_hp" value="0"/>
-          <input class="sheet-table_entry" type="text" name="attr_animal_cmb" value="0"/>
-          <input class="sheet-table_entry" type="text" name="attr_animal_def" value="0"/>
+            <select class="sheet-table_entry" name="attr_magic_pt_stat">
+              <option value=""></option>
+              <option value="bea_total">BEA</option>
+              <option value="wit_total">WIT</option>
+              <option value="wsd_total">WSD</option>
+            </select>
+            <span class="sheet-table_entry" name="attr_magic_pt_stat_gain"></span>
+            <input class="sheet-table_entry" type="text" name="attr_magic_pt_voc_gain"/>
+            <input class="sheet-table_entry" type="text" name="attr_magic_pt_kin"/>
+            <input class="sheet-table_entry" type="text" name="attr_magic_pt_mod"/>
+            <span class="sheet-table_entry" name="attr_magic_pt_total"></span>
+            <input class="sheet-table_entry" type="number" name="attr_magic_pt_spent"/>
+          </div>
         </div>
-      </fieldset>
+
+        <div class="sheet-one_col">
+          <h2>Spell Lore</h2>
+          <div class="sheet-spell_lore_table">
+            <span class="sheet-table_header">Roll</span>
+            <span class="sheet-table_header_large">Name</span>
+            <span class="sheet-table_header">Stat</span>
+            <span class="sheet-table_header">Stat Total</span>
+            <span class="sheet-table_header">Rank</span>
+            <span class="sheet-table_header">Bonus</span>
+            <span class="sheet-table_header">Vocation</span>
+            <span class="sheet-table_header">Kin</span>
+            <span class="sheet-table_header">Modifier</span>
+            <span class="sheet-table_header">Total</span>
+          </div>
+          <fieldset class="repeating_spelllore">
+            <div class="sheet-spell_lore_table">
+              <div class="sheet-table_entry">
+                <button class="sheet-dice-button" type="action" name="act_spell_lore_roll">
+                  !
+                </button>
+              </div>
+              <input class="sheet-table_entry_large_left" type="text" name="attr_spell_lore_name" placeholder="name"/>
+
+              <select class="sheet-table_entry" name="attr_spell_lore_stat">
+                <option value=""></option>
+                <option value="bea_total">BEA</option>
+                <option value="wit_total">WIT</option>
+                <option value="wsd_total">WSD</option>
+              </select>
+              <span class="sheet-table_entry" name="attr_spell_lore_stat_total"></span>
+              <input class="sheet-table_entry" type="text" name="attr_spell_lore_rank" value="0"/>
+              <span class="sheet-table_entry" name="attr_spell_lore_bonus"></span>
+              <input class="sheet-table_entry" type="text" name="attr_spell_lore_voc" value="0"/>
+              <input class="sheet-table_entry" type="text" name="attr_spell_lore_kin" value="0"/>
+              <input class="sheet-table_entry" type="text" name="attr_spell_lore_mod" value="0"/>
+              <span class="sheet-table_entry" name="attr_spell_lore_total"></span>
+            </div>
+          </fieldset>
+        </div>
+      </div>
     </div>
 
-<div class="sheet-one_col_box">
-  <h2>Notes</h2>
-  <div class="sheet-one_col">
-    <textarea class="sheet-textarea" name="attr_notes"></textarea>
+    <div class="sheet-one_col">
+      <div class="sheet-one_col_box">
+        <h2>Weapons</h2>
+        <div class="sheet-weapon_table">
+          <span class="sheet-table_header_xlarge">Name</span>
+          <span class="sheet-table_header">Hands</span>
+          <span class="sheet-table_header">Skill</span>
+          <span class="sheet-table_header">Modifier</span>
+          <span class="sheet-table_header">Clumsy</span>
+          <span class="sheet-table_header">Length</span>
+          <span class="sheet-table_header">Attack</span>
+          <span class="sheet-table_header">Max</span>
+          <span class="sheet-table_header">Crit</span>
+          <span class="sheet-table_header">Alt Crit</span>
+          <span class="sheet-table_header">Range</span>
+          <span class="sheet-table_header">Qualities</span>
+        </div>
+        <fieldset class="repeating_weapon">
+          <div class="sheet-weapon_table">
+            <input class="sheet-table_entry_large_left" type="text" name="attr_weapon_name" placeholder="name"/>
+            <select class="sheet-table_entry" name="attr_weapon_hands">
+              <option value="1H">1H</option>
+              <option value="2H">2H</option>
+            </select>
+            <select class="sheet-table_entry" name="attr_weapon_skill">
+              <option value="Blade">Blade</option>
+              <option value="Blunt">Blunt</option>
+              <option value="Brawl">Brawl</option>
+              <option value="Polearms">Plrms</option>
+              <option value="Ranged">Rng</option>
+            </select>
+            <input class="sheet-table_entry" type="text" name="attr_weapon_mod" value="0"/>
+            <input class="sheet-table_entry" type="text" name="attr_weapon_clumsy" value="0"/>
+            <select class="sheet-table_entry" name="attr_weapon_length">
+              <option value=""></option>
+              <option value="Hand">Hand</option>
+              <option value="Long">Long</option>
+              <option value="Longest">Longest</option>
+              <option value="Short">Short</option>
+            </select>
+            <select class="sheet-table_entry" name="attr_weapon_attack">
+              <option value="Blunt">Blunt</option>
+              <option value="Edged">Edged</option>
+              <option value="Missile">Missile</option>
+              <option value="Unarmed">Unarmed</option>
+            </select>
+            <input class="sheet-table_entry" type="text" name="attr_weapon_max" placeholder="0"/>
+            <select class="sheet-table_entry" name="attr_weapon_crit">
+              <option value="Cut">Cut</option>
+              <option value="Grapple">Grapple</option>
+              <option value="Impact">Impact</option>
+              <option value="Pierce">Pierce</option>
+            </select>
+            <select class="sheet-table_entry" name="attr_weapon_alt_crit">
+              <option value=""></option>
+              <option value="Cut">Cut</option>
+              <option value="Grapple">Grapple</option>
+              <option value="Impact">Impact</option>
+              <option value="Pierce">Pierce</option>
+            </select>
+            <input class="sheet-table_entry" type="text" name="attr_weapon_range" placeholder="range"/>
+            <input class="sheet-table_entry" type="text" name="attr_weapon_qualities" placeholder=""/>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div class="sheet-one_col">
+      <div class="sheet-one_col_box">
+        <div class="sheet-one_col">
+          <h2>Defense</h2>
+          <div class="sheet-defense_table">
+            <span class="sheet-table_header">Type</span>
+            <span class="sheet-table_header">SWI Total</span>
+            <span class="sheet-table_header">Max SWI</span>
+            <span class="sheet-table_header_large">Armor Bonus</span>
+            <span class="sheet-table_header">Modifier</span>
+            <span class="sheet-table_header">DEF</span>
+
+            <span class="sheet-table_entry" type="text">Melee</span>
+            <span class="sheet-table_entry" type="text" name="attr_swi_total"></span>
+            <input class="sheet-table_entry" type="text" name="attr_def_swi_max"/>
+            <input class="sheet-table_entry_large" type="text" name="attr_def_melee_armor_bonus"/>
+            <input class="sheet-table_entry" type="text" name="attr_def_melee_mod"/>
+            <span class="sheet-table_entry" type="text" name="attr_def_melee_total"></span>
+
+            <span class="sheet-table_entry" type="text">Missile</span>
+            <span class="sheet-table_entry" type="text" name="attr_swi_total"></span>
+            <span class="sheet-table_entry" type="text" name="attr_def_swi_max"></span>
+            <input class="sheet-table_entry_large" type="text" name="attr_def_missile_armor_bonus"/>
+            <input class="sheet-table_entry" type="text" name="attr_def_missile_mod"/>
+            <span class="sheet-table_entry" type="text" name="attr_def_missile_total"></span>
+          </div>
+        </div>
+        <div class="sheet-one_col">
+          <h2>Armor</h2>
+          <div class="sheet-armor_table">
+            <span class="sheet-table_header_large">Name</span>
+            <span class="sheet-table_header">Type</span>
+            <span class="sheet-table_header_large">Zones</span>
+            <span class="sheet-table_header_large">Qualities</span>
+            <span class="sheet-table_header">Max SWI</span>
+            <span class="sheet-table_header">MV Pen</span>
+            <span class="sheet-table_header">CMB Pen</span>
+            <span class="sheet-table_header">Percep Penalty</span>
+            <span class="sheet-table_header">Mel DEF</span>
+            <span class="sheet-table_header">Mis DEF</span>
+          </div>
+          <fieldset class="repeating_armor">
+            <div class="sheet-armor_table">
+              <input class="sheet-table_entry_large_left" type="text" name="attr_armor_name" placeholder="name"/>
+              <select class="sheet-table_entry" name="attr_armor_type">
+                <option value="Lt">Lt</option>
+                <option value="Med">Med</option>
+                <option value="Hvy">Hvy</option>
+              </select>
+              <input class="sheet-table_entry_large_left" type="text" name="attr_armor_zones" placeholder="zones"/>
+              <input class="sheet-table_entry_large_left" type="text" name="attr_armor_qualities"/>
+              <input class="sheet-table_entry" type="text" name="attr_armor_max_swi" value="0"/>
+              <input class="sheet-table_entry" type="text" name="attr_armor_move_pen" value="0"/>
+              <input class="sheet-table_entry" type="text" name="attr_armor_cmb_pen" value="0"/>
+              <input class="sheet-table_entry" type="text" name="attr_armor_precept_pen" value="0"/>
+              <input class="sheet-table_entry" type="text" name="attr_armor_melee_def" value="0"/>
+              <input class="sheet-table_entry" type="text" name="attr_armor_missile_def" value="0"/>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+
+    <div class="sheet-one_col">
+      <div class="sheet-one_col_box">
+        <div class="sheet-one_col">
+          <h2>Movement</h2>
+          <div class="sheet-movement_table">
+            <span class="sheet-table_header_xlarge">Encumbrance Level</span>
+            <span class="sheet-table_header_large">Movement Rate</span>
+            <select class="sheet-table_entry_xlarge" name="attr_encumbrance">
+              <option value="Unencumbered">Unencumbered</option>
+              <option value="Lightly">Lightly</option>
+              <option value="Heavily">Heavily</option>
+              <option value="Over">Over Encumbered</option>
+            </select>
+            <input class="sheet-table_entry_large" type="text" name="attr_movement"/>
+          </div>
+        </div>
+        <div class="sheet-one_col">
+          <h2>Equipment</h2>
+          <div class="sheet-equipment_table">
+            <span class="sheet-table_header_xlarge">Item</span>
+            <span class="sheet-table_header_large">Location</span>
+            <span class="sheet-table_header">Fare</span>
+            <span class="sheet-table_header">Count</span>
+          </div>
+          <fieldset class="repeating_equipment">
+            <div class="sheet-equipment_table">
+              <input class="sheet-table_entry_xlarge_left" type="text" name="attr_equip_name" placeholder="name"/>
+              <input class="sheet-table_entry_large_left" type="text" name="attr_equip_location" placeholder="location"/>
+              <input class="sheet-table_entry" type="text" name="attr_equip_fare"/>
+              <input class="sheet-table_entry" type="number" name="attr_equip_count" value="1"/>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+
+    <div class="sheet-one_col">
+      <div class="sheet-one_col_box">
+        <h2>Animals</h2>
+        <div class="sheet-animal_table">
+          <span class="sheet-table_header_large">Name</span>
+          <span class="sheet-table_header_large">Type</span>
+          <span class="sheet-table_header">Move</span>
+          <span class="sheet-table_header">Ride</span>
+          <span class="sheet-table_header">Attack</span>
+          <span class="sheet-table_header">Max HP</span>
+          <span class="sheet-table_header">HP</span>
+          <span class="sheet-table_header">CMB</span>
+          <span class="sheet-table_header">DEF</span>
+
+        </div>
+        <fieldset class="repeating_animals">
+          <div class="sheet-animal_table">
+            <input class="sheet-table_entry_large_left" type="text" name="attr_animal_name" placeholder="name"/>
+            <input class="sheet-table_entry_large_left" type="text" name="attr_animal_type" placeholder="type"/>
+            <input class="sheet-table_entry" type="text" name="attr_animal_move" placeholder="move"/>
+            <input class="sheet-table_entry" type="text" name="attr_animal_ride_bonus" value="0"/>
+            <input class="sheet-table_entry" type="text" name="attr_animal_attack" placeholder="attack type"/>
+            <input class="sheet-table_entry" type="text" name="attr_animal_max_hp" value="0"/>
+            <input class="sheet-table_entry" type="text" name="attr_animal_hp" value="0"/>
+            <input class="sheet-table_entry" type="text" name="attr_animal_cmb" value="0"/>
+            <input class="sheet-table_entry" type="text" name="attr_animal_def" value="0"/>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div class="sheet-one_box">
+      <h2>Notes</h2>
+      <div class="sheet-one_col">
+        <textarea class="sheet-textarea" name="attr_notes"></textarea>
+      </div>
+    </div>
   </div>
 </div>
-</div>
-</div>
 <!--
-    Monster Sheet
-  -->
+Monster Sheet
+-->
 <div class="sheet-monster_tab">
   <div class="sheet-one_col">
     <div class="sheet-two_col">

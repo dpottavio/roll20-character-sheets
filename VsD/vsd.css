@@ -255,7 +255,7 @@ label.sheet-radio_label {
 
 .sheet-textarea {
     resize: vertical;
-    min-width: 800px;
+    min-width: 750px;
     min-height: 50px;
 }
 
