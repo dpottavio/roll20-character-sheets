@@ -98,7 +98,7 @@ PC Sheet
         <h2>Health</h2>
         <div class="sheet-two_col">
           <label class="sheet-txt_label">Max HP:</label>
-          <input class="sheet-digit_input" type="number" name="attr_max_hp"/>
+          <input class="sheet-digit_input" type="number" name="attr_hp_max"/>
           <label class="sheet-txt_label">HP:</label>
           <input class="sheet-digit_input" type="number" name="attr_hp"/>
           <label class="sheet-txt_label">Bleed:</label>
@@ -185,8 +185,8 @@ PC Sheet
 
           <span class="sheet-table_entry">-</span>
           <span class="sheet-table_entry_large_left">Body</span>
-          <span class="sheet-table_entry">BEA</span>
-          <span class="sheet-table_entry" name="attr_bea_total"></span>
+          <span class="sheet-table_entry">FOR</span>
+          <span class="sheet-table_entry" name="attr_for_total"></span>
           <input class="sheet-table_entry" type="text" name="attr_body_rank"/>
           <span class="sheet-table_entry" name="attr_body_bonus"></span>
           <input class="sheet-table_entry" type="text" name="attr_body_voc"/>
@@ -731,8 +731,8 @@ PC Sheet
         <span class="sheet-table_header_large">Zones</span>
         <span class="sheet-table_header_large">Qualities</span>
         <span class="sheet-table_header">Max SWI</span>
-        <span class="sheet-table_header">MV Penalty</span>
-        <span class="sheet-table_header">CMB Penalty</span>
+        <span class="sheet-table_header">MV Pen</span>
+        <span class="sheet-table_header">CMB Pen</span>
         <span class="sheet-table_header">Percep Penalty</span>
         <span class="sheet-table_header">Mel DEF</span>
         <span class="sheet-table_header">Mis DEF</span>
@@ -1051,6 +1051,47 @@ PC Sheet
       });
   };
 
+  /**
+   * Sets up automatic recalculation of a defense total (melee, ranged, etc.)
+   * whenever any related attribute changes.
+   *
+   * @param {string} prefix - The defense type prefix, e.g. "melee" or "ranged".
+   *
+   * This function dynamically builds the attribute names based on the prefix
+   * and registers an event listener that recomputes the total defense value:
+   *     total = min(swi_total, def_swi_max) + def_<prefix>_armor_bonus + def_<prefix>_mod
+   */
+  const setupDefense = (prefix) => {
+    const attrs = [
+        `def_swi_max`,
+        `def_${prefix}_armor_bonus`,
+        `def_${prefix}_mod`,
+        `swi_total`
+    ];
+
+    on(toEventStr(attrs), () => {
+        getAttrs(attrs, (values) => {
+            const swi_val = (() => {
+                let val = xparseInt(values["swi_total"]);
+                const max_swi = parseInt(values["def_swi_max"]);
+                if (Number.isInteger(max_swi)) {
+                    val = Math.min(val, max_swi);
+                }
+                return val;
+            })();
+
+            const armor_bonus = xparseInt(values[`def_${prefix}_armor_bonus`]);
+            const mod = xparseInt(values[`def_${prefix}_mod`]);
+            const total = swi_val + armor_bonus + mod;
+
+            setAttrs({
+                [`def_${prefix}_total`]: total,
+            });
+        });
+    });
+  };
+
+
   // BRN stat update callback.
   const brn_attrs = ["brn_base", "brn_rank", "brn_kin", "brn_mod"];
   on(toEventStr(brn_attrs), () => {
@@ -1092,7 +1133,7 @@ PC Sheet
       sumSkill(armor_attrs, "armor_sk_rank", "armor_sk_bonus", "armor_sk_total");
   });
 
-  const body_attrs = ["body_rank", "body_voc", "body_kin", "body_mod", "bea_total"];
+  const body_attrs = ["body_rank", "body_voc", "body_kin", "body_mod", "for_total"];
   on(toEventStr(body_attrs), () => {
       sumSkill(body_attrs, "body_rank", "body_bonus", "body_total");
   });
@@ -1311,35 +1352,9 @@ PC Sheet
       });
   });
 
-  const def_melee_attrs = ["def_swi_max", "def_melee_armor_bonus", "def_melee_mod", "swi_total"];
-  on(toEventStr(def_melee_attrs), () => {
-      getAttrs(def_melee_attrs, (values) => {
-          const swi_total = xparseInt(values["swi_total"]);
-          const max_swi = xparseInt(values["def_swi_max"]);
-          const armor_bonus = xparseInt(values["def_melee_armor_bonus"]);
-          const mod = xparseInt(values["def_melee_mod"]);
-          const total = Math.min(swi_total, max_swi) + armor_bonus + mod;
-
-          setAttrs({
-              ["def_melee_total"]: total,
-          });
-      });
-  });
-
-  const def_missile_attrs = ["def_swi_max", "def_missile_armor_bonus", "def_missile_mod", "swi_total"];
-  on(toEventStr(def_missile_attrs), () => {
-      getAttrs(def_missile_attrs, (values) => {
-          const swi_total = xparseInt(values["swi_total"]);
-          const max_swi = xparseInt(values["def_swi_max"]);
-          const armor_bonus = xparseInt(values["def_missile_armor_bonus"]);
-          const mod = xparseInt(values["def_missile_mod"]);
-          const total = Math.min(swi_total, max_swi) + armor_bonus + mod;
-
-          setAttrs({
-              ["def_missile_total"]: total,
-          });
-      });
-  });
+  // Register both melee and ranged handlers
+  setupDefense("melee");
+  setupDefense("missile");
 
   on('change:sheet_toggle', function () {
       getAttrs(['sheet_toggle'], function (value) {
