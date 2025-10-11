@@ -89,10 +89,20 @@ input[type=checkbox] {
     background-color: lightgrey;
     text-align: center !important;
     font-family: 'PT Serif';
-    font-size:14px;
     max-width: 250px;
     max-height: 20px;
 }
+
+.sheet-table_header_xxlarge {
+    font-size:12px !important;
+    border: 1px solid black;
+    background-color: lightgrey;
+    text-align: center !important;
+    font-family: 'PT Serif';
+    max-width: 500px;
+    max-height: 20px;
+}
+
 
 .sheet-table_entry {
     width: 60px;
@@ -131,6 +141,14 @@ input[type=checkbox] {
 .sheet-table_entry_xlarge {
     width: 250px;
     text-align: center;
+    max-height: 25px;
+    font-family: 'PT Serif';
+    font-size:14px;
+}
+
+.sheet-table_entry_xxlarge_left {
+    width: 500px;
+    text-align: left;
     max-height: 25px;
     font-family: 'PT Serif';
     font-size:14px;
@@ -212,6 +230,18 @@ input[type=checkbox] {
 .sheet-equipment_table {
     display: grid;
     grid-template-columns: 250px 100px 60px 60px;
+    grid-gap: 1px;
+}
+
+.sheet-background_table {
+    display: grid;
+    grid-template-columns: 100px 500px;
+    grid-gap: 1px;
+}
+
+.sheet-special_traits_table {
+    display: grid;
+    grid-template-columns: 100px 500px;
     grid-gap: 1px;
 }
 
@@ -375,7 +405,8 @@ body.sheet-darkmode .sheet-two_col_box {
 body.sheet-darkmode .sheet-txt_title,
 body.sheet-darkmode .sheet-table_header ,
 body.sheet-darkmode .sheet-table_header_large,
-body.sheet-darkmode .sheet-table_header_xlarge {
+body.sheet-darkmode .sheet-table_header_xlarge,
+body.sheet-darkmode .sheet-table_header_xxlarge {
     background-color:  #c77dff;
     color: black;
 }
