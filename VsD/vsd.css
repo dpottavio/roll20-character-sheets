@@ -298,44 +298,84 @@ label.sheet-radio_label {
 }
 
 .sheet-dice-button {
-/* font-size: 14px; */
- width: 30px;
- height: 12px;
- padding: 4px 8px;
- border-radius: 4px;
-/* background: #222; */
-/* color: white; */
- font-weight: bold;
- cursor: pointer;
- text-align: center;
+    font-size:18px;
+    font-family: 'dicefontd10';
+    width: 30px;
+    height: 12px;
+    padding: 4px 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    top: -20px;
 }
 
 /*
  * Roll Template
  */
 
-
-/*
 .sheet-rolltemplate-vsd {
-  margin-left: -37px;
+
 }
 
-.sheet-rolltemplate-vsd .sheet-container {
-  border: 1px solid;
-  border-color: var(--header-bg-color);
+.sheet-rolltemplate-vsd-content {
+    border: 2px solid black;
+    border-radius: 8px;
 }
 
-.sheet-rolltemplate-vsd .sheet-header {
-  background-color: var(--header-bg-color);
+.sheet-rolltemplate-vsd-header {
+    background-color: black;
+    color: white;
+    padding: 2px;
+    border-bottom: 1px solid black;
+    line-height: 25px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.sheet-rolltemplate-vsd-sub-header {
+    background-color: black;
+    color: white;
+    padding: 2px;
+    border-bottom: 1px solid black;
+    line-height: 20px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.sheet-rolltemplate-vsd-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* centers the inner pair */
+    justify-items: center;
+    align-items: center;
+    padding: 4px 8px;
+    border-bottom: 1px solid black;
+    font-size: 14px;
+    color: black;
+}
+
+/* target the two spans */
+.sheet-rolltemplate-vsd-row span:first-child {
+  grid-column: 2; /* place in center group */
+  justify-self: end; /* key right-aligned */
+  text-align: right;
+  margin-right: 8px;
+  min-width: 100px;
+}
+
+.sheet-rolltemplate-vsd-row span:last-child {
+  grid-column: 3;
+  justify-self: start; /* value left-aligned */
   text-align: left;
-  color: var(--header-text-color);
-  padding: 5px;
+  min-width: 60px;
 }
 
-.sheet-rolltemplate-vsd .sheet-title {
-  font-size:1.1em;
+.sheet-rolltemplate-vsd-row:nth-child(odd) {
+    background-color: lightgrey;
 }
-*/
+
+.sheet-rolltemplate-vsd-row:nth-child(even) {
+    background-color: silver;
+}
 
 .sheet-rolltemplate-default td {
   vertical-align: middle;
@@ -383,12 +423,18 @@ label.sheet-radio_label {
 /*
  * Darkmode Support
  */
+
 body.sheet-darkmode select,
 body.sheet-darkmode textarea,
 body.sheet-darkmode .charsheet,
 body.sheet-darkmode input {
     background-color: black;
     color: white;
+}
+
+/* Ensure spans inherit white */
+.darkmode .sheet-rolltemplate-vsd .sheet-rolltemplate-vsd-row span {
+  color: inherit !important;
 }
 
 body.sheet-darkmode h3,
