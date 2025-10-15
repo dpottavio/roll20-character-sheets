@@ -1091,18 +1091,24 @@ Monster Sheet
       });
   };
 
-  // Extract a full repeating row prefix from an attribute name in an event.
-  // e.g. "repeating_spelllore_-Mabc123_spell_lore_rank" -> "repeating_spelllore_-Mabc123_"
+  /**
+   * Extract a full repeating row prefix from an attribute name in an
+   * event.  e.g. "repeating_spelllore_-Mabc123_spell_lore_rank" ->
+   * "repeating_spelllore_-Mabc123_"
+   */
   const getRowPrefixFromAttr = (attr) => {
       const m = /^((?:repeating|repeating_)[^_]+_[^_]+)_/.exec(attr);
       return m ? `${m[1]}_` : null;
   };
 
-  // Compute a single Spell Lore row (by prefix).
-  // Keeps your flow: set stat_total first, then call sumSkill for that row.
+  /**
+   * Compute a single Spell Lore row (by prefix).  Keeps your flow:
+   * set stat_total first, then call sumSkill for that row.
+   */
   const computeRepeatedSkillRow = (prefix) => {
-      // We need the selected base stat name (e.g., "wit_total"|"bea_total"|"wsd_total"),
-      // plus the row modifiers and the three globals (so we can read whichever was chosen).
+      // We need the selected base stat name (e.g.,
+      // "wit_total"|"bea_total"|"wsd_total"), plus the row modifiers
+      // and the three globals (so we can read whichever was chosen).
       const keys = [
           `${prefix}_stat`,
           `${prefix}_rank`,
