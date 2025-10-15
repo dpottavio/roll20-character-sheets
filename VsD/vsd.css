@@ -156,7 +156,7 @@ input[type=checkbox] {
 
 .sheet-weapon_table {
     display: grid;
-    grid-template-columns: 100px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px 80px;
+    grid-template-columns: 60px 100px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px 80px;
     grid-gap: 1px;
 }
 
@@ -324,11 +324,12 @@ label.sheet-radio_label {
 
 .sheet-rolltemplate-vsd-header {
     background-color: black;
-    color: white;
+    color: lightgrey;
     padding: 2px;
     border-bottom: 1px solid black;
     line-height: 25px;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: bold;
     text-align: center;
 }
 
@@ -348,9 +349,29 @@ label.sheet-radio_label {
     justify-items: center;
     align-items: center;
     padding: 4px 8px;
+    border-bottom: 0px solid black;
+    font-size: 14px;
+    color: black;
+}
+
+.sheet-rolltemplate-vsd-row-red {
+    padding: 4px 8px;
     border-bottom: 1px solid black;
     font-size: 14px;
     color: black;
+    font-weight: bold;
+    text-align: center;
+    background-color: tomato;
+}
+
+.sheet-rolltemplate-vsd-row-green {
+    padding: 4px 8px;
+    border-bottom: 1px solid black;
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    background-color: #32cd32;
 }
 
 /* target the two spans */

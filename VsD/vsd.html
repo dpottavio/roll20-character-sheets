@@ -657,7 +657,7 @@ PC Sheet
           <fieldset class="repeating_spelllore">
             <div class="sheet-spell_lore_table">
               <div class="sheet-table_entry">
-                <button class="sheet-dice-button" type="action" name="act_spell_lore_roll">
+                <button class="sheet-dice-button" type="action" name="act_roll">
                   T
                 </button>
               </div>
@@ -686,6 +686,7 @@ PC Sheet
       <div class="sheet-one_col_box">
         <h2>Weapons</h2>
         <div class="sheet-weapon_table">
+          <span class="sheet-table_header">Roll</span>
           <span class="sheet-table_header_xlarge">Name</span>
           <span class="sheet-table_header">Hands</span>
           <span class="sheet-table_header">Skill</span>
@@ -701,6 +702,11 @@ PC Sheet
         </div>
         <fieldset class="repeating_weapon">
           <div class="sheet-weapon_table">
+            <div class="sheet-table_entry">
+              <button class="sheet-dice-button" type="action" name="act_roll">
+                T
+              </button>
+            </div>
             <input class="sheet-table_entry_large_left" type="text" name="attr_weapon_name" placeholder="name"/>
             <select class="sheet-table_entry" name="attr_weapon_hands">
               <option value="1H">1H</option>
@@ -714,7 +720,7 @@ PC Sheet
               <option value="Ranged">Rng</option>
             </select>
             <input class="sheet-table_entry" type="text" name="attr_weapon_mod" value="0"/>
-            <input class="sheet-table_entry" type="text" name="attr_weapon_clumsy" value="0"/>
+            <input class="sheet-table_entry" type="text" name="attr_weapon_clumsy" placeholder="clumsy"/>
             <select class="sheet-table_entry" name="attr_weapon_length">
               <option value=""></option>
               <option value="Hand">Hand</option>
@@ -728,7 +734,7 @@ PC Sheet
               <option value="Missile">Missile</option>
               <option value="Unarmed">Unarmed</option>
             </select>
-            <input class="sheet-table_entry" type="text" name="attr_weapon_max" placeholder="0"/>
+            <input class="sheet-table_entry" type="text" name="attr_weapon_max" placeholder="max"/>
             <select class="sheet-table_entry" name="attr_weapon_crit">
               <option value="Cut">Cut</option>
               <option value="Grapple">Grapple</option>
@@ -970,27 +976,48 @@ Monster Sheet
       <span>{{roll}}</span>
     </div>
 
+    {{#rollGreater() modifier 0}}
+    <div class="sheet-rolltemplate-vsd-row">
+      <span>Modifier:</span>
+      <span>{{modifier}}</span>
+    </div>
+    {{/rollGreater() modifier 0}}
+
+
     {{#rollBetween() roll 6 95}}
     <div class="sheet-rolltemplate-vsd-row">
       <span>Skill Total:</span>
       <span>{{skill_total}}</span>
     </div>
 
+    {{#rollGreater() max -1}}
     <div class="sheet-rolltemplate-vsd-row">
-      <span>Result:</span>
+      <span>Max:</span>
+      <span>{{max}}</span>
+    </div>
+    {{/rollGreater() max -1}}
+
+    <div class="sheet-rolltemplate-vsd-row">
+      <span><strong>Result:</strong></span>
       <span>{{computed::result}}</span>
     </div>
     {{/rollBetween() roll 6 95}}
 
+    {{#rollTotal() resonance 1}}
+    <div class="sheet-rolltemplate-vsd-row-red-blue">
+      <span>Magical Resonance Roll</span>
+    </div>
+    {{/rollTotal() resonance 1}}
+
     {{#rollGreater() roll 95}}
-    <div class="sheet-rolltemplate-vsd-row">
-      <span>Positive Re-Roll!</span>
+    <div class="sheet-rolltemplate-vsd-row-green">
+      <span>Positive Re-Roll</span>
     </div>
     {{/rollGreater() roll 95}}
 
     {{#rollLess() roll 6 }}
-    <div class="sheet-rolltemplate-vsd-row">
-      <span>Negative Re-Roll!</span>
+    <div class="sheet-rolltemplate-vsd-row-red">
+      <span>Negative Re-Roll</span>
     </div>
     {{/rollLess() roll 6 }}
   </div>
@@ -1152,8 +1179,12 @@ Monster Sheet
    *of the open-ended roll.
    *
    *@param {string} title - Title to be displayed for the roll.
+   *
+   *@param {modifier} int - Added to the final result.
+   *
+   *@param {max} int - If >= 0 is the max possible result.
    */
-  const skillRoll = async (attr_total, title) => {
+  const skillRoll = async (attr_total, title, modifier = 0, max = -1) => {
       getAttrs([attr_total, "character_name"], async (values) => {
           const pos_reroll_thresh = 96;
           const neg_reroll_thresh = 5;
@@ -1166,7 +1197,7 @@ Monster Sheet
 
           do {
               roll_count++;
-              const die_roll = await startRoll(`&{template:vsd} {{name=${name}}} {{roll_count=${roll_count}}} {{title=${title}}} {{roll=[[d100]]}} {{skill_total=${skill_total}}} {{result=[[0]]}}`);
+              const die_roll = await startRoll(`&{template:vsd} {{name=${name}}} {{roll_count=${roll_count}}} {{title=${title}}} {{roll=[[d100]]}} {{skill_total=[[${skill_total}]]}} {{result=[[0]]}} {{modifier=[[${modifier}]]}} {{max=[[${max}]]}}`);
 
               const roll_result = die_roll.results.roll.result;
               if (neg_reroll) {
@@ -1178,7 +1209,10 @@ Monster Sheet
               pos_reroll = (roll_result >= pos_reroll_thresh) ? true : false;
 
               if (!pos_reroll && !neg_reroll) {
-                  total_result += skill_total;
+                  total_result += skill_total + modifier;
+                  if (max >= 0) {
+                      total_result = Math.min(max, total_result);
+                  }
               }
               finishRoll(die_roll.rollId,
                          {
@@ -1520,13 +1554,43 @@ Monster Sheet
       skillRoll("song_total", "Song & Tales");
   });
 
+  on('clicked:tsr_roll', async () => {
+      skillRoll("tsr_total", "Toughness Save Roll");
+  });
+
+  on('clicked:wsr_roll', async () => {
+      skillRoll("wsr_total", "Willpower Save Rolls");
+  });
+
   on("clicked:repeating_specialskill:roll", (event) => {
       const prefix = getRowPrefixFromAttr(event.sourceAttribute);
 
-      getAttrs([`${prefix}special_skill_name`, `${prefix}special_skill_stat_total`], (values) => {
+      getAttrs([`${prefix}special_skill_name`], (values) => {
           const name = values[`${prefix}special_skill_name`];
           skillRoll(`${prefix}special_skill_total`, name);
       });
   });
 
+  on("clicked:repeating_spelllore:roll", (event) => {
+      const prefix = getRowPrefixFromAttr(event.sourceAttribute);
+
+      getAttrs([`${prefix}spell_lore_name`], (values) => {
+          const name = values[`${prefix}spell_lore_name`];
+          skillRoll(`${prefix}spell_lore_total`, name);
+      });
+  });
+
+  on("clicked:repeating_weapon:roll", (event) => {
+      const prefix = getRowPrefixFromAttr(event.sourceAttribute);
+
+      getAttrs([`${prefix}weapon_name`, `${prefix}weapon_skill`, `${prefix}weapon_mod`, `${prefix}weapon_max`], (values) => {
+          const name = values[`${prefix}weapon_name`];
+          const skill = values[`${prefix}weapon_skill`];
+          const mod = xparseInt(values[`${prefix}weapon_mod`]);
+          const max = parseInt(values[`${prefix}weapon_max`]) || -1;
+          const title = `${name} (${skill})`
+
+          skillRoll(`${skill}_total`, title, mod, max);
+      });
+  });
 </script>
