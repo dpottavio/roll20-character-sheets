@@ -2,11 +2,11 @@
 <div class="sheet-two_col">
   <div class="sheet-two_col">
     <input type="radio" id="pc_tab_button" name="attr_sheet_toggle" value="pc_tab" checked/>
-    <label class="sheet-radio_label" for="attr_sheet_toggle">PC Sheet</label>
+    <label class="sheet-radio_label" for="pc_tab_button">PC Sheet</label>
   </div>
   <div class="sheet-two_col">
     <input type="radio" id="monster_tab_button" name="attr_sheet_toggle" value="monster_tab" />
-    <label class="sheet-radio_label" for="attr_sheet_toggle">Monster Sheet</label>
+    <label class="sheet-radio_label" for="monster_tab_button">Monster Sheet</label>
   </div>
 </div>
 <h1>Against the Darkmaster</h1>
@@ -242,6 +242,19 @@ PC Sheet
           <div class="sheet-table_entry">
             -
           </div>
+          <span class="sheet-table_entry_large_left">Blades</span>
+          <span class="sheet-table_entry">BRN</span>
+          <span class="sheet-table_entry" name="attr_brn_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_blades_rank"/>
+          <span class="sheet-table_entry" name="attr_blades_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_blades_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_blades_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_blades_mod"/>
+          <span class="sheet-table_entry" name="attr_blades_total"></span>
+
+          <div class="sheet-table_entry">
+            -
+          </div>
           <span class="sheet-table_entry_large_left">Blunt</span>
           <span class="sheet-table_entry">BRN</span>
           <span class="sheet-table_entry" name="attr_brn_total"></span>
@@ -255,28 +268,15 @@ PC Sheet
           <div class="sheet-table_entry">
             -
           </div>
-          <span class="sheet-table_entry_large_left">Blades</span>
+          <span class="sheet-table_entry_large_left">Brawl</span>
           <span class="sheet-table_entry">BRN</span>
           <span class="sheet-table_entry" name="attr_brn_total"></span>
-          <input class="sheet-table_entry" type="text" name="attr_blade_rank"/>
-          <span class="sheet-table_entry" name="attr_blade_bonus"></span>
-          <input class="sheet-table_entry" type="text" name="attr_blade_voc"/>
-          <input class="sheet-table_entry" type="text" name="attr_blade_kin"/>
-          <input class="sheet-table_entry" type="text" name="attr_blade_mod"/>
-          <span class="sheet-table_entry" name="attr_blade_total"></span>
-
-          <div class="sheet-table_entry">
-            -
-          </div>
-          <span class="sheet-table_entry_large_left">Ranged</span>
-          <span class="sheet-table_entry">SWI</span>
-          <span class="sheet-table_entry" name="attr_swi_total"></span>
-          <input class="sheet-table_entry" type="text" name="attr_ranged_rank"/>
-          <span class="sheet-table_entry" name="attr_ranged_bonus"></span>
-          <input class="sheet-table_entry" type="text" name="attr_ranged_voc"/>
-          <input class="sheet-table_entry" type="text" name="attr_ranged_kin"/>
-          <input class="sheet-table_entry" type="text" name="attr_ranged_mod"/>
-          <span class="sheet-table_entry" name="attr_ranged_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_brawl_rank"/>
+          <span class="sheet-table_entry" name="attr_brawl_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_brawl_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_brawl_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_brawl_mod"/>
+          <span class="sheet-table_entry" name="attr_brawl_total"></span>
 
           <div class="sheet-table_entry">
             -
@@ -294,15 +294,15 @@ PC Sheet
           <div class="sheet-table_entry">
             -
           </div>
-          <span class="sheet-table_entry_large_left">Brawl</span>
-          <span class="sheet-table_entry">BRN</span>
-          <span class="sheet-table_entry" name="attr_brn_total"></span>
-          <input class="sheet-table_entry" type="text" name="attr_brawl_rank"/>
-          <span class="sheet-table_entry" name="attr_brawl_bonus"></span>
-          <input class="sheet-table_entry" type="text" name="attr_brawl_voc"/>
-          <input class="sheet-table_entry" type="text" name="attr_brawl_kin"/>
-          <input class="sheet-table_entry" type="text" name="attr_brawl_mod"/>
-          <span class="sheet-table_entry" name="attr_brawl_total"></span>
+          <span class="sheet-table_entry_large_left">Ranged</span>
+          <span class="sheet-table_entry">SWI</span>
+          <span class="sheet-table_entry" name="attr_swi_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_ranged_rank"/>
+          <span class="sheet-table_entry" name="attr_ranged_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_ranged_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_ranged_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_ranged_mod"/>
+          <span class="sheet-table_entry" name="attr_ranged_total"></span>
         </div>
 
         <h3>Adventuring</h3>
@@ -334,21 +334,6 @@ PC Sheet
           <span class="sheet-table_entry" name="attr_athletics_total"></span>
 
           <div class="sheet-table_entry">
-            <button class="sheet-dice-button" type="action" name="act_ride_roll">
-              T
-            </button>
-          </div>
-          <span class="sheet-table_entry_large_left">Ride</span>
-          <span class="sheet-table_entry">SWI</span>
-          <span class="sheet-table_entry" name="attr_swi_total"></span>
-          <input class="sheet-table_entry" type="text" name="attr_ride_rank"/>
-          <span class="sheet-table_entry" name="attr_ride_bonus"></span>
-          <input class="sheet-table_entry" type="text" name="attr_ride_voc"/>
-          <input class="sheet-table_entry" type="text" name="attr_ride_kin"/>
-          <input class="sheet-table_entry" type="text" name="attr_ride_mod"/>
-          <span class="sheet-table_entry" name="attr_ride_total"></span>
-
-          <div class="sheet-table_entry">
             <button class="sheet-dice-button" type="action" name="act_hunting_roll">
               T
             </button>
@@ -377,6 +362,21 @@ PC Sheet
           <input class="sheet-table_entry" type="text" name="attr_nature_kin"/>
           <input class="sheet-table_entry" type="text" name="attr_nature_mod"/>
           <span class="sheet-table_entry" name="attr_nature_total"></span>
+
+          <div class="sheet-table_entry">
+            <button class="sheet-dice-button" type="action" name="act_ride_roll">
+              T
+            </button>
+          </div>
+          <span class="sheet-table_entry_large_left">Ride</span>
+          <span class="sheet-table_entry">SWI</span>
+          <span class="sheet-table_entry" name="attr_swi_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_ride_rank"/>
+          <span class="sheet-table_entry" name="attr_ride_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_ride_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_ride_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_ride_mod"/>
+          <span class="sheet-table_entry" name="attr_ride_total"></span>
 
           <div class="sheet-table_entry">
             <button class="sheet-dice-button" type="action" name="act_wandering_roll">
@@ -423,19 +423,19 @@ PC Sheet
           <span class="sheet-table_entry" name="attr_acrobatics_total"></span>
 
           <div class="sheet-table_entry">
-            <button class="sheet-dice-button" type="action" name="act_stealth_roll">
+            <button class="sheet-dice-button" type="action" name="act_deceive_roll">
               T
             </button>
           </div>
-          <span class="sheet-table_entry_large_left">Stealth</span>
-          <span class="sheet-table_entry">SWI</span>
-          <span class="sheet-table_entry" name="attr_swi_total"></span>
-          <input class="sheet-table_entry" type="text" name="attr_stealth_rank"/>
-          <span class="sheet-table_entry" name="attr_stealth_bonus"></span>
-          <input class="sheet-table_entry" type="text" name="attr_stealth_voc"/>
-          <input class="sheet-table_entry" type="text" name="attr_stealth_kin"/>
-          <input class="sheet-table_entry" type="text" name="attr_stealth_mod"/>
-          <span class="sheet-table_entry" name="attr_stealth_total"></span>
+          <span class="sheet-table_entry_large_left">Deceive</span>
+          <span class="sheet-table_entry">WIT</span>
+          <span class="sheet-table_entry" name="attr_wit_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_deceive_rank"/>
+          <span class="sheet-table_entry" name="attr_deceive_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_deceive_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_deceive_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_deceive_mod"/>
+          <span class="sheet-table_entry" name="attr_deceive_total"></span>
 
           <div class="sheet-table_entry">
             <button class="sheet-dice-button" type="action" name="act_locks_roll">
@@ -468,19 +468,19 @@ PC Sheet
           <span class="sheet-table_entry" name="attr_perception_total"></span>
 
           <div class="sheet-table_entry">
-            <button class="sheet-dice-button" type="action" name="act_deceive_roll">
+            <button class="sheet-dice-button" type="action" name="act_stealth_roll">
               T
             </button>
           </div>
-          <span class="sheet-table_entry_large_left">Deceive</span>
-          <span class="sheet-table_entry">WIT</span>
-          <span class="sheet-table_entry" name="attr_wit_total"></span>
-          <input class="sheet-table_entry" type="text" name="attr_deceive_rank"/>
-          <span class="sheet-table_entry" name="attr_deceive_bonus"></span>
-          <input class="sheet-table_entry" type="text" name="attr_deceive_voc"/>
-          <input class="sheet-table_entry" type="text" name="attr_deceive_kin"/>
-          <input class="sheet-table_entry" type="text" name="attr_deceive_mod"/>
-          <span class="sheet-table_entry" name="attr_deceive_total"></span>
+          <span class="sheet-table_entry_large_left">Stealth</span>
+          <span class="sheet-table_entry">SWI</span>
+          <span class="sheet-table_entry" name="attr_swi_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_stealth_rank"/>
+          <span class="sheet-table_entry" name="attr_stealth_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_stealth_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_stealth_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_stealth_mod"/>
+          <span class="sheet-table_entry" name="attr_stealth_total"></span>
         </div>
         <h3>Lore</h3>
         <div class="sheet-skill_table">
@@ -713,11 +713,11 @@ PC Sheet
               <option value="2H">2H</option>
             </select>
             <select class="sheet-table_entry" name="attr_weapon_skill">
-              <option value="Blade">Blade</option>
-              <option value="Blunt">Blunt</option>
-              <option value="Brawl">Brawl</option>
-              <option value="Polearms">Plrms</option>
-              <option value="Ranged">Rng</option>
+              <option value="blades">Blade</option>
+              <option value="blunt">Blunt</option>
+              <option value="brawl">Brawl</option>
+              <option value="polearms">Plrms</option>
+              <option value="ranged">Rng</option>
             </select>
             <input class="sheet-table_entry" type="text" name="attr_weapon_mod" value="0"/>
             <input class="sheet-table_entry" type="text" name="attr_weapon_clumsy" placeholder="clumsy"/>
@@ -1120,6 +1120,9 @@ Monster Sheet
       // set the stat total field first
       getAttrs([`${prefix}_stat`], (values) => {
           const stat = values[`${prefix}_stat`];
+          if (!stat) {
+              return;
+          }
           getAttrs([stat], (stat_values) => {
               const stat_total = xparseInt(stat_values[stat]);
               setAttrs({
@@ -1229,7 +1232,7 @@ Monster Sheet
   };
 
   // BRN stat update callback.
-  const brn_attrs = ["brn_base", "brn_rank", "brn_kin", "brn_mod"];
+  const brn_attrs = ["brn_base", "brn_kin", "brn_mod"];
   on(toEventStr(brn_attrs), () => {
       sumAttributes(brn_attrs, "brn_total");
   });
@@ -1279,9 +1282,9 @@ Monster Sheet
       sumSkill(blunt_attrs, "blunt_rank", "blunt_bonus", "blunt_total");
   });
 
-  const blades_attrs = ["blade_rank", "blade_voc", "blade_kin", "blade_mod", "brn_total"];
+  const blades_attrs = ["blades_rank", "blades_voc", "blades_kin", "blades_mod", "brn_total"];
   on(toEventStr(blades_attrs), () => {
-      sumSkill(blades_attrs, "blade_rank", "blade_bonus", "blade_total");
+      sumSkill(blades_attrs, "blades_rank", "blades_bonus", "blades_total");
   });
 
   const ranged_attrs = ["ranged_rank", "ranged_voc", "ranged_kin", "ranged_mod", "swi_total"];
@@ -1479,7 +1482,7 @@ Monster Sheet
       "wit_total",
       "bea_total",
       "wsd_total",
-      "wsi_total",
+      "swi_total",
   ];
   on(toEventStr(special_skill_deps_attrs), (event) => {
       getSectionIDs("specialskill", (ids) => {
