@@ -973,7 +973,7 @@ Monster Sheet
 
     <div class="sheet-rolltemplate-vsd-row">
       <span>Roll:</span>
-      <span>{{roll}}</span>
+      <span>{{computed::roll}}</span>
     </div>
 
     {{#rollGreater() modifier 0}}
@@ -1181,6 +1181,20 @@ Monster Sheet
     });
   };
 
+  // "Enum" for reroll state
+  const RerollState = Object.freeze({
+      NONE: 0,
+      POSITIVE: 1,
+      NEGATIVE: -1,
+  });
+
+
+  // Derive state from a roll + thresholds
+  const getRerollState = (n, posThresh, negThresh) =>
+        (n >= posThresh) ? RerollState.POSITIVE
+        : (n <= negThresh) ? RerollState.NEGATIVE
+        : RerollState.NONE;
+
   /**
    * Open-ended roll adding the result to `attr_total`.
    *
@@ -1199,25 +1213,26 @@ Monster Sheet
           const neg_reroll_thresh = 5;
           const skill_total = xparseInt(values[attr_total]);
           const name = values["character_name"];
-          let pos_reroll = false;
-          let neg_reroll = false;
+          let reroll_state = RerollState.NONE;
           let total_result = 0;
           let roll_count = 0;
 
           do {
               roll_count++;
-              const die_roll = await startRoll(`&{template:vsd} {{name=${name}}} {{roll_count=${roll_count}}} {{title=${title}}} {{roll=[[d100]]}} {{skill_total=[[${skill_total}]]}} {{result=[[0]]}} {{modifier=[[${modifier}]]}} {{max=[[${max}]]}}`);
+              const die_roll = await startRoll(`&{template:vsd} {{name=${name}}} {{roll_count=${roll_count}}} {{title=${title}}} {{roll=[[1d100]]}} {{skill_total=[[${skill_total}]]}} {{result=[[0]]}} {{modifier=[[${modifier}]]}} {{max=[[${max}]]}}`);
 
               const roll_result = die_roll.results.roll.result;
-              if (neg_reroll) {
-                  total_result -= roll_result;
-              } else {
-                  total_result += roll_result;
+              let sign_roll_result = roll_result;
+              if (reroll_state === RerollState.NEGATIVE) {
+                  sign_roll_result = -sign_roll_result;
               }
-              neg_reroll = (roll_result <= neg_reroll_thresh) ? true : false;
-              pos_reroll = (roll_result >= pos_reroll_thresh) ? true : false;
 
-              if (!pos_reroll && !neg_reroll) {
+              // Determine state for *next* iteration based on this raw roll.
+              reroll_state = getRerollState(roll_result, pos_reroll_thresh, neg_reroll_thresh);
+
+              total_result += sign_roll_result;
+
+              if (reroll_state === RerollState.NONE) {
                   total_result += skill_total + modifier;
                   if (max >= 0) {
                       total_result = Math.min(max, total_result);
@@ -1226,8 +1241,9 @@ Monster Sheet
               finishRoll(die_roll.rollId,
                          {
                              result: total_result,
+                             roll: sign_roll_result,
                          });
-          } while (pos_reroll || neg_reroll);
+          } while (reroll_state !== RerollState.NONE);
       });
   };
 
