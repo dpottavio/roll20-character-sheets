@@ -258,6 +258,16 @@ input[type=checkbox] {
     text-align: left;
 }
 
+.sheet-digit_input_small  {
+    position: relative;
+    top: -4px;
+    width: 30px !important;
+    max-width: 30px;
+    max-height: 25px;
+    font-family: 'PT Serif';
+    text-align: left;
+}
+
 input.sheet-txt_input {
     font-size:14px;
     max-width: 189px;

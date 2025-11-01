@@ -685,8 +685,14 @@ PC Sheet
     <div class="sheet-one_col">
       <div class="sheet-one_col_box">
         <h2>Weapons</h2>
+        <div class="sheet-one_col">
+          <div class="sheet-two_col">
+            <label class="sheet-txt_label">Target's DEF:</label>
+            <input class="sheet-digit_input_small" type="text" name="attr_target_def"/>
+          </div>
+        </div>
         <div class="sheet-weapon_table">
-          <span class="sheet-table_header">Roll</span>
+          <span class="sheet-table_header">Attack</span>
           <span class="sheet-table_header_xlarge">Name</span>
           <span class="sheet-table_header">Hands</span>
           <span class="sheet-table_header">Skill</span>
@@ -983,7 +989,6 @@ Monster Sheet
     </div>
     {{/rollGreater() modifier 0}}
 
-
     {{#rollBetween() roll 6 95}}
     <div class="sheet-rolltemplate-vsd-row">
       <span>Skill Total:</span>
@@ -996,6 +1001,13 @@ Monster Sheet
       <span>{{max}}</span>
     </div>
     {{/rollGreater() max -1}}
+
+    {{#rollGreater() def -1}}
+    <div class="sheet-rolltemplate-vsd-row">
+      <span>Target DEF:</span>
+      <span>{{def}}</span>
+    </div>
+    {{/rollGreater() def -1}}
 
     <div class="sheet-rolltemplate-vsd-row">
       <span><strong>Result:</strong></span>
@@ -1235,8 +1247,11 @@ Monster Sheet
    *@param {modifier} int - Added to the final result.
    *
    *@param {max} int - If >= 0 is the max possible result.
+   *
+   *@param {def} int - Represents a targets DEF for an attack roll. If
+   *>= 0 it is subtracted from the result.
    */
-  const skillRoll = async (attr_total, title, modifier = 0, max = -1) => {
+  const skillRoll = async (attr_total, title, modifier = 0, max = -1, def = -1) => {
       getAttrs([attr_total, "character_name"], async (values) => {
           const pos_reroll_thresh = 96;
           const neg_reroll_thresh = 5;
@@ -1248,7 +1263,7 @@ Monster Sheet
 
           do {
               roll_count++;
-              const die_roll = await startRoll(`&{template:vsd} {{name=${name}}} {{roll_count=${roll_count}}} {{title=${title}}} {{roll=[[1d100]]}} {{skill_total=[[${skill_total}]]}} {{result=[[0]]}} {{modifier=[[${modifier}]]}} {{max=[[${max}]]}} {{reroll_state=[[${reroll_state}]]}}`);
+              const die_roll = await startRoll(`&{template:vsd} {{name=${name}}} {{roll_count=${roll_count}}} {{title=${title}}} {{roll=[[1d100]]}} {{skill_total=[[${skill_total}]]}} {{result=[[0]]}} {{modifier=[[${modifier}]]}} {{max=[[${max}]]}} {{reroll_state=[[${reroll_state}]]}} {{def=[[${def}]]}}`);
 
               const roll_result = die_roll.results.roll.result;
               let sign_roll_result = roll_result;
@@ -1265,6 +1280,9 @@ Monster Sheet
                   total_result += skill_total + modifier;
                   if (max >= 0) {
                       total_result = Math.min(max, total_result);
+                  }
+                  if (def > 0) {
+                      total_result -= def;
                   }
               }
               finishRoll(die_roll.rollId,
@@ -1637,14 +1655,15 @@ Monster Sheet
   on("clicked:repeating_weapon:roll", (event) => {
       const prefix = getRowPrefixFromAttr(event.sourceAttribute);
 
-      getAttrs([`${prefix}weapon_name`, `${prefix}weapon_skill`, `${prefix}weapon_mod`, `${prefix}weapon_max`], (values) => {
+      getAttrs([`${prefix}weapon_name`, `${prefix}weapon_skill`, `${prefix}weapon_mod`, `${prefix}weapon_max`, "target_def"], (values) => {
           const name = values[`${prefix}weapon_name`];
           const skill = values[`${prefix}weapon_skill`];
           const mod = xparseInt(values[`${prefix}weapon_mod`]);
           const max = parseInt(values[`${prefix}weapon_max`]) || -1;
           const title = `${name} (${skill})`
+          const def = parseInt(values["target_def"]) || -1;
 
-          skillRoll(`${skill}_total`, title, mod, max);
+          skillRoll(`${skill}_total`, title, mod, max, def);
       });
   });
 </script>
