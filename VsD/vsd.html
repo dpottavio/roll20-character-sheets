@@ -643,7 +643,7 @@ PC Sheet
         <div class="sheet-one_col">
           <h2>Spell Lore</h2>
           <div class="sheet-spell_lore_table">
-            <span class="sheet-table_header">Roll</span>
+            <span class="sheet-table_header">Cast</span>
             <span class="sheet-table_header_large">Name</span>
             <span class="sheet-table_header">Stat</span>
             <span class="sheet-table_header">Stat Total</span>
@@ -1658,9 +1658,11 @@ Monster Sheet
       getAttrs([`${prefix}weapon_name`, `${prefix}weapon_skill`, `${prefix}weapon_mod`, `${prefix}weapon_max`, "target_def"], (values) => {
           const name = values[`${prefix}weapon_name`];
           const skill = values[`${prefix}weapon_skill`];
+          // capitalize the skill name
+          const skill_title = skill.charAt(0).toUpperCase() + skill.slice(1);
           const mod = xparseInt(values[`${prefix}weapon_mod`]);
           const max = parseInt(values[`${prefix}weapon_max`]) || -1;
-          const title = `${name} (${skill})`
+          const title = `${name} (${skill_title})`
           const def = parseInt(values["target_def"]) || -1;
 
           skillRoll(`${skill}_total`, title, mod, max, def);
