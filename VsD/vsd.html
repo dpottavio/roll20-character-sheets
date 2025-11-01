@@ -1003,23 +1003,39 @@ Monster Sheet
     </div>
     {{/rollBetween() roll 6 95}}
 
-    {{#rollTotal() resonance 1}}
-    <div class="sheet-rolltemplate-vsd-row-red-blue">
-      <span>Magical Resonance Roll</span>
-    </div>
-    {{/rollTotal() resonance 1}}
-
     {{#rollGreater() roll 95}}
+    {{#rollTotal() reroll_state 0}}
     <div class="sheet-rolltemplate-vsd-row-green">
       <span>Positive Re-Roll</span>
     </div>
+    {{/rollTotal() reroll_state 0}}
+    {{/rollGreater() roll 95}}
+
+    {{#rollGreater() roll 95}}
+    {{#rollTotal() reroll_state 1}}
+    <div class="sheet-rolltemplate-vsd-row-green">
+      <span>Positive Re-Roll</span>
+    </div>
+    {{/rollTotal() reroll_state 1}}
     {{/rollGreater() roll 95}}
 
     {{#rollLess() roll 6 }}
+    {{#rollTotal() reroll_state 0}}
     <div class="sheet-rolltemplate-vsd-row-red">
       <span>Negative Re-Roll</span>
     </div>
+    {{/rollTotal() reroll_state 0}}
     {{/rollLess() roll 6 }}
+
+    {{#rollGreater() roll 95}}
+    {{#rollTotal() reroll_state -1}}
+    <div class="sheet-rolltemplate-vsd-row-red">
+      <span>Negative Re-Roll</span>
+    </div>
+    {{/rollTotal() reroll_state -1}}
+    {{/rollGreater() roll 95}}
+
+
   </div>
 </rolltemplate>
 
@@ -1188,12 +1204,25 @@ Monster Sheet
       NEGATIVE: -1,
   });
 
-
-  // Derive state from a roll + thresholds
-  const getRerollState = (n, posThresh, negThresh) =>
-        (n >= posThresh) ? RerollState.POSITIVE
-        : (n <= negThresh) ? RerollState.NEGATIVE
-        : RerollState.NONE;
+  /**
+   * Determine reroll direction based on thresholds and previous state.
+   * @param {number} n - Current roll result.
+   * @param {number} posThresh - Positive reroll threshold (e.g. 96+).
+   * @param {number} negThresh - Negative reroll threshold (e.g. 5-).
+   * @param {number} currentState - Previous reroll state.
+   * @returns {number} One of RerollState.{NONE, POSITIVE, NEGATIVE}
+   */
+  const getRerollState = (n, posThresh, negThresh, currentState) => {
+      if (n >= posThresh && (currentState == RerollState.NONE || currentState == RerollState.POSITIVE)) {
+          return RerollState.POSITIVE;
+      } else if (n >= posThresh && currentState == RerollState.NEGATIVE) {
+          return RerollState.NEGATIVE;
+      } else if (n <= negThresh && currentState == RerollState.NONE) {
+          return RerollState.NEGATIVE;
+      } else {
+          return RerollState.NONE;
+      }
+  }
 
   /**
    * Open-ended roll adding the result to `attr_total`.
@@ -1219,7 +1248,7 @@ Monster Sheet
 
           do {
               roll_count++;
-              const die_roll = await startRoll(`&{template:vsd} {{name=${name}}} {{roll_count=${roll_count}}} {{title=${title}}} {{roll=[[1d100]]}} {{skill_total=[[${skill_total}]]}} {{result=[[0]]}} {{modifier=[[${modifier}]]}} {{max=[[${max}]]}}`);
+              const die_roll = await startRoll(`&{template:vsd} {{name=${name}}} {{roll_count=${roll_count}}} {{title=${title}}} {{roll=[[1d100]]}} {{skill_total=[[${skill_total}]]}} {{result=[[0]]}} {{modifier=[[${modifier}]]}} {{max=[[${max}]]}} {{reroll_state=[[${reroll_state}]]}}`);
 
               const roll_result = die_roll.results.roll.result;
               let sign_roll_result = roll_result;
@@ -1228,7 +1257,7 @@ Monster Sheet
               }
 
               // Determine state for *next* iteration based on this raw roll.
-              reroll_state = getRerollState(roll_result, pos_reroll_thresh, neg_reroll_thresh);
+              reroll_state = getRerollState(roll_result, pos_reroll_thresh, neg_reroll_thresh, reroll_state);
 
               total_result += sign_roll_result;
 
