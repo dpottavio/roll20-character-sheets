@@ -973,7 +973,7 @@ Monster Sheet
     </div>
 
     <div class="sheet-rolltemplate-vsd-row">
-      <span>Roll Count:</span>
+      <span>Roll Number:</span>
       <span>{{roll_count}}</span>
     </div>
 
@@ -984,20 +984,20 @@ Monster Sheet
 
     {{#rollGreater() modifier 0}}
     <div class="sheet-rolltemplate-vsd-row">
-      <span>Modifier:</span>
+      <span>Weapon Modifier:</span>
       <span>{{modifier}}</span>
     </div>
     {{/rollGreater() modifier 0}}
 
     {{#rollBetween() roll 6 95}}
     <div class="sheet-rolltemplate-vsd-row">
-      <span>Skill Total:</span>
+      <span>Skill Modifier:</span>
       <span>{{skill_total}}</span>
     </div>
 
     {{#rollGreater() max -1}}
     <div class="sheet-rolltemplate-vsd-row">
-      <span>Max:</span>
+      <span>Max Result:</span>
       <span>{{max}}</span>
     </div>
     {{/rollGreater() max -1}}
