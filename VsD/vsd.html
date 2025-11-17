@@ -891,10 +891,12 @@ PC Sheet
       </div>
     </div>
 
-    <div class="sheet-one_box">
-      <h2>Notes</h2>
-      <div class="sheet-one_col">
-        <textarea class="sheet-textarea" name="attr_notes"></textarea>
+    <div class="sheet-one_col_fr">
+      <div class="sheet-one_col_box_fr">
+        <h2>Notes</h2>
+        <div class="sheet-notes">
+          <textarea class="sheet-textarea" name="attr_notes"></textarea>
+        </div>
       </div>
     </div>
   </div>
@@ -941,24 +943,118 @@ Monster Sheet
         <textarea class="sheet-monster_sa_area" name="attr_monster_notes"></textarea>
       </div>
     </div>
-    <div class="sheet-one_col_box">
-      <h2>Attack</h2>
-      <div class="sheet-monster_attack_table">
-        <span class="sheet-table_header">Roll</span>
-        <span class="sheet-table_header_large">Type</span>
-        <span class="sheet-table_header">Modifier</span>
-      </div>
-      <fieldset class="repeating_monsterAttack">
-        <div class="sheet-monster_attack_table">
-          <div class="sheet-table_entry">
-            <button class="sheet-dice-button" type="action" name="act_monster_attack_roll">
-              T
-            </button>
-          </div>
-          <input class="sheet-table_entry_large" type="text" name="attr_monster_type" placeholder="type"/>
-          <input class="sheet-table_entry" type="text" name="attr_monster_attack_mod" value="0"/>
+    <div class="sheet-one_col">
+      <div class="sheet-one_col_box">
+        <h2>Skills</h2>
+        <div class="sheet-skill_table">
+          <span class="sheet-table_header">Roll</span>
+          <span class="sheet-table_header_large">Skill</span>
+          <span class="sheet-table_header">Stat</span>
+          <span class="sheet-table_header">Stat Total</span>
+          <span class="sheet-table_header">Rank</span>
+          <span class="sheet-table_header">Bonus</span>
+          <span class="sheet-table_header">Vocation</span>
+          <span class="sheet-table_header">Kin</span>
+          <span class="sheet-table_header">Modifier</span>
+          <span class="sheet-table_header">Total</span>
+
+          <span class="sheet-table_entry">-</span>
+          <span class="sheet-table_entry_large_left">Armor</span>
+          <span class="sheet-table_entry">-</span>
+          <span class="sheet-table_entry" name="">-</span>
+          <input class="sheet-table_entry" type="text" name="attr_armor_sk_rank"/>
+          <span class="sheet-table_entry" name="attr_armor_sk_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_armor_sk_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_armor_sk_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_armor_sk_mod"/>
+          <span class="sheet-table_entry" name="attr_armor_sk_total"></span>
+
+          <span class="sheet-table_entry">-</span>
+          <span class="sheet-table_entry_large_left">Body</span>
+          <span class="sheet-table_entry">FOR</span>
+          <span class="sheet-table_entry" name="attr_for_total"></span>
+          <input class="sheet-table_entry" type="text" name="attr_body_rank"/>
+          <span class="sheet-table_entry" name="attr_body_bonus"></span>
+          <input class="sheet-table_entry" type="text" name="attr_body_voc"/>
+          <input class="sheet-table_entry" type="text" name="attr_body_kin"/>
+          <input class="sheet-table_entry" type="text" name="attr_body_mod"/>
+          <span class="sheet-table_entry" name="attr_body_total"></span>
         </div>
-      </fieldset>
+      </div>
+    </div>
+    <div class="sheet-one_col">
+      <div class="sheet-one_col_box">
+        <h2>Weapons</h2>
+        <div class="sheet-one_col">
+          <div class="sheet-two_col">
+            <label class="sheet-txt_label">Target's DEF:</label>
+            <input class="sheet-digit_input_small" type="text" name="attr_target_def"/>
+          </div>
+        </div>
+        <div class="sheet-weapon_table">
+          <span class="sheet-table_header">Attack</span>
+          <span class="sheet-table_header_xlarge">Name</span>
+          <span class="sheet-table_header">Hands</span>
+          <span class="sheet-table_header">Skill Total</span>
+          <span class="sheet-table_header">Modifier</span>
+          <span class="sheet-table_header">Clumsy</span>
+          <span class="sheet-table_header">Length</span>
+          <span class="sheet-table_header">Attack</span>
+          <span class="sheet-table_header">Max</span>
+          <span class="sheet-table_header">Crit</span>
+          <span class="sheet-table_header">Alt Crit</span>
+          <span class="sheet-table_header">Range</span>
+          <span class="sheet-table_header">Qualities</span>
+        </div>
+        <fieldset class="repeating_monsterweapon">
+          <div class="sheet-weapon_table">
+            <div class="sheet-table_entry">
+              <button class="sheet-dice-button" type="action" name="act_roll">
+                T
+              </button>
+            </div>
+            <input class="sheet-table_entry_large_left" type="text" name="attr_weapon_name" placeholder="name"/>
+            <select class="sheet-table_entry" name="attr_weapon_hands">
+              <option value="1H">1H</option>
+              <option value="2H">2H</option>
+            </select>
+            <input class="sheet-table_entry" type="text" name="attr_weapon_skill_total" value="0"/>
+            <input class="sheet-table_entry" type="text" name="attr_weapon_mod" value="0"/>
+            <input class="sheet-table_entry" type="text" name="attr_weapon_clumsy" placeholder="clumsy"/>
+            <select class="sheet-table_entry" name="attr_weapon_length">
+              <option value=""></option>
+              <option value="Hand">Hand</option>
+              <option value="Long">Long</option>
+              <option value="Longest">Longest</option>
+              <option value="Short">Short</option>
+            </select>
+            <select class="sheet-table_entry" name="attr_weapon_attack">
+              <option value="Beast">Beast</option>
+              <option value="Blunt">Blunt</option>
+              <option value="Edged">Edged</option>
+              <option value="Missile">Missile</option>
+              <option value="Unarmed">Unarmed</option>
+            </select>
+            <input class="sheet-table_entry" type="text" name="attr_weapon_max" placeholder="max"/>
+            <select class="sheet-table_entry" name="attr_weapon_crit">
+              <option value="Beast">Beast</option>
+              <option value="Cut">Cut</option>
+              <option value="Grapple">Grapple</option>
+              <option value="Impact">Impact</option>
+              <option value="Pierce">Pierce</option>
+            </select>
+            <select class="sheet-table_entry" name="attr_weapon_alt_crit">
+              <option value=""></option>
+              <option value="Cut">Cut</option>
+              <option value="Grapple">Grapple</option>
+              <option value="Impact">Impact</option>
+              <option value="Pierce">Pierce</option>
+            </select>
+            <input class="sheet-table_entry" type="text" name="attr_weapon_range" placeholder="range"/>
+            <input class="sheet-table_entry" type="text" name="attr_weapon_qualities" placeholder=""/>
+          </div>
+        </fieldset>
+      </div>
     </div>
   </div>
 </div>
@@ -1052,8 +1148,24 @@ Monster Sheet
 </rolltemplate>
 
 <script type="text/worker">
-  const xparseInt = (val) => parseInt(val) || 0;
-  const xparseFloat = (val) => parseFloat(val) || 0.0;
+  /**
+   * Parse val and return the integer value.
+   * If the integer value is NaN, return defaultVal.
+   */
+  const xparseInt = (val, defaultVal = 0) => {
+      const n = parseInt(val, 10);
+      return Number.isNaN(n) ? defaultVal : n;
+  };
+
+  /**
+   * Parse val and return the float value.
+   * If the float value is NaN, return defaultVal.
+   */
+  const xparseFloat = (val, defaultVal = 0.0) => {
+      const n = parseFloat(val);
+      return Number.isNaN(n) ? defaultVal : n;
+  };
+
   const toEventStr = (arr) => arr.map(name => `change:${name}`).join(" ");
 
   /**
@@ -1137,14 +1249,6 @@ Monster Sheet
       // We need the selected base stat name (e.g.,
       // "wit_total"|"bea_total"|"wsd_total"), plus the row modifiers
       // and the three globals (so we can read whichever was chosen).
-      const keys = [
-          `${prefix}_stat`,
-          `${prefix}_rank`,
-          `${prefix}_voc`,
-          `${prefix}_kin`,
-          `${prefix}_mod`,
-      ];
-
       // set the stat total field first
       getAttrs([`${prefix}_stat`], (values) => {
           const stat = values[`${prefix}_stat`];
@@ -1237,12 +1341,14 @@ Monster Sheet
   }
 
   /**
-   * Open-ended roll adding the result to `attr_total`.
+   * Open-ended skill or attack roll.
    *
-   *@param {string} attr_total - Numeric attribute to add the result
+   *@param {string} skillTotal - Numeric attribute to add the result
    *of the open-ended roll.
    *
    *@param {string} title - Title to be displayed for the roll.
+   *
+   *@param {string} name - The PC/NPC/Monster name to be displayed.
    *
    *@param {modifier} int - Added to the final result.
    *
@@ -1251,48 +1357,101 @@ Monster Sheet
    *@param {def} int - Represents a targets DEF for an attack roll. If
    *>= 0 it is subtracted from the result.
    */
-  const skillRoll = async (attr_total, title, modifier = 0, max = -1, def = -1) => {
-      getAttrs([attr_total, "character_name"], async (values) => {
-          const pos_reroll_thresh = 96;
-          const neg_reroll_thresh = 5;
-          const skill_total = xparseInt(values[attr_total]);
+  const skillRoll = async (skillTotal, title, name = "", modifier = 0, max = -1, def = -1) => {
+      const posRerollThresh = 96;
+      const negRerollThresh = 5;
+      let rerollState = RerollState.NONE;
+      let totalResult = 0;
+      let rollCount = 0;
+
+      do {
+          rollCount++;
+          const dieRoll = await startRoll(`&{template:vsd} {{name=${name}}} {{roll_count=${rollCount}}} {{title=${title}}} {{roll=[[1d100]]}} {{skill_total=[[${skillTotal}]]}} {{result=[[0]]}} {{modifier=[[${modifier}]]}} {{max=[[${max}]]}} {{reroll_state=[[${rerollState}]]}} {{def=[[${def}]]}}`);
+
+          const rollResult = dieRoll.results.roll.result;
+          let signRollResult = rollResult;
+          if (rerollState === RerollState.NEGATIVE) {
+              signRollResult = -signRollResult;
+          }
+
+          // Determine state for *next* iteration based on this raw roll.
+          rerollState = getRerollState(rollResult, posRerollThresh, negRerollThresh, rerollState);
+
+          totalResult += signRollResult;
+
+          if (rerollState === RerollState.NONE) {
+              totalResult += skillTotal + modifier;
+              if (max >= 0) {
+                  totalResult = Math.min(max, totalResult);
+              }
+              if (def > 0) {
+                  totalResult -= def;
+              }
+          }
+          finishRoll(dieRoll.rollId,
+                     {
+                         result: totalResult,
+                         roll: signRollResult,
+                     });
+      } while (rerollState !== RerollState.NONE);
+  };
+
+  const skillRollUsingAttr = (skillAttr, title, modifier = 0, max = -1, def = -1) => {
+      getAttrs(["character_name", skillAttr], (values) => {
+          console.log("foo");
           const name = values["character_name"];
-          let reroll_state = RerollState.NONE;
-          let total_result = 0;
-          let roll_count = 0;
-
-          do {
-              roll_count++;
-              const die_roll = await startRoll(`&{template:vsd} {{name=${name}}} {{roll_count=${roll_count}}} {{title=${title}}} {{roll=[[1d100]]}} {{skill_total=[[${skill_total}]]}} {{result=[[0]]}} {{modifier=[[${modifier}]]}} {{max=[[${max}]]}} {{reroll_state=[[${reroll_state}]]}} {{def=[[${def}]]}}`);
-
-              const roll_result = die_roll.results.roll.result;
-              let sign_roll_result = roll_result;
-              if (reroll_state === RerollState.NEGATIVE) {
-                  sign_roll_result = -sign_roll_result;
-              }
-
-              // Determine state for *next* iteration based on this raw roll.
-              reroll_state = getRerollState(roll_result, pos_reroll_thresh, neg_reroll_thresh, reroll_state);
-
-              total_result += sign_roll_result;
-
-              if (reroll_state === RerollState.NONE) {
-                  total_result += skill_total + modifier;
-                  if (max >= 0) {
-                      total_result = Math.min(max, total_result);
-                  }
-                  if (def > 0) {
-                      total_result -= def;
-                  }
-              }
-              finishRoll(die_roll.rollId,
-                         {
-                             result: total_result,
-                             roll: sign_roll_result,
-                         });
-          } while (reroll_state !== RerollState.NONE);
+          const skillTotal = xparseInt(values[skillAttr]);
+          skillRoll(skillTotal, title, name, modifier, max, def);
       });
   };
+
+  const rollWeaponAttack = async (prefix) => {
+      getAttrs([
+          `${prefix}weapon_name`,
+          `${prefix}weapon_skill`,
+          `${prefix}weapon_mod`,
+          `${prefix}weapon_max`,
+          `character_name`,
+          "target_def"
+      ], (values) => {
+          const name = values["character_name"];
+          const weaponName = values[`${prefix}weapon_name`];
+          const skill = values[`${prefix}weapon_skill`];
+          // capitalize the skill name
+          const skill_title = skill.charAt(0).toUpperCase() + skill.slice(1);
+          const mod = xparseInt(values[`${prefix}weapon_mod`]);
+          const max = xparseInt(values[`${prefix}weapon_max`], -1);
+          const title = `${weaponName} (${skill_title})`;
+          const def = xparseInt(values["target_def"], -1);
+          getAttrs([`${skill}_total`], (values) => {
+              const skillTotal = xparseInt(values[`${skill}_total`]);
+              skillRoll(skillTotal, title, name, mod, max, def);
+          });
+      });
+  }
+
+  const rollMonsterAttack = async (prefix) => {
+      getAttrs([
+          `${prefix}weapon_name`,
+          `${prefix}weapon_skill_total`,
+          `${prefix}weapon_mod`,
+          `${prefix}weapon_max`,
+          `monster_alias`,
+          `character_name`,
+          "target_def"
+      ], (values) => {
+          const title = values[`${prefix}weapon_name`];
+          let name = values["monster_alias"];
+          if (name == "") {
+              name = values["character_name"];
+          }
+          const skillTotal = xparseInt(values[`${prefix}weapon_skill_total`]);
+          const mod = xparseInt(values[`${prefix}weapon_mod`]);
+          const max = xparseInt(values[`${prefix}weapon_max`], -1);
+          const def = xparseInt(values["target_def"], -1);
+          skillRoll(skillTotal, title, name, mod, max, def);
+      });
+  }
 
   // BRN stat update callback.
   const brn_attrs = ["brn_base", "brn_kin", "brn_mod"];
@@ -1330,114 +1489,38 @@ Monster Sheet
       sumAttributes(bea_attrs, "bea_total");
   });
 
-  const armor_attrs = ["armor_sk_rank", "armor_sk_voc", "armor_sk_kin", "armor_sk_mod"];
-  on(toEventStr(armor_attrs), () => {
-      sumSkill(armor_attrs, "armor_sk_rank", "armor_sk_bonus", "armor_sk_total");
-  });
+  const skills = [
+      { key: "armor_sk",   stat: null },
+      { key: "body",       stat: "for_total" },
+      { key: "blunt",      stat: "brn_total" },
+      { key: "blades",     stat: "brn_total" },
+      { key: "ranged",     stat: "swi_total" },
+      { key: "polearms",   stat: "brn_total" },
+      { key: "brawl",      stat: "brn_total" },
+      { key: "athletics",  stat: "brn_total" },
+      { key: "ride",       stat: "swi_total" },
+      { key: "hunting",    stat: "wit_total" },
+      { key: "nature",     stat: "wsd_total" },
+      { key: "wandering",  stat: "wsd_total" },
+      { key: "acrobatics", stat: "swi_total" },
+      { key: "stealth",    stat: "swi_total" },
+      { key: "locks",      stat: "wit_total" },
+      { key: "perception", stat: "wsd_total" },
+      { key: "deceive",    stat: "wit_total" },
+      { key: "arcana",     stat: "wit_total" },
+      { key: "charisma",   stat: "bea_total" },
+      { key: "cultures",   stat: "wit_total" },
+      { key: "healer",     stat: "wsd_total" },
+      { key: "song",       stat: "bea_total" },
+  ];
 
-  const body_attrs = ["body_rank", "body_voc", "body_kin", "body_mod", "for_total"];
-  on(toEventStr(body_attrs), () => {
-      sumSkill(body_attrs, "body_rank", "body_bonus", "body_total");
-  });
+  skills.forEach(({ key, stat }) => {
+      const attrs = [`${key}_rank`, `${key}_voc`, `${key}_kin`, `${key}_mod`];
+      if (stat) attrs.push(stat);
 
-  const blunt_attrs = ["blunt_rank", "blunt_voc", "blunt_kin", "blunt_mod", "brn_total"];
-  on(toEventStr(blunt_attrs), () => {
-      sumSkill(blunt_attrs, "blunt_rank", "blunt_bonus", "blunt_total");
-  });
-
-  const blades_attrs = ["blades_rank", "blades_voc", "blades_kin", "blades_mod", "brn_total"];
-  on(toEventStr(blades_attrs), () => {
-      sumSkill(blades_attrs, "blades_rank", "blades_bonus", "blades_total");
-  });
-
-  const ranged_attrs = ["ranged_rank", "ranged_voc", "ranged_kin", "ranged_mod", "swi_total"];
-  on(toEventStr(ranged_attrs), () => {
-      sumSkill(ranged_attrs, "ranged_rank", "ranged_bonus", "ranged_total");
-  });
-
-  const polearms_attrs = ["polearms_rank", "polearms_voc", "polearms_kin", "polearms_mod", "brn_total"];
-  on(toEventStr(polearms_attrs), () => {
-      sumSkill(polearms_attrs, "polearms_rank", "polearms_bonus", "polearms_total");
-  });
-
-  const brawl_attrs = ["brawl_rank", "brawl_voc", "brawl_kin", "brawl_mod", "brn_total"];
-  on(toEventStr(brawl_attrs), () => {
-      sumSkill(brawl_attrs, "brawl_rank", "brawl_bonus", "brawl_total");
-  });
-
-  const athletics_attrs = ["athletics_rank", "athletics_voc", "athletics_kin", "athletics_mod", "brn_total"];
-  on(toEventStr(athletics_attrs), () => {
-      sumSkill(athletics_attrs, "athletics_rank", "athletics_bonus", "athletics_total");
-  });
-
-  const ride_attrs = ["ride_rank", "ride_voc", "ride_kin", "ride_mod", "swi_total"];
-  on(toEventStr(ride_attrs), () => {
-      sumSkill(ride_attrs, "ride_rank", "ride_bonus", "ride_total");
-  });
-
-  const hunting_attrs = ["hunting_rank", "hunting_voc", "hunting_kin", "hunting_mod", "wit_total"];
-  on(toEventStr(hunting_attrs), () => {
-      sumSkill(hunting_attrs, "hunting_rank", "hunting_bonus", "hunting_total");
-  });
-
-  const nature_attrs = ["nature_rank", "nature_voc", "nature_kin", "nature_mod", "wsd_total"];
-  on(toEventStr(nature_attrs), () => {
-      sumSkill(nature_attrs, "nature_rank", "nature_bonus", "nature_total");
-  });
-
-  const wandering_attrs = ["wandering_rank", "wandering_voc", "wandering_kin", "wandering_mod", "wsd_total"];
-  on(toEventStr(wandering_attrs), () => {
-      sumSkill(wandering_attrs, "wandering_rank", "wandering_bonus", "wandering_total");
-  });
-
-  const acrobatics_attrs = ["acrobatics_rank", "acrobatics_voc", "acrobatics_kin", "acrobatics_mod", "swi_total"];
-  on(toEventStr(acrobatics_attrs), () => {
-      sumSkill(acrobatics_attrs, "acrobatics_rank", "acrobatics_bonus", "acrobatics_total");
-  });
-
-  const stealth_attrs = ["stealth_rank", "stealth_voc", "stealth_kin", "stealth_mod", "swi_total"];
-  on(toEventStr(stealth_attrs), () => {
-      sumSkill(stealth_attrs, "stealth_rank", "stealth_bonus", "stealth_total");
-  });
-
-  const locks_attrs = ["locks_rank", "locks_voc", "locks_kin", "locks_mod", "wit_total"];
-  on(toEventStr(locks_attrs), () => {
-      sumSkill(locks_attrs, "locks_rank", "locks_bonus", "locks_total");
-  });
-
-  const perception_attrs = ["perception_rank", "perception_voc", "perception_kin", "perception_mod", "wsd_total"];
-  on(toEventStr(perception_attrs), () => {
-      sumSkill(perception_attrs, "perception_rank", "perception_bonus", "perception_total");
-  });
-
-  const deceive_attrs = ["deceive_rank", "deceive_voc", "deceive_kin", "deceive_mod", "wit_total"];
-  on(toEventStr(deceive_attrs), () => {
-      sumSkill(deceive_attrs, "deceive_rank", "deceive_bonus", "deceive_total");
-  });
-
-  const arcana_attrs = ["arcana_rank", "arcana_voc", "arcana_kin", "arcana_mod", "wit_total"];
-  on(toEventStr(arcana_attrs), () => {
-      sumSkill(arcana_attrs, "arcana_rank", "arcana_bonus", "arcana_total");
-  });
-
-  const charisma_attrs = ["charisma_rank", "charisma_voc", "charisma_kin", "charisma_mod", "bea_total"];
-  on(toEventStr(charisma_attrs), () => {
-      sumSkill(charisma_attrs, "charisma_rank", "charisma_bonus", "charisma_total");
-  });
-
-  const cultures_attrs = ["cultures_rank", "cultures_voc", "cultures_kin", "cultures_mod", "wit_total"];
-  on(toEventStr(cultures_attrs), () => {
-      sumSkill(cultures_attrs, "cultures_rank", "cultures_bonus", "cultures_total");
-  });
-
-  const healer_attrs = ["healer_rank", "healer_voc", "healer_kin", "healer_mod", "wsd_total"];
-  on(toEventStr(healer_attrs), () => {
-      sumSkill(healer_attrs, "healer_rank", "healer_bonus", "healer_total");
-  });
-
-  const song_attrs = ["song_rank", "song_voc", "song_kin", "song_mod", "bea_total"];
-  on(toEventStr(song_attrs), () => {
-      sumSkill(song_attrs, "song_rank", "song_bonus", "song_total");
+      on(toEventStr(attrs), () => {
+          sumSkill(attrs, `${key}_rank`, `${key}_bonus`, `${key}_total`);
+      });
   });
 
   const tsr_attrs = ["level", "tsr_kin", "tsr_mod", "for_total"];
@@ -1474,22 +1557,30 @@ Monster Sheet
       });
   });
 
-  const magic_pt_attrs = ["magic_pt_stat", "magic_pt_voc_gain", "magic_pt_kin", "magic_pt_mod", "wit_total", "wsd_total", "bea_total"];
+  const magic_pt_attrs = [
+      "magic_pt_stat",
+      "magic_pt_voc_gain",
+      "magic_pt_kin",
+      "magic_pt_mod",
+      "wit_total",
+      "wsd_total",
+      "bea_total"
+  ];
   on(toEventStr(magic_pt_attrs), () => {
       getAttrs(magic_pt_attrs, (values) => {
           const stat = values["magic_pt_stat"];
-          getAttrs([stat], (stat_values) => {
-              const stat_total = xparseInt(stat_values[stat]);
-              const stat_gain  = Math.floor(stat_total / 10);
-              const voc_gain = xparseInt(values["magic_pt_voc_gain"]);
-              const kin = xparseInt(values["magic_pt_kin"]);
-              const mod = xparseInt(values["magic_pt_mod"]);
-              const total = stat_gain + voc_gain + kin + mod;
+          if (!stat) return; // nothing selected yet
 
-              setAttrs({
-                  ["magic_pt_stat_gain"]: stat_gain,
-                  ["magic_pt_total"]: total,
-              });
+          const stat_total = xparseInt(values[stat]);
+          const stat_gain  = Math.floor(stat_total / 10);
+          const voc_gain = xparseInt(values["magic_pt_voc_gain"]);
+          const kin = xparseInt(values["magic_pt_kin"]);
+          const mod = xparseInt(values["magic_pt_mod"]);
+          const total = stat_gain + voc_gain + kin + mod;
+
+          setAttrs({
+              ["magic_pt_stat_gain"]: stat_gain,
+              ["magic_pt_total"]: total,
           });
       });
   });
@@ -1522,7 +1613,6 @@ Monster Sheet
           ids.forEach((id) => computeRepeatedSkillRow(`repeating_spelllore_${id}_spell_lore`));
       });
   });
-
 
   // Setup events for each specialty skill row in the table.
   const special_skill_attrs = [
@@ -1567,71 +1657,71 @@ Monster Sheet
   });
 
   on('clicked:athletics_roll', async () => {
-      skillRoll("athletics_total", "Athletics");
+      skillRollUsingAttr("athletics_total", "Athletics");
   });
 
   on('clicked:ride_roll', async () => {
-      skillRoll("ride_total", "Ride");
+      skillRollUsingAttr("ride_total", "Ride");
   });
 
   on('clicked:hunting_roll', async () => {
-      skillRoll("hunting_total", "Hunting");
+      skillRollUsingAttr("hunting_total", "Hunting");
   });
 
   on('clicked:nature_roll', async () => {
-      skillRoll("nature_total", "Nature");
+      skillRollUsingAttr("nature_total", "Nature");
   });
 
   on('clicked:wandering_roll', async () => {
-      skillRoll("wandering_total", "Wandering");
+      skillRollUsingAttr("wandering_total", "Wandering");
   });
 
   on('clicked:acrobatics_roll', async () => {
-      skillRoll("acrobatics_total", "Acrobatics");
+      skillRollUsingAttr("acrobatics_total", "Acrobatics");
   });
 
   on('clicked:stealth_roll', async () => {
-      skillRoll("stealth_total", "Stealth");
+      skillRollUsingAttr("stealth_total", "Stealth");
   });
 
   on('clicked:locks_roll', async () => {
-      skillRoll("locks_total", "Locks & Traps");
+      skillRollUsingAttr("locks_total", "Locks & Traps");
   });
 
   on('clicked:perception_roll', async () => {
-      skillRoll("perception_total", "Perception");
+      skillRollUsingAttr("perception_total", "Perception");
   });
 
   on('clicked:deceive_roll', async () => {
-      skillRoll("deceive_total", "Deceive");
+      skillRollUsingAttr("deceive_total", "Deceive");
   });
 
   on('clicked:arcana_roll', async () => {
-      skillRoll("arcana_total", "Arcana");
+      skillRollUsingAttr("arcana_total", "Arcana");
   });
 
   on('clicked:charisma_roll', async () => {
-      skillRoll("charisma_total", "Charisma");
+      skillRollUsingAttr("charisma_total", "Charisma");
   });
 
   on('clicked:cultures_roll', async () => {
-      skillRoll("cultures_total", "Cultures");
+      skillRollUsingAttr("cultures_total", "Cultures");
   });
 
   on('clicked:healer_roll', async () => {
-      skillRoll("healer_total", "Healer");
+      skillRollUsingAttr("healer_total", "Healer");
   });
 
   on('clicked:song_roll', async () => {
-      skillRoll("song_total", "Song & Tales");
+      skillRollUsingAttr("song_total", "Song & Tales");
   });
 
   on('clicked:tsr_roll', async () => {
-      skillRoll("tsr_total", "Toughness Save Roll");
+      skillRollUsingAttr("tsr_total", "Toughness Save Roll");
   });
 
   on('clicked:wsr_roll', async () => {
-      skillRoll("wsr_total", "Willpower Save Rolls");
+      skillRollUsingAttr("wsr_total", "Willpower Save Rolls");
   });
 
   on("clicked:repeating_specialskill:roll", (event) => {
@@ -1639,7 +1729,7 @@ Monster Sheet
 
       getAttrs([`${prefix}special_skill_name`], (values) => {
           const name = values[`${prefix}special_skill_name`];
-          skillRoll(`${prefix}special_skill_total`, name);
+          skillRollUsingAttr(`${prefix}special_skill_total`, name);
       });
   });
 
@@ -1648,24 +1738,17 @@ Monster Sheet
 
       getAttrs([`${prefix}spell_lore_name`], (values) => {
           const name = values[`${prefix}spell_lore_name`];
-          skillRoll(`${prefix}spell_lore_total`, name);
+          skillRollUsingAttr(`${prefix}spell_lore_total`, name);
       });
   });
 
   on("clicked:repeating_weapon:roll", (event) => {
       const prefix = getRowPrefixFromAttr(event.sourceAttribute);
+      rollWeaponAttack(prefix, name);
+  });
 
-      getAttrs([`${prefix}weapon_name`, `${prefix}weapon_skill`, `${prefix}weapon_mod`, `${prefix}weapon_max`, "target_def"], (values) => {
-          const name = values[`${prefix}weapon_name`];
-          const skill = values[`${prefix}weapon_skill`];
-          // capitalize the skill name
-          const skill_title = skill.charAt(0).toUpperCase() + skill.slice(1);
-          const mod = xparseInt(values[`${prefix}weapon_mod`]);
-          const max = parseInt(values[`${prefix}weapon_max`]) || -1;
-          const title = `${name} (${skill_title})`
-          const def = parseInt(values["target_def"]) || -1;
-
-          skillRoll(`${skill}_total`, title, mod, max, def);
-      });
+  on("clicked:repeating_monsterweapon:roll", (event) => {
+      const prefix = getRowPrefixFromAttr(event.sourceAttribute);
+      rollMonsterAttack(prefix, name);
   });
 </script>
