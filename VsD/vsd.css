@@ -215,6 +215,12 @@ input[type=checkbox] {
     grid-gap: 1px;
 }
 
+.sheet-monster_skill_table {
+    display: grid;
+    grid-template-columns: 60px 100px 60px 60px 60px;
+    grid-gap: 1px;
+}
+
 .sheet-body_table {
     display: grid;
     grid-template-columns: 60px 60px 60px 60px 60px 60px 60px 60px;
@@ -224,6 +230,12 @@ input[type=checkbox] {
 .sheet-save_roll_table {
     display: grid;
     grid-template-columns: 60px 60px 60px 60px 60px 60px 60px 60px;
+    grid-gap: 1px;
+}
+
+.sheet-monster_save_roll_table {
+    display: grid;
+    grid-template-columns: 60px 60px 60px 60px 60px;
     grid-gap: 1px;
 }
 
@@ -328,7 +340,7 @@ label.sheet-radio_label {
 .sheet-monster_sa_area {
     resize: none;
     box-sizing: border-box;
-    min-height: 415px;
+    min-height: 300px;
     min-width: 400px;
 }
 
