@@ -1103,18 +1103,12 @@ Monster Sheet
       <span>{{computed::roll}}</span>
     </div>
 
-    {{#rollGreater() modifier 0}}
+    {{#modifier}}
     <div class="sheet-rolltemplate-vsd-row">
       <span>Weapon Modifier:</span>
       <span>{{modifier}}</span>
     </div>
-    {{/rollGreater() modifier 0}}
-    {{#rollLess() modifier 0}}
-    <div class="sheet-rolltemplate-vsd-row">
-      <span>Weapon Modifier:</span>
-      <span>{{modifier}}</span>
-    </div>
-    {{/rollLess() modifier 0}}
+    {{/modifier}}
 
     {{#rollBetween() roll 6 95}}
     <div class="sheet-rolltemplate-vsd-row">
@@ -1122,19 +1116,19 @@ Monster Sheet
       <span>{{skill_total}}</span>
     </div>
 
-    {{#rollGreater() max -1}}
+    {{#max}}
     <div class="sheet-rolltemplate-vsd-row">
       <span>Max Result:</span>
       <span>{{max}}</span>
     </div>
-    {{/rollGreater() max -1}}
+    {{/max}}
 
-    {{#rollGreater() def -1}}
+    {{#def}}
     <div class="sheet-rolltemplate-vsd-row">
       <span>Target DEF:</span>
       <span>{{def}}</span>
     </div>
-    {{/rollGreater() def -1}}
+    {{/def}}
 
     <div class="sheet-rolltemplate-vsd-row">
       <span><strong>Result:</strong></span>
@@ -1173,8 +1167,6 @@ Monster Sheet
     </div>
     {{/rollTotal() reroll_state -1}}
     {{/rollGreater() roll 95}}
-
-
   </div>
 </rolltemplate>
 
@@ -1388,16 +1380,27 @@ Monster Sheet
    *@param {def} int - Represents a targets DEF for an attack roll. If
    *>= 0 it is subtracted from the result.
    */
-  const skillRoll = async (skillTotal, title, name = "", modifier = 0, max = -1, def = -1) => {
+  const skillRoll = async (skillTotal, title, name = "", modifier = 0, max = -1, def = null) => {
       const posRerollThresh = 96;
       const negRerollThresh = 5;
       let rerollState = RerollState.NONE;
       let totalResult = 0;
       let rollCount = 0;
 
+      let rollStr = `&{template:vsd} {{name=${name}}} {{title=${title}}} {{roll=[[1d100]]}} {{skill_total=[[${skillTotal}]]}} {{result=[[0]]}} {{reroll_state=[[${rerollState}]]}}`;
+      if (modifier != 0) {
+          rollStr += ` {{modifier=[[${modifier}]]}}`;
+      }
+      if (max >= 0) {
+          rollStr += ` {{max=[[${max}]]}}`;
+      }
+      if (def != null) {
+          rollStr += ` {{def=[[${def}]]}}`;
+      }
+
       do {
           rollCount++;
-          const dieRoll = await startRoll(`&{template:vsd} {{name=${name}}} {{roll_count=${rollCount}}} {{title=${title}}} {{roll=[[1d100]]}} {{skill_total=[[${skillTotal}]]}} {{result=[[0]]}} {{modifier=[[${modifier}]]}} {{max=[[${max}]]}} {{reroll_state=[[${rerollState}]]}} {{def=[[${def}]]}}`);
+          const dieRoll = await startRoll(rollStr + ` {{roll_count=${rollCount}}}`);
 
           const rollResult = dieRoll.results.roll.result;
           let signRollResult = rollResult;
@@ -1427,7 +1430,7 @@ Monster Sheet
       } while (rerollState !== RerollState.NONE);
   };
 
-  const skillRollUsingAttr = (skillAttr, title, modifier = 0, max = -1, def = -1) => {
+  const skillRollUsingAttr = (skillAttr, title, modifier = 0, max = -1, def = null) => {
       getAttrs(["character_name", skillAttr], (values) => {
           const name = values["character_name"];
           const skillTotal = xparseInt(values[skillAttr]);
@@ -1452,7 +1455,7 @@ Monster Sheet
           const mod = xparseInt(values[`${prefix}weapon_mod`]);
           const max = xparseInt(values[`${prefix}weapon_max`], -1);
           const title = `${weaponName} (${skill_title})`;
-          const def = xparseInt(values["target_def"], -1);
+          const def = xparseInt(values["target_def"], null);
           getAttrs([`${skill}_total`], (values) => {
               const skillTotal = xparseInt(values[`${skill}_total`]);
               skillRoll(skillTotal, title, name, mod, max, def);
@@ -1478,7 +1481,7 @@ Monster Sheet
           const skillTotal = xparseInt(values[`${prefix}weapon_skill_total`]);
           const mod = xparseInt(values[`${prefix}weapon_mod`]);
           const max = xparseInt(values[`${prefix}weapon_max`], -1);
-          const def = xparseInt(values["target_def"], -1);
+          const def = xparseInt(values["target_def"], null);
           skillRoll(skillTotal, title, name, mod, max, def);
       });
   }
