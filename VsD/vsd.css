@@ -283,8 +283,8 @@ input[type=checkbox] {
 }
 
 .sheet-digit_input  {
-    width: 50px !important;
-    max-width: 50px;
+    width: 52px !important;
+    max-width: 52px;
     max-height: 25px;
     font-family: 'PT Serif';
     text-align: left;

@@ -97,18 +97,16 @@ PC Sheet
       <div class="sheet-one_col_box">
         <h2>Health</h2>
         <div class="sheet-two_col">
-          <label class="sheet-txt_label">Max HP:</label>
-          <input class="sheet-digit_input" type="number" name="attr_hp_max"/>
+          <label class="sheet-txt_label">Kin Max HP:</label>
+          <input class="sheet-digit_input" type="number" name="attr_hp_kin_max"/>
+          <label class="sheet-txt_label">Kin HP Mod:</label>
+          <input class="sheet-digit_input" type="number" name="attr_hp_kin_mod"/>
+          <label class="sheet-txt_label">Total HP:</label>
+          <span class="sheet-table_entry" name="attr_hp_total"></span>
           <label class="sheet-txt_label">HP:</label>
           <input class="sheet-digit_input" type="number" name="attr_hp"/>
           <label class="sheet-txt_label">Bleed:</label>
           <input class="sheet-digit_input" type="number" name="attr_bleed"/>
-          <label class="sheet-txt_label">Stunned:</label>
-          <div class="sheet-txt_label">
-            <input type="checkbox" name="attr_stunned"/>
-          </div>
-          <label class="sheet-txt_label">Penalties:</label>
-          <input class="sheet-txt_input" type="text" name="attr_penalties"/>
           <label class="sheet-txt_label">Conditions:</label>
           <input class="sheet-txt_input" type="text" name="attr_conditions"/>
         </div>
@@ -1674,6 +1672,30 @@ Monster Sheet
       getSectionIDs("specialskill", (ids) => {
           if (!ids || !ids.length) return;
           ids.forEach((id) => computeRepeatedSkillRow(`repeating_specialskill_${id}_special_skill`));
+      });
+  });
+
+  const hp_deps_attrs = [
+      "body_total",
+      "hp_kin_mod",
+      "hp_kin_max"
+  ];
+  on(toEventStr(hp_deps_attrs), (event) => {
+      getAttrs(hp_deps_attrs, (values) => {
+          const body_total = xparseInt(values["body_total"]);
+          const kin_mod = xparseInt(values["hp_kin_mod"]);
+          const kin_max = parseInt(values["hp_kin_max"]);
+          let hp_total;
+          if (isNaN(kin_max)) {
+              // No cap if kin_max is blank
+              hp_total = body_total + kin_mod;
+          } else {
+              hp_total = Math.min(kin_max, body_total + kin_mod);
+          }
+
+          setAttrs({
+              ["hp_total"]: hp_total,
+          });
       });
   });
 
