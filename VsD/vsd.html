@@ -102,7 +102,7 @@ PC Sheet
           <label class="sheet-txt_label">Kin HP Mod:</label>
           <input class="sheet-digit_input" type="number" name="attr_hp_kin_mod"/>
           <label class="sheet-txt_label">Total HP:</label>
-          <span class="sheet-table_entry" name="attr_hp_total"></span>
+          <span class="sheet-table_entry" name="attr_hp_max"></span>
           <label class="sheet-txt_label">HP:</label>
           <input class="sheet-digit_input" type="number" name="attr_hp"/>
           <label class="sheet-txt_label">Bleed:</label>
@@ -1685,16 +1685,16 @@ Monster Sheet
           const body_total = xparseInt(values["body_total"]);
           const kin_mod = xparseInt(values["hp_kin_mod"]);
           const kin_max = parseInt(values["hp_kin_max"]);
-          let hp_total;
+          let hp_max;
           if (isNaN(kin_max)) {
               // No cap if kin_max is blank
-              hp_total = body_total + kin_mod;
+              hp_max = body_total + kin_mod;
           } else {
-              hp_total = Math.min(kin_max, body_total + kin_mod);
+              hp_max = Math.min(kin_max, body_total + kin_mod);
           }
 
           setAttrs({
-              ["hp_total"]: hp_total,
+              ["hp_max"]: hp_max,
           });
       });
   });
