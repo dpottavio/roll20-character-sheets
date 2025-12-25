@@ -616,6 +616,7 @@ PC Sheet
           <h2>Magic Points</h2>
           <div class="sheet-magic_pt_table">
             <span class="sheet-table_header">Stat</span>
+            <span class="sheet-table_header">Level</span>
             <span class="sheet-table_header">Stat Gain</span>
             <span class="sheet-table_header">Voc Gain</span>
             <span class="sheet-table_header">Kin</span>
@@ -629,6 +630,7 @@ PC Sheet
               <option value="wit_total">WIT</option>
               <option value="wsd_total">WSD</option>
             </select>
+            <span class="sheet-table_entry" name="attr_level"></span>
             <span class="sheet-table_entry" name="attr_magic_pt_stat_gain"></span>
             <input class="sheet-table_entry" type="text" name="attr_magic_pt_voc_gain"/>
             <input class="sheet-table_entry" type="text" name="attr_magic_pt_kin"/>
@@ -1595,19 +1597,21 @@ Monster Sheet
       "magic_pt_mod",
       "wit_total",
       "wsd_total",
-      "bea_total"
+      "bea_total",
+      "level",
   ];
   on(toEventStr(magic_pt_attrs), () => {
       getAttrs(magic_pt_attrs, (values) => {
           const stat = values["magic_pt_stat"];
           if (!stat) return; // nothing selected yet
 
+          const level = xparseInt(values["level"], 0)
           const stat_total = xparseInt(values[stat]);
           const stat_gain  = Math.floor(stat_total / 10);
           const voc_gain = xparseInt(values["magic_pt_voc_gain"]);
           const kin = xparseInt(values["magic_pt_kin"]);
           const mod = xparseInt(values["magic_pt_mod"]);
-          const total = stat_gain + voc_gain + kin + mod;
+          const total = (stat_gain*level) + (voc_gain*level) + kin + mod;
 
           setAttrs({
               ["magic_pt_stat_gain"]: stat_gain,
