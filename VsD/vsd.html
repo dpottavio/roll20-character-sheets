@@ -1387,7 +1387,7 @@ Monster Sheet
       let totalResult = 0;
       let rollCount = 0;
 
-      let rollStr = `&{template:vsd} {{name=${name}}} {{title=${title}}} {{roll=[[1d100]]}} {{skill_total=[[${skillTotal}]]}} {{result=[[0]]}} {{reroll_state=[[${rerollState}]]}}`;
+      let rollStr = `&{template:vsd} {{name=${name}}} {{title=${title}}} {{roll=[[1d100]]}} {{skill_total=[[${skillTotal}]]}} {{result=[[0]]}}`;
       if (modifier != 0) {
           rollStr += ` {{modifier=[[${modifier}]]}}`;
       }
@@ -1400,7 +1400,7 @@ Monster Sheet
 
       do {
           rollCount++;
-          const dieRoll = await startRoll(rollStr + ` {{roll_count=${rollCount}}}`);
+          const dieRoll = await startRoll(rollStr + ` {{roll_count=${rollCount}}} {{reroll_state=[[${rerollState}]]}}`);
 
           const rollResult = dieRoll.results.roll.result;
           let signRollResult = rollResult;
