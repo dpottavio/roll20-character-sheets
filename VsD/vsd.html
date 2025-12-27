@@ -1169,6 +1169,34 @@ Monster Sheet
 
     {{/skill}}
 
+    {{#magic}}
+
+    {{#rollLess() computed::result 26}}
+    <div class="sheet-rolltemplate-vsd-row-red">
+      <span>Failure</span>
+    </div>
+    {{/rollLess() computed::result 26}}
+
+    {{#rollBetween() computed::result 26 50}}
+    <div class="sheet-rolltemplate-vsd-row-yellow">
+      <span>Partial Success</span>
+    </div>
+    {{/rollBetween() computed::result 26 50}}
+
+    {{#rollBetween() computed::result 51 150}}
+    <div class="sheet-rolltemplate-vsd-row-green">
+      <span>Success</span>
+    </div>
+    {{/rollBetween() computed::result 51 150}}
+
+    {{#rollGreater() computed::result 150}}
+    <div class="sheet-rolltemplate-vsd-row-green">
+      <span>Outstanding Success</span>
+    </div>
+    {{/rollGreater() computed::result 150}}
+
+    {{/magic}}
+
     {{/rollBetween() roll 6 95}}
 
     {{#rollGreater() roll 95}}
