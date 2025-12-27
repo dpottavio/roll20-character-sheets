@@ -1662,11 +1662,11 @@ Monster Sheet
           `{{name=${name}}} ` +
           `{{title=${title}}} ` +
           `{{roll=[[1d100]]}} ` +
-          `{{skill_total=[[${skillTotal}]]}} ` +
+          `{{skill_total=${skillTotal}}} ` +
           `{{result=[[0]]}} ` +
           `{{${rollType}=1}}`;
       if (modifier != 0) {
-          rollStr += ` {{modifier=[[${modifier}]]}}`;
+          rollStr += ` {{modifier=${modifier}}}`;
       }
       rollStr += extraFields;
 
@@ -1714,10 +1714,10 @@ Monster Sheet
   const attackRoll = async (attackTableType, skillTotal, title, name, modifier = 0, max = -1, def = null) => {
       let extraFields = ""
       if (max >= 0) {
-          extraFields += ` {{max=[[${max}]]}}`
+          extraFields += ` {{max=${max}}}`
       }
       if (def != null) {
-          extraFields += ` {{def=[[${def}]]}}`
+          extraFields += ` {{def=${def}}}`
 
       }
       const computeResult = (result) => {
