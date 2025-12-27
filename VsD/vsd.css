@@ -360,16 +360,19 @@ label.sheet-radio_label {
  * Roll Template
  */
 
-.sheet-rolltemplate-vsd {
+.sheet-rolltemplate-vsd,
+.sheet-rolltemplate-vsd-gen {
 
 }
 
-.sheet-rolltemplate-vsd-content {
+.sheet-rolltemplate-vsd-content,
+.sheet-rolltemplate-vsd-gen-content {
     border: 2px solid black;
     border-radius: 8px;
 }
 
-.sheet-rolltemplate-vsd-header {
+.sheet-rolltemplate-vsd-header,
+.sheet-rolltemplate-vsd-gen-header {
     background-color: black;
     color: lightgrey;
     padding: 2px;
@@ -380,7 +383,8 @@ label.sheet-radio_label {
     text-align: center;
 }
 
-.sheet-rolltemplate-vsd-sub-header {
+.sheet-rolltemplate-vsd-sub-header,
+.sheet-rolltemplate-vsd-gen-sub-header {
     background-color: black;
     color: white;
     padding: 2px;
@@ -390,7 +394,8 @@ label.sheet-radio_label {
     text-align: center;
 }
 
-.sheet-rolltemplate-vsd-row {
+.sheet-rolltemplate-vsd-row,
+.sheet-rolltemplate-vsd-gen-row {
     display: grid;
     grid-template-columns: 1fr auto 1fr; /* centers the inner pair */
     justify-items: center;
@@ -432,7 +437,8 @@ label.sheet-radio_label {
 }
 
 /* target the two spans */
-.sheet-rolltemplate-vsd-row span:first-child {
+.sheet-rolltemplate-vsd-row span:first-child,
+.sheet-rolltemplate-vsd-gen-row span:first-child {
   grid-column: 2; /* place in center group */
   justify-self: end; /* key right-aligned */
   text-align: right;
@@ -440,18 +446,21 @@ label.sheet-radio_label {
   min-width: 100px;
 }
 
-.sheet-rolltemplate-vsd-row span:last-child {
+.sheet-rolltemplate-vsd-row span:last-child,
+.sheet-rolltemplate-vsd-gen-row span:last-child {
   grid-column: 3;
   justify-self: start; /* value left-aligned */
   text-align: left;
   min-width: 60px;
 }
 
-.sheet-rolltemplate-vsd-row:nth-child(odd) {
+.sheet-rolltemplate-vsd-row:nth-child(odd),
+.sheet-rolltemplate-vsd-gen-row:nth-child(odd) {
     background-color: lightgrey;
 }
 
-.sheet-rolltemplate-vsd-row:nth-child(even) {
+.sheet-rolltemplate-vsd-row:nth-child(even),
+.sheet-rolltemplate-vsd-gen-row:nth-child(even) {
     background-color: silver;
 }
 
@@ -511,7 +520,8 @@ body.sheet-darkmode input {
 }
 
 /* Ensure spans inherit white */
-.darkmode .sheet-rolltemplate-vsd .sheet-rolltemplate-vsd-row span {
+.darkmode .sheet-rolltemplate-vsd .sheet-rolltemplate-vsd-row span,
+.darkmode .sheet-rolltemplate-vsd-gen .sheet-rolltemplate-vsd-gen-row span {
   color: inherit !important;
 }
 

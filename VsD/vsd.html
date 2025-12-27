@@ -1233,7 +1233,199 @@ Monster Sheet
   </div>
 </rolltemplate>
 
+<rolltemplate class="sheet-rolltemplate-vsd-gen">
+  <div class="sheet-rolltemplate-vsd-gen-content">
+    <div class="sheet-rolltemplate-vsd-gen-header">
+      {{title}}
+    </div>
+    <div class="sheet-rolltemplate-vsd-gen-sub-header">
+      {{name}}
+    </div>
+  </div>
+
+  {{#allprops() title name}}
+  <div class="sheet-rolltemplate-vsd-gen-row">
+    <span>{{key}}:</span>
+    <span>{{value}}</span>
+  </div>
+ {{/allprops() title name}}
+0
+</rolltemplate>
+
 <script type="text/worker">
+  const edgedAttackTable = [
+      [0, 10, "-", "-", "-", "-"],
+      [11, 35, "-", "-", "-", "-"],
+      [36, 40, "-", "-", "-", 0],
+      [41, 45, "-", "-", 0, 0],
+      [46, 50, "-", 0, 0, 1],
+      [51, 55, 0, 0, 0, 1],
+      [56, 60, 0, 0, 1, 2],
+      [61, 65, 0, 0, 2, 2],
+      [66, 70, 0, 2, 3, 3],
+      [71, 75, 0, 3, 4, 3],
+      [76, 80, "7 Sup", 5, 5, 4],
+      [81, 85, "9 Sup", 6, 6, 5],
+      [86, 90, "10 Lig", 7, 7, 5],
+      [91, 95, "11 Lig", "9 Sup", 8, 6],
+      [96, 100, "13 Mod", "10 Sup", 9, 6],
+      [101, 105, "15 Mod", "11 Sup", "10 Sup", 7],
+      [106, 110, "17 Gri", "12 Lig", "11 Sup", 8],
+      [111, 115, "19 Gri", "13 Lig", "12 Lig", "8 Sup"],
+      [116, 120, "20 Gri", "15 Mod", "13 Lig", "9 Sup"],
+      [121, 125, "21 Let", "16 Mod", "13 Mod", "10 Sup"],
+      [126, 130, "23 Let", "17 Gri", "14 Mod", "10 Lig"],
+      [131, 135, "25 Let", "18 Gri", "15 Mod", "10 Lig"],
+      [136, 140, "27 Let", "20 Gri", "16 Gri", "11 Mod"],
+      [141, 145, "28 Let", "21 Let", "17 Gri", "11 Gri"],
+      [146, 150, "30 Let", "22 Let", "18 Let", "12 Gri"],
+      [151, 155, "34 Let", "26 Let", "21 Let", "14 Gri"],
+      [156, 160, "38 Let", "30 Let", "24 Let", "16 Let"],
+      [161, 165, "42 Let", "34 Let", "27 Let", "18 Let"],
+      [166, 170, "46 Let", "37 Let", "30 Let", "20 Let"],
+      [171, 175, "50 Let", "40 Let", "33 Let", "22 Let"]
+  ];
+
+  const bluntAttackTable = [
+      [0, 10, "-", "-", "-", "-"],
+      [11, 35, "-", "-", "-", "-"],
+      [36, 40, "-", "-", "-", 0],
+      [41, 45, "-", "-", 1, 1],
+      [46, 50, "-", 2, 2, 2],
+      [51, 55, 0, 3, 3, 3],
+      [56, 60, 0, 3, 4, 3],
+      [61, 65, 0, 4, 5, 4],
+      [66, 70, 0, 5, 6, 5],
+      [71, 75, 0, 5, 7, 5],
+      [76, 80, 0, 6, 8, 6],
+      [81, 85, 6, 7, 9, 7],
+      [86, 90, 8, 8, 10, 7],
+      [91, 95, "9 Sup", "8 Sup", 11, 8],
+      [96, 100, "10 Lig", "9 Sup", "12 Sup", 9],
+      [101, 105, "12 Mod", "10 Lig", "13 Sup", 10],
+      [106, 110, "13 Mod", "11 Lig", "14 Lig", "10 Sup"],
+      [111, 115, "14 Gri", "12 Mod", "15 Lig", "11 Sup"],
+      [116, 120, "15 Gri", "13 Mod", "16 Mod", "12 Lig"],
+      [121, 125, "17 Gri", "15 Mod", "17 Mod", "13 Lig"],
+      [126, 130, "18 Let", "16 Gri", "18 Mod", "13 Mod"],
+      [131, 135, "19 Let", "17 Gri", "19 Gri", "14 Mod"],
+      [136, 140, "21 Let", "18 Gri", "20 Gri", "15 Gri"],
+      [141, 145, "22 Let", "19 Let", "21 Gri", "16 Gri"],
+      [146, 150, "23 Let", "20 Let", "22 Let", "16 Gri"],
+      [151, 155, "26 Let", "22 Let", "23 Let", "17 Let"],
+      [156, 160, "29 Let", "24 Let", "24 Let", "17 Let"],
+      [161, 165, "32 Let", "26 Let", "25 Let", "18 Let"],
+      [166, 170, "34 Let", "28 Let", "26 Let", "18 Let"],
+      [171, 175, "36 Let", "30 Let", "28 Let", "19 Let"]
+  ];
+
+  const missileAttackTable = [
+      [0, 10, "-", "-", "-", "-"],
+      [11, 35, "-", "-", "-", "-"],
+      [36, 40, "-", "-", "-", "-"],
+      [41, 45, "-", "-", "-", "-"],
+      [46, 50, "-", "-", "-", "-"],
+      [51, 55, "-", "-", "-", 0],
+      [56, 60, "-", "-", "-", 0],
+      [61, 65, "-", "-", 0, 0],
+      [66, 70, "-", "-", 0, 0],
+      [71, 75, "-", 0, 0, 1],
+      [76, 80, "-", 0, 2, 2],
+      [81, 85, "-", 3, 4, 3],
+      [86, 90, "-", 5, 6, 4],
+      [91, 95, "8 Sup", "7 Sup", 7, 5],
+      [96, 100, "10 Lig", "9 Sup", "8 Sup", 6],
+      [101, 105, "11 Mod", "10 Lig", "10 Sup", 7],
+      [106, 110, "13 Mod", "12 Lig", "13 Lig", "8 Sup"],
+      [111, 115, "15 Mod", "13 Lig", "14 Lig", "9 Sup"],
+      [116, 120, "16 Gri", "15 Mod", "16 Lig", "10 Sup"],
+      [121, 125, "18 Gri", "17 Mod", "17 Mod", "10 Lig"],
+      [126, 130, "20 Gri", "19 Gri", "19 Mod", "11 Lig"],
+      [131, 135, "21 Let", "21 Gri", "20 Gri", "12 Mod"],
+      [136, 140, "23 Let", "23 Gri", "22 Gri", "13 Mod"],
+      [141, 145, "25 Let", "25 Let", "23 Let", "14 Gri"],
+      [146, 150, "27 Let", "26 Let", "25 Let", "15 Let"],
+      [151, 155, "29 Let", "28 Let", "26 Let", "16 Let"],
+      [156, 160, "31 Let", "30 Let", "27 Let", "17 Let"],
+      [161, 165, "33 Let", "32 Let", "28 Let", "18 Let"],
+      [166, 170, "35 Let", "33 Let", "29 Let", "19 Let"],
+      [171, 175, "37 Let", "34 Let", "30 Let", "20 Let"]
+  ];
+
+  const unarmedAttackTable = [
+      [0, 10, "-", "-", "-", "-"],
+      [11, 35, "-", "-", "-", "-"],
+      [36, 40, 0, 0, 0, 0],
+      [41, 45, 0, 0, 0, 0],
+      [46, 50, 0, 0, 0, 0],
+      [51, 55, 1, 0, 0, 0],
+      [56, 60, 1, 0, 0, 0],
+      [61, 65, 2, 0, 0, 0],
+      [66, 70, 2, 0, 0, 0],
+      [71, 75, 3, 0, 0, 0],
+      [76, 80, 4, 1, 0, 0],
+      [81, 85, 5, 2, 0, 0],
+      [86, 90, 6, 3, 1, 0],
+      [91, 95, 7, 4, 2, 0],
+      [96, 100, 8, 5, 3, 1],
+      [101, 105, "9 Sup", 6, 4, 2],
+      [106, 110, "10 Sup", "7 Sup", 5, 3],
+      [111, 115, "11 Sup", "8 Sup", 6, 4],
+      [116, 120, "12 Lig", "9 Sup", "7 Sup", 5],
+      [121, 125, "14 Lig", "10 Lig", "8 Sup", 6],
+      [126, 130, "15 Lig", "11 Lig", "9 Sup", "7 Sup"],
+      [131, 135, "16 Mod", "12 Lig", "10 Lig", "8 Sup"],
+      [136, 140, "17 Mod", "13 Mod", "11 Lig", "9 Sup"],
+      [141, 145, "18 Mod", "14 Mod", "12 Lig", "10 Lig"],
+      [146, 150, "19 Gri", "15 Mod", "13 Mod", "11 Lig"],
+      [151, 155, "20 Gri", "16 Gri", "14 Mod", "12 Lig"],
+      [156, 160, "22 Gri", "18 Gri", "15 Mod", "13 Mod"],
+      [161, 165, "24 Let", "20 Gri", "16 Gri", "14 Mod"],
+      [166, 170, "26 Let", "22 Let", "18 Gri", "15 Mod"],
+      [171, 175, "28 Let", "24 Let", "20 Let", "16 Gri"]
+  ];
+
+  const beastAttackTable = [
+      [0, 10, "-", "-", "-", "-"],
+      [11, 35, "-", "-", "-", "-"],
+      [36, 40, "-", "-", "-", "-"],
+      [41, 45, 0, 0, 0, 0],
+      [46, 50, 1, 0, 0, 0],
+      [51, 55, 2, 0, 0, 0],
+      [56, 60, 4, 0, 0, 1],
+      [61, 65, 5, 1, 1, 1],
+      [66, 70, 6, 2, 2, 2],
+      [71, 75, 8, 3, 3, 3],
+      [76, 80, "9 Sup", 5, 4, 4],
+      [81, 85, "10 Sup", 7, 5, 5],
+      [86, 90, "12 Sup", 8, 6, 6],
+      [91, 95, "13 Lig", "9 Sup", 7, 6],
+      [96, 100, "14 Lig", "10 Sup", "8 Sup", 7],
+      [101, 105, "15 Lig", "11 Sup", "9 Sup", "7 Sup"],
+      [106, 110, "17 Mod", "12 Lig", "10 Sup", "8 Sup"],
+      [111, 115, "19 Mod", "13 Lig", "11 Lig", "9 Sup"],
+      [116, 120, "23 Gri", "14 Mod", "12 Lig", "10 Lig"],
+      [121, 125, "26 Gri", "16 Mod", "14 Lig", "12 Lig"],
+      [126, 130, "28 Let", "18 Mod", "16 Mod", "14 Lig"],
+      [131, 135, "30 Let", "20 Gri", "18 Mod", "16 Mod"],
+      [136, 140, "32 Let", "22 Gri", "20 Gri", "18 Mod"],
+      [141, 145, "34 Let", "24 Let", "22 Gri", "20 Mod"],
+      [146, 150, "36 Let", "26 Let", "24 Gri", "22 Gri"],
+      [151, 155, "38 Let", "28 Let", "26 Let", "24 Gri"],
+      [156, 160, "40 Let", "30 Let", "28 Let", "26 Gri"],
+      [161, 165, "42 Let", "32 Let", "30 Let", "28 Let"],
+      [166, 170, "44 Let", "34 Let", "32 Let", "30 Let"],
+      [171, 175, "46 Let", "36 Let", "34 Let", "32 Let"]
+  ];
+
+  const attackTableMap = {
+      "Beast" : beastAttackTable,
+      "Blunt" : bluntAttackTable,
+      "Edged": edgedAttackTable,
+      "Missile" : missileAttackTable,
+      "Unarmed" : unarmedAttackTable,
+  }
+
   /**
    * Parse val and return the integer value.
    * If the integer value is NaN, return defaultVal.
@@ -1426,14 +1618,13 @@ Monster Sheet
       }
   }
 
-  // "Enum" for reroll state
+  // "Enum" for open role types
   const OpenRollType = Object.freeze({
       ATTACK: "attack",
       MAGIC: "magic",
       SAVE: "save",
       SKILL: "skill",
   });
-
 
   /**
    * Open-ended skill or attack roll.
@@ -1467,7 +1658,13 @@ Monster Sheet
       let totalResult = 0;
       let rollCount = 0;
 
-      let rollStr = `&{template:vsd} {{name=${name}}} {{title=${title}}} {{roll=[[1d100]]}} {{skill_total=[[${skillTotal}]]}} {{result=[[0]]}} {{${rollType}=1}}`;
+      let rollStr = `&{template:vsd} ` +
+          `{{name=${name}}} ` +
+          `{{title=${title}}} ` +
+          `{{roll=[[1d100]]}} ` +
+          `{{skill_total=[[${skillTotal}]]}} ` +
+          `{{result=[[0]]}} ` +
+          `{{${rollType}=1}}`;
       if (modifier != 0) {
           rollStr += ` {{modifier=[[${modifier}]]}}`;
       }
@@ -1500,16 +1697,21 @@ Monster Sheet
                          roll: signRollResult,
                      });
       } while (rerollState !== RerollState.NONE);
+
+      return totalResult;
   };
 
   /**
-   * Perorm a non-attack skill role.
+   * Perform a non-attack skill role.
    */
   const skillRoll = (skillTotal, title, name, rollType = OpenRollType.SKILL) => {
       return openRoll(rollType, skillTotal, title, name)
   }
 
-  const attackRoll = (skillTotal, title, name, modifier = 0, max = -1, def = null) => {
+  /**
+   * Perform an attack role.
+   */
+  const attackRoll = async (attackTableType, skillTotal, title, name, modifier = 0, max = -1, def = null) => {
       let extraFields = ""
       if (max >= 0) {
           extraFields += ` {{max=[[${max}]]}}`
@@ -1527,7 +1729,50 @@ Monster Sheet
           }
           return result
       };
-      return openRoll(OpenRollType.ATTACK, skillTotal, title, name, modifier, computeResult, extraFields)
+      const rollResult = await openRoll(
+          OpenRollType.ATTACK,
+          skillTotal,
+          title,
+          name,
+          modifier,
+          computeResult,
+          extraFields
+      )
+      if (def == null) {
+          return;
+      }
+
+      const table = attackTableMap[attackTableType];
+      if (table == null) {
+          return;
+      }
+      let attackResult = null;
+      for (const [rollMin, rollMax, NA, LA, MA, HA] of table) {
+          if (rollResult >= rollMin && rollResult <= rollMax) {
+              attackResult = [rollMin, rollMax, NA, LA, MA, HA];
+              break;
+          }
+      }
+      // Clamp if outside table
+      if (attackResult === null) {
+          const [firstMin] = table[0];
+          if (rollResult < firstMin) {
+              attackResult = table[0];
+          } else {
+              attackResult = table[table.length - 1];
+          }
+      }
+
+      const [rollMin, rollMax, NA, LA, MA, HA] = attackResult;
+      const rollText = `&{template:vsd-gen} ` +
+            `{{name=${name}}} `+
+            `{{title=${attackTableType} Attack Damage}} ` +
+            `{{No  Armor=${NA}}} ` +
+            `{{Light Armor=${LA}}}` +
+            `{{Medium Armor=${MA}}}` +
+            `{{Heavy Armor=${HA}}}`;
+      const dieRoll = await startRoll(rollText);
+      finishRoll(dieRoll.rollId);
   }
 
   const skillRollUsingAttr = (skillAttr, title, rollType = OpenRollType.SKILL) => {
@@ -1544,11 +1789,13 @@ Monster Sheet
           `${prefix}weapon_skill`,
           `${prefix}weapon_mod`,
           `${prefix}weapon_max`,
+          `${prefix}weapon_attack`,
           `character_name`,
           "target_def"
       ], (values) => {
           const name = values["character_name"];
           const weaponName = values[`${prefix}weapon_name`];
+          const attackType = values[`${prefix}weapon_attack`];
           const skill = values[`${prefix}weapon_skill`];
           // capitalize the skill name
           const skill_title = skill.charAt(0).toUpperCase() + skill.slice(1);
@@ -1558,7 +1805,7 @@ Monster Sheet
           const def = xparseInt(values["target_def"], null);
           getAttrs([`${skill}_total`], (values) => {
               const skillTotal = xparseInt(values[`${skill}_total`]);
-              attackRoll(skillTotal, title, name, mod, max, def);
+              attackRoll(attackType, skillTotal, title, name, mod, max, def);
           });
       });
   }
@@ -1569,6 +1816,7 @@ Monster Sheet
           `${prefix}weapon_skill_total`,
           `${prefix}weapon_mod`,
           `${prefix}weapon_max`,
+          `${prefix}weapon_attack`,
           `monster_alias`,
           `character_name`,
           "target_def"
@@ -1578,11 +1826,12 @@ Monster Sheet
           if (name == "") {
               name = values["character_name"];
           }
+          const attackType = values[`${prefix}weapon_attack`];
           const skillTotal = xparseInt(values[`${prefix}weapon_skill_total`]);
           const mod = xparseInt(values[`${prefix}weapon_mod`]);
           const max = xparseInt(values[`${prefix}weapon_max`], -1);
           const def = xparseInt(values["target_def"], null);
-          attackRoll(skillTotal, title, name, mod, max, def);
+          attackRoll(attackType, skillTotal, title, name, mod, max, def);
       });
   }
 
@@ -1945,7 +2194,11 @@ Monster Sheet
               const name = (alias ? alias : character_name);
               const total = xparseInt(values[`${stat}`]);
 
-              skillRoll(total, `${title}`, name);
+              if (stat == "monster_tsr_total" || stat == "monster_wsr_total") {
+                  skillRoll(total, `${title}`, name, OpenRollType.SAVE);
+              } else {
+                  skillRoll(total, `${title}`, name);
+              }
           });
       });
   });
