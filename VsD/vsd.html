@@ -645,6 +645,7 @@ PC Sheet
           <div class="sheet-spell_lore_table">
             <span class="sheet-table_header">Cast</span>
             <span class="sheet-table_header_large">Name</span>
+            <span class="sheet-table_header">Weave</span>
             <span class="sheet-table_header">Stat</span>
             <span class="sheet-table_header">Stat Total</span>
             <span class="sheet-table_header">Rank</span>
@@ -652,6 +653,7 @@ PC Sheet
             <span class="sheet-table_header">Vocation</span>
             <span class="sheet-table_header">Kin</span>
             <span class="sheet-table_header">Modifier</span>
+            <span class="sheet-table_header">Attack</span>
             <span class="sheet-table_header">Total</span>
           </div>
           <fieldset class="repeating_spelllore">
@@ -662,7 +664,7 @@ PC Sheet
                 </button>
               </div>
               <input class="sheet-table_entry_large_left" type="text" name="attr_spell_lore_name" placeholder="name"/>
-
+              <input class="sheet-table_entry" type="text" name="attr_spell_lore_weave"/>
               <select class="sheet-table_entry" name="attr_spell_lore_stat">
                 <option value=""></option>
                 <option value="bea_total">BEA</option>
@@ -675,6 +677,11 @@ PC Sheet
               <input class="sheet-table_entry" type="text" name="attr_spell_lore_voc" value="0"/>
               <input class="sheet-table_entry" type="text" name="attr_spell_lore_kin" value="0"/>
               <input class="sheet-table_entry" type="text" name="attr_spell_lore_mod" value="0"/>
+              <select class="sheet-table_entry" name="attr_spell_lore_attack" value="none">
+                <option value=""></option>
+                <option value="Spell Area">Area</option>
+                <option value="Spell Bolt">Bolt</option>
+              </select>
               <span class="sheet-table_entry" name="attr_spell_lore_total"></span>
             </div>
           </fieldset>
@@ -1058,6 +1065,8 @@ Monster Sheet
               <option value="Blunt">Blunt</option>
               <option value="Edged">Edged</option>
               <option value="Missile">Missile</option>
+              <option value="Spell Area">SpellArea</option>
+              <option value="Spell Bolt">SpellBolt</option>
               <option value="Unarmed">Unarmed</option>
             </select>
             <input class="sheet-table_entry" type="text" name="attr_weapon_max" placeholder="max"/>
@@ -1418,12 +1427,121 @@ Monster Sheet
       [171, 175, "46 Let", "36 Let", "34 Let", "32 Let"]
   ];
 
+  const spellAreaAttackTable = [
+      [0, 10, "-", "-", "-", "-"],
+      [11, 35, 0, 0, 0, 0],
+      [36, 40, 0, 0, 0, 0],
+      [41, 45, 0, 0, 0, 0],
+      [46, 50, 0, 0, 0, 0],
+      [51, 55, 0, 0, 0, 0],
+      [56, 60, 1, 0, 0, 0],
+      [61, 65, 2, 0, 0, 0],
+      [66, 70, 3, 0, 0, 0],
+      [71, 75, 4, 0, 0, 0],
+      [76, 80, 5, 0, 0, 0],
+      [81, 85, 6, 0, 0, 0],
+      [86, 90, "7 Sup", 1, 1, 1],
+      [91, 95, "8 Sup", 2, 2, 2],
+      [96, 100, "9 Sup", 3, 3, 3],
+      [101, 105, "10 Sup", 4, 4, 4],
+      [106, 110, "11 Sup", "5 Sup", "5 Sup", 5],
+      [111, 115, "12 Lig", "6 Sup", "6 Sup", "5 Sup"],
+      [116, 120, "13 Lig", "7 Sup", "7 Sup", "6 Sup"],
+      [121, 125, "14 Lig", "8 Sup", "8 Sup", "7 Sup"],
+      [126, 130, "15 Lig", "10 Lig", "8 Lig", "7 Sup"],
+      [131, 135, "16 Mod", "12 Lig", "9 Lig", "7 Lig"],
+      [136, 140, "18 Mod", "13 Lig", "10 Lig", "8 Lig"],
+      [141, 145, "20 Mod", "14 Mod", "10 Mod", "9 Lig"],
+      [146, 150, "21 Mod", "16 Mod", "12 Mod", "9 Mod"],
+      [151, 155, "22 Mod", "18 Mod", "14 Mod", "10 Mod"],
+      [156, 160, "24 Gri", "20 Mod", "15 Mod", "12 Mod"],
+      [161, 165, "26 Gri", "22 Gri", "16 Gri", "14 Gri"],
+      [166, 170, "28 Gri", "24 Gri", "18 Gri", "16 Gri"],
+      [171, 175, "34 Let", "26 Let", "20 Let", "18 Let"]
+  ];
+
+  const spellBoltAttackTable = [
+      [0, 10, "-", "-", "-", "-"],
+      [11, 35, "-", "-", "-", "-"],
+      [36, 40, "-", "-", "-", "-"],
+      [41, 45, "-", "-", "-", "-"],
+      [46, 50, "-", "-", "-", 0],
+      [51, 55, "-", "-", "-", 0],
+      [56, 60, "-", "-", 0, 0],
+      [61, 65, "-", "-", 0, 0],
+      [66, 70, "-", 0, 1, 1],
+      [71, 75, "-", 0, 1, 1],
+      [76, 80, 0, 0, 1, 2],
+      [81, 85, 0, 1, 2, 2],
+      [86, 90, 0, 2, 3, 3],
+      [91, 95, "8 Sup", 3, 4, 3],
+      [96, 100, "10 Sup", 4, "5 Sup", "4 Sup"],
+      [101, 105, "11 Sup", "5 Sup", "6 Sup", "5 Sup"],
+      [106, 110, "12 Lig", "6 Sup", "7 Sup", "6 Sup"],
+      [111, 115, "14 Lig", "8 Sup", "8 Sup", "7 Sup"],
+      [116, 120, "16 Lig", "10 Lig", "10 Lig", "8 Sup"],
+      [121, 125, "18 Mod", "12 Lig", "12 Lig", "12 Lig"],
+      [126, 130, "21 Mod", "14 Lig", "14 Lig", "13 Lig"],
+      [131, 135, "24 Mod", "16 Mod", "15 Lig", "14 Lig"],
+      [136, 140, "27 Gri", "17 Mod", "16 Mod", "15 Lig"],
+      [141, 145, "30 Gri", "18 Mod", "17 Mod", "16 Mod"],
+      [146, 150, "32 Gri", "19 Gri", "18 Mod", "17 Mod"],
+      [151, 155, "34 Let", "20 Gri", "20 Mod", "20 Mod"],
+      [156, 160, "36 Let", "22 Gri", "22 Gri", "22 Gri"],
+      [161, 165, "38 Let", "25 Let", "24 Gri", "24 Gri"],
+      [166, 170, "40 Let", "28 Let", "26 Let", "26 Gri"],
+      [171, 175, "42 Let", "31 Let", "28 Let", "26 Let"]
+  ];
+
   const attackTableMap = {
       "Beast" : beastAttackTable,
       "Blunt" : bluntAttackTable,
       "Edged": edgedAttackTable,
       "Missile" : missileAttackTable,
+      "Spell Area" : spellAreaAttackTable,
+      "Spell Bolt" : spellBoltAttackTable,
       "Unarmed" : unarmedAttackTable,
+  };
+
+  const attackTableLookup = (attackType, rollResult) => {
+      const table = attackTableMap[attackType];
+      if (table == null) {
+          return;
+      }
+      let attackResult = null;
+      for (const [rollMin, rollMax, NA, LA, MA, HA] of table) {
+          if (rollResult >= rollMin && rollResult <= rollMax) {
+              attackResult = [rollMin, rollMax, NA, LA, MA, HA];
+              break;
+          }
+      }
+      // Clamp if outside table
+      if (attackResult === null) {
+          const [firstMin] = table[0];
+          if (rollResult < firstMin) {
+              attackResult = table[0];
+          } else {
+              attackResult = table[table.length - 1];
+          }
+      }
+      return attackResult;
+  };
+
+  const rollAttackTable = async (name, attackTableType, attackRoll) => {
+      let attackResult = attackTableLookup(attackTableType, attackRoll);
+      if (attackResult == null) {
+          return;
+      }
+      const [rollMin, rollMax, NA, LA, MA, HA] = attackResult;
+      const rollText = `&{template:vsd-gen} ` +
+            `{{name=${name}}} `+
+            `{{title=${attackTableType} Attack Damage}} ` +
+            `{{No  Armor=${NA}}} ` +
+            `{{Light Armor=${LA}}}` +
+            `{{Medium Armor=${MA}}}` +
+            `{{Heavy Armor=${HA}}}`;
+      const dieRoll = await startRoll(rollText);
+      finishRoll(dieRoll.rollId);
   }
 
   /**
@@ -1718,7 +1836,6 @@ Monster Sheet
       }
       if (def != null) {
           extraFields += ` {{def=${def}}}`
-
       }
       const computeResult = (result) => {
           if (max >= 0) {
@@ -1741,38 +1858,8 @@ Monster Sheet
       if (def == null) {
           return;
       }
-
-      const table = attackTableMap[attackTableType];
-      if (table == null) {
-          return;
-      }
-      let attackResult = null;
-      for (const [rollMin, rollMax, NA, LA, MA, HA] of table) {
-          if (rollResult >= rollMin && rollResult <= rollMax) {
-              attackResult = [rollMin, rollMax, NA, LA, MA, HA];
-              break;
-          }
-      }
-      // Clamp if outside table
-      if (attackResult === null) {
-          const [firstMin] = table[0];
-          if (rollResult < firstMin) {
-              attackResult = table[0];
-          } else {
-              attackResult = table[table.length - 1];
-          }
-      }
-
-      const [rollMin, rollMax, NA, LA, MA, HA] = attackResult;
-      const rollText = `&{template:vsd-gen} ` +
-            `{{name=${name}}} `+
-            `{{title=${attackTableType} Attack Damage}} ` +
-            `{{No  Armor=${NA}}} ` +
-            `{{Light Armor=${LA}}}` +
-            `{{Medium Armor=${MA}}}` +
-            `{{Heavy Armor=${HA}}}`;
-      const dieRoll = await startRoll(rollText);
-      finishRoll(dieRoll.rollId);
+      // If a defense was provided, roll against the attack table.
+      rollAttackTable(name, attackTableType, rollResult);
   }
 
   const skillRollUsingAttr = (skillAttr, title, rollType = OpenRollType.SKILL) => {
@@ -1782,6 +1869,28 @@ Monster Sheet
           skillRoll(skillTotal, title, name, rollType);
       });
   };
+
+  const rollSpellLore = async (prefix) => {
+      await getAttrs([
+          `${prefix}spell_lore_name`,
+          `${prefix}spell_lore_total`,
+          `${prefix}spell_lore_attack`,
+          "character_name",
+      ], async (values) => {
+          const loreName = values[`${prefix}spell_lore_name`];
+          const loreTotal = xparseInt(values[`${prefix}spell_lore_total`]);
+          const loreAttack = values[`${prefix}spell_lore_attack`];
+          const name = values["character_name"];
+
+          const rollResult = await openRoll(
+              OpenRollType.MAGIC,
+              loreTotal,
+              loreName,
+              name,
+          )
+          rollAttackTable(name, loreAttack, rollResult);
+      });
+  }
 
   const rollWeaponAttack = async (prefix) => {
       getAttrs([
@@ -2161,11 +2270,7 @@ Monster Sheet
 
   on("clicked:repeating_spelllore:roll", (event) => {
       const prefix = getRowPrefixFromAttr(event.sourceAttribute);
-
-      getAttrs([`${prefix}spell_lore_name`], (values) => {
-          const name = values[`${prefix}spell_lore_name`];
-          skillRollUsingAttr(`${prefix}spell_lore_total`, name, "magic");
-      });
+      rollSpellLore(prefix);
   });
 
   on("clicked:repeating_weapon:roll", (event) => {
