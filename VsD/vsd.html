@@ -841,6 +841,7 @@ PC Sheet
             <select class="sheet-table_entry_xlarge" name="attr_encumbrance">
               <option value="Unencumbered">Unencumbered</option>
               <option value="Lightly">Lightly</option>
+              <option value="Encumbered">Encumbered</option>
               <option value="Heavily">Heavily</option>
               <option value="Over">Over Encumbered</option>
             </select>
@@ -1125,19 +1126,19 @@ Monster Sheet
       <span>{{skill_total}}</span>
     </div>
 
-    {{#max}}
-    <div class="sheet-rolltemplate-vsd-row">
-      <span>Max Result:</span>
-      <span>{{max}}</span>
-    </div>
-    {{/max}}
-
     {{#def}}
     <div class="sheet-rolltemplate-vsd-row">
       <span>Target DEF:</span>
       <span>{{def}}</span>
     </div>
     {{/def}}
+
+    {{#max}}
+    <div class="sheet-rolltemplate-vsd-row">
+      <span>Max Result:</span>
+      <span>{{max}}</span>
+    </div>
+    {{/max}}
 
     <div class="sheet-rolltemplate-vsd-row">
       <span><strong>Result:</strong></span>
@@ -1838,11 +1839,11 @@ Monster Sheet
           extraFields += ` {{def=${def}}}`
       }
       const computeResult = (result) => {
-          if (max >= 0) {
-              result = Math.min(max, result);
-          }
           if (def != null && def > 0) {
               result -= def;
+          }
+          if (max >= 0) {
+              result = Math.min(max, result);
           }
           return result
       };
